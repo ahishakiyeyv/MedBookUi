@@ -20,30 +20,18 @@
                     <th>Description</th>
                  </tr>
                 </thead>
-            <tbody>
+            <tbody v-if="test.length > 0">
+                <tr v-for="tes in test" :key="tes.id">
+                    <td>{{tes.id}}</td>
+                    <td>{{tes.nom_test}}</td>
+                    <td>{{tes.prix_test}}</td>
+                    <td>{{tes.description}}</td>
+                    </tr>
+               
+            </tbody>
+            <tbody v-else>
                 <tr>
-                    <td>1</td>
-                    <td>UltraSound</td>
-                    <td>12000</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed eius, debitis, sint fuga dolor,</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>UltraSound</td>
-                    <td>12000090</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed eius, debitis, sint fuga dolor,</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>UltraSound</td>
-                    <td>12000</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed eius, debitis, sint fuga dolor,</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>UltraSound</td>
-                    <td>12000</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed eius, debitis, sint fuga dolor,</td>
+                    <td colspan="4">Aucun Resultat trouvé...</td>
                 </tr>
             </tbody>
         </table>
@@ -51,12 +39,34 @@
 </section>
 </template>
 <script>
+import axios from 'axios'
 import Menu from '@/components/Menu/Menu.vue'
 export default {
    name:'TestView',
+   data(){
+        return{
+            test:[]
+        }
+   },
    components:{
     Menu
-   } 
+   },
+   methods:{
+    getTest(){
+        axios
+        .get('http://127.0.0.1:8000/api/test')
+        .then((res)=>{
+            this.$store.state.test = res.data
+            this.test=res.data
+        })
+        .catch((error)=>{
+            console.log(error.response.data.message)
+        })
+    }
+   },
+   mounted(){
+    this.getTest()
+   }
 }
 </script>
 <style scoped>
@@ -134,6 +144,7 @@ table tbody td{
     padding:0.5rem 1rem;
     height:35px;
     color:#7e7c7c;
+    text-align:center;
 }
 
 

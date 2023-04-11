@@ -75,6 +75,7 @@ export default {
     position:relative;
     left:100px;
     top:20px;
+    width:100px;
 }
 .icons i{
     font-size:40px;

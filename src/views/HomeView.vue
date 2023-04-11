@@ -184,13 +184,14 @@ export default {
      box-sizing: border-box;
      font-family: 'Poppins', sans-serif;
 }
+
 .container1{
   display:flex;
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
   padding:6rem 2rem;
-  width:80%;
+  width:100%;
   margin-right:auto;
   margin-left:auto;
 }
@@ -221,6 +222,7 @@ export default {
 /* ==============================section 2====================== */
 .container2{  
   padding:4rem 1rem;
+  width:100%;
 }
 .title1{
   margin:1rem 4rem;
@@ -314,6 +316,9 @@ export default {
 }
 
 /* =========================================service==================================== */
+.container3{
+  width:100%;
+}
 .grid-box{
   display: grid;
 grid-template-columns: repeat(3, 1fr);
@@ -344,6 +349,9 @@ margin-bottom:50px;
   text-align: justify;
 }
 /* =========================================doctors=============================== */
+.container4{
+  width:100%;
+}
 .grid-container{
   display:grid;
   grid-template-columns: repeat(3,1fr);
@@ -383,6 +391,9 @@ font-size:1.2rem;
   font-weight:600;
 }
 /* =====================================newsletter============================== */
+.container5{
+  width:100%;
+}
 .news-box{
   display:flex;
   align-items: center;
