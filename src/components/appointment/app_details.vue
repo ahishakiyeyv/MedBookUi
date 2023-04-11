@@ -1,35 +1,45 @@
 <template>
-    <div class="bloc-modale" v-if="details">
-        <div class="overlay" v-on:click="toggleModaleDetails"></div>
+    <div class="bloc-modale" >
+        <div class="overlay" ></div>
 
         <div class="modale">
             <div class="head">
                 <div class="title">Details Rendez-Vous</div>
-            <div class="btn-close" v-on:click="toggleModaleDetails">X</div>
+                <button v-on:click="close" class="btn-close">X</button>
             </div>
             <div class="body-container">
                 <div class="body1">
-                    <h2>Numero: <span>PSJ-01-12</span></h2>
-                    <h2>Nom: <span>Nahimana</span></h2>
-                    <h2>Prenom: <span>Doe</span></h2>
-                    <h2>Age: <span>1994</span></h2>
+                    <h2>Numero: <span>{{$store.state.appointment.numero_ordre}}</span></h2>
+                    <h2>Nom: <span>{{$store.state.appointment.nom}}</span></h2>
+                    <h2>Prenom: <span>{{$store.state.appointment.prenom}}</span></h2>
+                    <h2>Age: <span>{{$store.state.appointment.age}}</span></h2>
                 </div>
                 <div class="body2">
-                    <h2>Adresse: <span>Gihosha, Bujumbura Mairie</span></h2>
-                    <h2>Date: <span>12/04/2023</span></h2>
-                    <h2>Service: <span>Cardiologie</span></h2>
+                    <h2>Adresse: <span>{{$store.state.appointment.sexe}}</span></h2>
+                    <h2>Date: <span>{{$store.state.appointment.date_arrive}}</span></h2>
+                    <h2>Service: <span>{{$store.state.appointment.service}}</span></h2>
                     <h2>Status: <span>Accepte</span></h2>
                 </div>
             </div>
-            <h2 class="h2">Remarque</h2>
-            <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis commodi ab eaque accusantium ut dolores dolorum suscipit. </p>
+            <h2 class="h2">Message</h2>
+            <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
+            <p class="para" v-else>Pas de message pour le moment....</p>
         </div>
     </div>
 </template>
 <script>
 export default {
     name:'app_details',
-    props:['details','toggleModaleDetails']
+    props:['details','toggleModaleDetails'],
+    getAppointment(){
+        this.$emit('getAppointment')
+    },
+    // mounted(){
+    //    this.getAppointment()
+    // },
+    close(){
+       this.$emit('close')
+    }
 }
 </script>
 <style scoped>
@@ -80,6 +90,7 @@ export default {
     padding:5px 10px;
     color:#fff;
     border-radius:5px;
+    border:none;
     background:red;
     cursor: pointer;
 }

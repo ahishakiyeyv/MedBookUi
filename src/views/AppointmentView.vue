@@ -41,8 +41,8 @@
                     <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{ app.service }}</td>
-                    <ModalDetails v-bind:details="details" v-bind:toggleModaleDetails="toggleModaleDetails"></ModalDetails>
-                    <td><button  v-on:click="toggleModaleDetails"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
+                    <ModalDetails @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails>
+                    <td><button   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
                     <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                     <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                 </tr>
@@ -69,7 +69,7 @@ export default {
     data(){
         return{
             appointment:[],
-            dialog:true,
+            dialog:false,
             details:false
         }
     },
@@ -82,8 +82,12 @@ export default {
         toggleModale:function(){
             this.dialog=!this.dialog
         },
-        toggleModaleDetails:function(){
-            this.details=!this.details
+        // toggleModaleDetails:function(){
+        //     this.details=!this.details
+        // },
+        detailsAppointment(item){
+            this.details=true,
+            this.$store.state.appointment=item
         },
         getAppointment(){
             axios
@@ -100,6 +104,9 @@ export default {
     mounted(){
         this.getAppointment()
     },
+        close(){
+            this.details=false
+        }
     // computed:{
     //     appointment(){
     //         const appointment =this.$store.state?.appointment
