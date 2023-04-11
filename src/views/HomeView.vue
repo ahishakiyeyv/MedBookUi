@@ -1,18 +1,422 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<Menu/>
+<head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<section class="container1">
+  <div class="content1">
+    <h1 class="title_principal">Trouvez le medecin et Prendre un Rendez-vous</h1>
+    <p class="txt">Sélectionner un médecin préféré et un créneau horaire pour prendre rendez-vous</p>
+   
+    <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
+     <button class="btn1"><router-link to="/login" class="bttn">PRENDRE RENDEZ-VOUS</router-link></button>
   </div>
+  <div class="content2">
+    <img src="../assets/images/1.png" alt="..." class="img_1">
+  </div>
+</section>
+<section class="container2">
+  <div class="box">
+    <h2 class="title1">Etape facile pour avoir une solution</h2>
+    <div class="boxes">
+      <div class="box1">
+        <i class="fa fa-user-md" aria-hidden="true"></i>
+        <h3 class="subtitle">Voir le Medecin</h3>
+        <p class="txt1">Avant de prendre Rendez-vous, voir d'abord le medecin selon le service souhaitée.</p>
+      </div>
+      <div class="box1">
+        <i class="fa fa-server" aria-hidden="true"></i>
+        <h3 class="subtitle">Voir le service</h3>
+        <p class="txt1">Voir les services que vous souhaitez pour plus de facilité dans votre recherche.</p>
+      </div>
+      <div class="box1">
+        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+        <h3 class="subtitle">Prendre Rendez-vous</h3>
+        <p class="txt1">Prendre alors un Rendez-vous avec un Medecin souhaitée.</p>
+      </div>
+      <div class="box1">
+        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+          <h3 class="subtitle">Avoir une Solution</h3>
+          <p class="txt1">Enfin, nous allons vous aider à trouver des solutions pour votre santé.</p>
+      </div>
+    </div>
+  </div>
+  <h2 class="title2">A Propos</h2>
+  <div class="contain">
+    <div class="call">
+    <img src="../assets/images/2.jpg" alt="..." class="img_call">
+    <div class="para-box">
+    <h1 class="ttle">Nous assurons toujours le meilleur traitement medical pour votre sante</h1>
+    <ul class="ulee">
+      <li class="li"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Medecin specialiste</li>
+      <li class="li"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Inscription rapide et facile</li>
+      <li class="li"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Remise pour tout traitement medical</li>
+    </ul>
+    <button class="btn1"><router-link to="/login" class="bttn">PRENDRE RENDEZ-VOUS</router-link></button>
+  </div>
+  </div>
+  </div>
+  
+  
+</section>
+<section class="container3">
+  <h2 class="title2">Services</h2>
+  <div class="grid-box">
+    <div class="grid">
+      <h2 class="title-service">Cardiologie</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Pediatrie</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Gyneco-Obstretique</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Medecine Interne</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Medecine Generale</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Urgence</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Laboratoire</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+    <div class="grid">
+      <h2 class="title-service">Pharmacie</h2>
+      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+    </div>
+  </div>
+</section>
+<section class="container4">
+  <h2 class="title2">Nos Docteurs</h2>
+  <div class="grid-container">
+    <div class="sub-contain">
+      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Xavier</h2>
+      <h3 class="spec">Cardiologue</h3>
+      <p class="desc">Tous les jours a partir de 15h</p>
+    </div>
+    <div class="sub-contain">
+      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Hancock</h2>
+      <h3 class="spec">Pediatre</h3>
+      <p class="desc">Tous les jours a partir de 15h</p>
+        
+      </div>
+    <div class="sub-contain">
+      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Melissa</h2>
+      <h3 class="spec">Gynecologue</h3>
+      <p class="desc">Tous les jours a partir de 15h</p>
+    </div>
+    <div class="sub-contain">
+      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Edward</h2>
+      <h3 class="spec">Medecin Generaliste</h3>
+      <p class="desc">Tous les jours a partir de 15h</p>
+    </div>
+    <div class="sub-contain">
+      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Jocelyne</h2>
+      <h3 class="spec">Infirmiere</h3>
+      <p class="desc">Tous les jours a partir de 15h</p>
+    </div>
+    <div class="sub-contain">
+      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Jacques</h2>
+      <h3 class="spec">Medecin</h3>
+      <p class="desc">Tous les jours a partir de 15h</p>
+    </div>
+  </div>
+</section>
+<section class="container5">
+  <div class="news-box">
+    <div class="txt-news">
+      <h1 class="title0">Des services de santé ou des conseils pour une vie saine, vous pouvez trouver ici</h1>
+      <p class="para">Au cours du siecle, un chef de file dans les soins aux patients et la specialite de la medecine, de la chirurgie, de la rechercher, de l'education medicale et du bien etre.</p>
+    </div>
+    <div class="btn-box">
+      <button class="btn-connect">Rester Connectez</button>
+    </div>
+  </div>
+</section>
+<Footer/>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import Menu from '@/components/Menu/Menu.vue'
+ import Footer from '@/components/footer/footer.vue'
 
 export default {
   name: 'HomeView',
+  data(){
+    return{
+      dialog:false,
+    }
+  },
   components: {
-    HelloWorld
+    Menu,
+   Footer,
+  },
+  methods:{
+    toggleModale:function(){
+      this.dialog = !this.dialog
+    }
   }
 }
 </script>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&family=Roboto:wght@100;300&display=swap');
+*{
+     padding:0;
+     margin:0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+}
+.container1{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:6rem 2rem;
+  width:80%;
+  margin-right:auto;
+  margin-left:auto;
+}
+.content1{
+  max-width:50%;
+}
+.title_principal{
+  font-size:3rem;
+}
+.txt{
+  font-size:1rem;
+  color:#7e7c7c;
+  margin:0.5rem 0rem;
+}
+.btn1{
+  padding:0.5rem 4.5rem;
+  margin:2rem 0rem;
+  background:#713acc;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn1 .bttn{
+  text-decoration:none;
+  color:#fff;
+}
+/* ==============================section 2====================== */
+.container2{  
+  padding:4rem 1rem;
+}
+.title1{
+  margin:1rem 4rem;
+  padding:1rem 0;
+  color:#fff;
+
+}
+.box{
+  width:80%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  background:#713acc;
+  border-radius:10px;
+}
+.boxes{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    overflow: auto;
+    flex-direction: row;
+}
+.boxes .box1{
+  width: 200px;
+    height: 200px;
+    margin: 0px 20px;
+    margin-bottom:30px;
+    background:#d9d9d9;
+    border-radius:10px;
+}
+.box1 i{
+  font-size:80px;
+  margin:10px 0px 10px 60px;
+  color:#333;
+}
+.box1 .subtitle{
+  font-size:1rem;
+  color:#713acc;
+  text-align:center;
+  font-weight:600;
+}
+.box1 .txt1{
+  color:#7e7c7c;
+  font-size:.8rem;
+  text-align: justify;
+  padding:0rem .5rem;
+}
+/* ==================================call to action================================ */
+.title2{
+  text-transform: uppercase;
+  margin-top:50px;
+  margin-left:120px;
+
+}
+.contain{
+  background:#d9d9d9;
+    width:80%;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+.call{
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  align-content: stretch;
+  flex-direction:row;
+  overflow: auto;
+  margin-top:30px;
+  padding:2rem 0;
+
+}
+.img_call{
+  height:400px;
+  width:500px;
+}
+.ttle{
+  max-width:500px;
+  font-size:2.3rem;
+}
+.li{
+  list-style-type: none;
+  line-height:40px;
+  font-size:1.1rem;
+  color:#713acc;
+}
+.li i{
+  color:#713acc;
+}
+
+/* =========================================service==================================== */
+.grid-box{
+  display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 5px;
+grid-row-gap: 15px;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+margin-top:50px;
+margin-bottom:50px;
+}
+.grid{
+  height:250px;
+  width:300px;
+  background:#713acc;
+  border-radius:10px;
+  padding:1rem;
+}
+.title-service{
+  font-size:1.2rem;
+  color:#fff;
+}
+.txt-service{
+  font-size:0.8rem;
+  color:#d9d9d9;
+  padding-top:2rem;
+  text-align: justify;
+}
+/* =========================================doctors=============================== */
+.grid-container{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,1fr);
+  row-gap: 15px;
+  column-gap: 20px;
+  width:80%;
+  margin:50px auto 50px auto;
+}
+.sub-contain{
+  height:300px;
+  width:300px;
+  border-radius:10px;
+box-shadow: 0px 0px 30px -20px #999999;
+}
+.img-doc{
+  height:200px;
+  width:300px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  }
+.name{
+color:#713acc;
+text-align: center;
+font-size:1.2rem;
+}
+.spec{
+  color:#7e7c7c;
+  text-align: center;
+  text-transform: uppercase;
+  font-size:1rem;
+}
+.desc{
+  color:#000;
+  font-size:0.8rem;
+  text-align: center;
+  font-weight:600;
+}
+/* =====================================newsletter============================== */
+.news-box{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  background:#713acc;
+  width:80%;
+  margin:50px auto 50px auto;
+  padding:2rem 1rem;
+  border-radius:10px;
+}
+.txt-news{
+width:50%;
+}
+.title0{
+  font-size:2rem;
+  color:#fff;
+}
+.para{
+  color:#d9d9d9;
+  font-size:0.8rem;
+}
+.btn-box{
+ width:35%;
+  
+}
+.btn-connect{
+padding:0.5rem 4.5rem;
+  margin:2rem 0rem;
+  background:#d9d9d9;
+  color:#713acc;
+  border:1px solid gray;
+  border-radius:10px;
+  font-weight:700;
+  font-size:1.2rem;
+  box-shadow: 0px 0px 8px 0px #FFFFFF;
+}
+</style>

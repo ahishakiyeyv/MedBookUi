@@ -1,0 +1,56 @@
+<template>
+    <footer>
+        <div class="box1">
+            <img src="" alt="..." class="icon-logo">
+            <p class="txt-para">Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
+        </div>
+        <div class="box2">
+            <h2 class="footer-title">Information</h2>
+            <ul>
+                <li class="lii">Se connecter</li>
+                <li class="lii">Joindre la communauté</li>
+                <li class="lii">Reference</li>
+                <li class="lii">NewsLetter</li>
+            </ul>
+        </div>
+        <div class="box3">
+            <h2 class="footer-title">Contactez-nous</h2>
+            <ul>
+                <li class="lii"> +257 76 986 734</li>
+                <li class="lii">info@psj.org</li>
+                <li class="lii">Bujumbura Mairie, Kigobe Sud</li>
+                <li class="lii">Avenue des Etats-Unis</li>
+            </ul>
+        </div>
+    </footer>
+</template>
+<script>
+
+</script>
+<style scoped>
+footer{
+    background:#2c3747;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0rem 2rem;
+}
+.footer-title{
+    text-transform: uppercase;
+    color:#fff;
+    font-size:1.8rem;
+    font-weight:500;
+}
+.txt-para{
+    width:300px;
+    text-align: justify;
+    color:#7e7c7c;
+}
+.box1,.box2,.box3{
+    margin:0rem 3.3rem;
+}
+ul .lii{
+    list-style-type: none;
+    color:#7e7c7c;
+}
+</style>
