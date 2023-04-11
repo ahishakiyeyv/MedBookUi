@@ -11,21 +11,21 @@
             <form>
             <div class="container">
                 <div class="content1">
-                    <input type="text" placeholder="Numero" readonly>
-                    <input type="text" placeholder="Nom...">
-                    <input type="text" placeholder="Prenom...">
-                    <input type="text" placeholder="Age...">
+                    <input type="text" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
+                    <input type="text" v-model="appointment.nom" placeholder="Nom..." required>
+                    <input type="text" v-model="appointment.prenom" placeholder="Prenom..." required>
+                    <input type="text" v-model="appointment.age" placeholder="Age..." required>
                     
                 </div>
                 <div class="content2">
-                    <select>
+                    <select v-model="appointment.sexe" class="selected">
                         <option value="">--Sexe--</option>
                         <option value="homme">Homme</option>
                         <option value="femme">Femme</option>
                     </select>
-                    <input type="text" placeholder="Adresse...">
-                    <input type="Date" placeholder="Date...">
-                    <select>
+                    <input type="text" v-model="appointment.adresse" placeholder="Adresse..." required>
+                    <input type="Date" v-model="appointment.date_arrive" placeholder="Date..." required>
+                    <select v-model="appointment.service" class="selected">
                         <option value="">--Service--</option>
                         <option value="cardiologie">Cardiologie</option>
                         <option value="pediatrie">Pediatrie</option>
@@ -38,17 +38,53 @@
                 </div>
                 
             </div>
-            <button class="btn">Envoyer</button>
+            <button class="btn" @click="saveAppointment">Envoyer</button>
             </form>
 
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name:'modal_app',
-    props:['dialog','toggleModale']
-}
+    props:['dialog','toggleModale'],
+    data(){
+        return{
+            appointment:{
+                numero_ordre:'PSJ-12-01',
+                nom:'',
+                prenom:'',
+                age:'',
+                sexe:'',
+                adresse:'',
+                date_arrive:'',
+                service:'',
+            }
+        }
+    },
+    methods:{
+        saveAppointment(){
+            axios.post('http://127.0.0.1:8000/api/create_appointment',this.appointment)
+            .then(res=>{
+                console.log(res.data)
+                alert(res.data.message)
+                this.appointment={
+                    numero_ordre:'PSJ-12-01',
+                    nom:'',
+                    prenom:'',
+                    age:'',
+                    sexe:'',
+                    adresse:'',
+                    date_arrive:'',
+                    service:'',
+                }
+            })
+           
+
+            }
+        }
+    }
 </script>
 <style scoped>
 .bloc-modale{
@@ -113,6 +149,8 @@ export default {
     margin:15px;
     height:40px;
     font-size:1rem;
+    color:#731acc;
+    letter-spacing: 1px;
     outline:none;
     border:none;
     border-bottom:2px solid #731acc;
@@ -127,6 +165,8 @@ export default {
     margin:15px;
     height:40px;
     font-size:1rem;
+    color:#731acc;
+    letter-spacing: 1px;
     outline:none;
     border:none;
     border-bottom:2px solid #731acc;
@@ -138,6 +178,8 @@ export default {
     height:40px;
     font-size:1rem;
     outline:none;
+    color:#731acc;
+    letter-spacing: 1px;
     border:none;
     border-bottom:2px solid #731acc;
     background:transparent;
