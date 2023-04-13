@@ -11,34 +11,34 @@
                <div class="name-details">
                    <div class="field input">
                         <label>Nom</label>
-                        <input type="text"  name="fname" placeholder="Nom..." required>
+                        <input type="text" v-model="form.nom"  placeholder="Nom..." required>
                    </div>
                    <div class="field input">
                         <label>Prenom</label>
-                        <input type="text" name="lname" placeholder="Prenom..." required>
+                        <input type="text" v-model="form.prenom" placeholder="Prenom..." required>
                    </div>
                </div>
                <div class="name-details">
                     <div class="field input">
                         <label>Email</label>
-                        <input type="text" name="email" placeholder="Email..." required>
+                        <input type="text" v-model="form.email" placeholder="Email..." required>
                    </div>
                    <div class="field input">
                         <label>Telephone</label>
-                        <input type="text" name="email" placeholder="Telephone..." required>
+                        <input type="text" v-model="form.telephone" placeholder="Telephone..." required>
                    </div>
                </div>
                    
                    <div class="field input">
                         <label>Adresse</label>
-                        <input type="text" name="email" placeholder="Adresse..." required>
+                        <input type="text" v-model="form.adresse" placeholder="Adresse..." required>
                    </div>
                    <div class="field input">
                         <label>Mot de Passe</label>
-                        <input type="password" name="motdepasse" placeholder="Mot de Passe..." required>
+                        <input type="password" v-model="form.password" placeholder="Mot de Passe..." required>
                    </div>
                    <div class="field button">
-                       <button>Creer un Compte</button>
+                       <button @click="SavePatient()">Creer un Compte</button>
                    </div>
            </form>
            <div class="link">Vous avez déjà un compte? <router-link to="/login" class="a">se connecter</router-link></div>
@@ -47,8 +47,32 @@
     
 </template>
 <script>
+import axios from 'axios'
 export default {
-   
+   data(){
+    return{
+        form:{
+            nom:'',
+            prenom:'',
+            email:'',
+            telephone:'',
+            adresse:'',
+            password:'',
+        },
+        errorMessage:''
+    }
+   },
+   methods:{
+    savePatient(){
+        axios.post('http://127.0.0.1:8000/api/register',this.form)
+        .then((response)=>{
+            this.$toast.success("Utilisateur a été enregistré")
+        })
+        .catch((error)=>{
+            this.errorMessage= error.response.data.message;
+        })
+    }
+   }
 }
 </script>
 <style scoped>

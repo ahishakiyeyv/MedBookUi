@@ -39,7 +39,7 @@ export default {
     },
     methods:{
             submit(){
-                axios.post(this.$store.state.url+'login/',this.form)
+                axios.post('http://127.0.0.1:8000/api/login',this.form)
                 .then((response)=>{
                     if(response.data.success){
                         this.$store.commit("login",JSON.stringify(response.data.data))
