@@ -1,5 +1,11 @@
 <template>
-<Menu/>
+<!-- <Menu/> -->
+<div v-if="$store.state.user">
+  <MenuLog></MenuLog>
+</div>
+<div v-else>
+  <Menu></Menu>
+</div>
 <section>
     <div class="top_row">
         <div class="search">
@@ -41,6 +47,7 @@
 <script>
 import axios from 'axios'
 import Menu from '@/components/Menu/Menu.vue'
+import MenuLog from '@/components/Menu/MenuLog.vue'
 export default {
    name:'TestView',
    data(){
@@ -49,7 +56,8 @@ export default {
         }
    },
    components:{
-    Menu
+    Menu,
+    MenuLog
    },
    methods:{
     getTest(){

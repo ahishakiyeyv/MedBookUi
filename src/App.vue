@@ -1,6 +1,19 @@
 <template>
+
   <router-view/>
 </template>
+<script>
+import Menu from '@/components/Menu/Menu.vue'
+import MenuLog from '@/components/Menu/MenuLog.vue'
+export default {
+  name:'App',
+  components:{
+    Menu,
+    MenuLog
+  }
+  
+}
+</script>
 
 <style>
 *{
