@@ -1,6 +1,7 @@
 <template>
 <head>
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
      <div class="container">
         <div class="topbar">
@@ -9,49 +10,49 @@
             </div>
             <div class="search">
                 <input type="text" name="search" placeholder="search here">
-                <label for="search"><i class="fas fa-search"></i></label>
+                <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
             </div>
-            <i class="fas fa-bell"></i>
+            <i class="fa fa-bell" aria-hidden="true"></i>
             <div class="user">
-                <img src="img/user.png" alt="">
+                <img src='@/assets/images/200.jpg' alt="">
             </div>
         </div>
         <div class="sidebar">
             <ul>
                 <li>
                     <router-link to="/dashboard" class="a">
-                        <i class="fas fa-th-large"></i>
+                        <i class="fa fa-th-large" aria-hidden="true"></i>
                         <div>Dashboard</div>
                     </router-link>
                 </li>
                 <li>
                     <a href="#" class="a">
-                        <i class="fas fa-user-graduate"></i>
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                         <div>Rendez-Vous</div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="a">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        <i class="fa fa-medkit" aria-hidden="true"></i>
                         <div>Details Test</div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="a">
-                         <i class="fas fa-hand-holding-usd"></i>
+                         <i class="fa fa-list-ul" aria-hidden="true"></i>
                         <div>Service</div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="a">
-                        <i class="fas fa-chart-bar"></i>
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
                         <div>Patient</div>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="a">
                        
-                        <i class="fas fa-users"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                         <div>Utilisateur</div>
                     </a>
                 </li>
@@ -66,7 +67,7 @@
                         <div class="card-name">Students</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-user-graduate"></i>
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="card">
@@ -75,7 +76,7 @@
                         <div class="card-name">Teachers</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="card">
@@ -84,7 +85,7 @@
                         <div class="card-name">Employees</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-users"></i>
+                        <i class="fa fa-users" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="card">
@@ -93,7 +94,7 @@
                         <div class="card-name">Earnings</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fas fa-dollar-sign"></i>
+                       <i class="fa fa-usd" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>

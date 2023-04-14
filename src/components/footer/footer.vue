@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="box1">
-            <img src="" alt="..." class="icon-logo">
+            <img src="@/assets/images/logo.png" alt="..." class="icon-logo">
             <p class="txt-para">Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
         </div>
         <div class="box2">
@@ -33,7 +33,7 @@ footer{
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:0rem 2rem;
+    padding:1rem 2rem;
 }
 .footer-title{
     text-transform: uppercase;
@@ -52,5 +52,12 @@ footer{
 ul .lii{
     list-style-type: none;
     color:#7e7c7c;
+}
+.icon-logo{
+    height:100px;
+    width:100px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 </style>
