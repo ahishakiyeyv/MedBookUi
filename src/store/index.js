@@ -2,26 +2,26 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    url:'http://127.0.0.1:8080/api/',
+    url:'http://127.0.0.1:8000/api/',
     user:null,
     users:[],
     appointment:[],
     test:[]
   },
   getters: {
-    user:state=>{
-      if(state.user ===null){
+    user : state=>{
+      if(state.user === null){
         return JSON.parse(localStorage.getItem('user'))
       }
       return state.user
     },
-    token : (state,getters)=>getters?.users?.token
+    token : (_state, getters)=>getters?.users?.token
   },
   mutations: {
     login(state,user){
       state.user=user;
       localStorage.setItem('user',state.user);
-      window.location.href="/appointment"
+      window.location.href="#/appointment"
     },
     logout(state){
       state.user='';

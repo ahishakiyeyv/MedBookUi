@@ -6,7 +6,7 @@
     <div class="wrapper">
        <section class="form signup">
            <header>Creez Un Compte</header>
-           <form  method="POST">
+           <div class="forme">
                <div class="error-txt"></div>
                <div class="name-details">
                    <div class="field input">
@@ -36,11 +36,12 @@
                    <div class="field input">
                         <label>Mot de Passe</label>
                         <input type="password" v-model="form.password" placeholder="Mot de Passe..." required>
+                        <input type="hidden" v-model="form.status">
                    </div>
                    <div class="field button">
-                       <button @click="SavePatient()">Creer un Compte</button>
+                       <button @click="savePatient()">Creer un Compte</button>
                    </div>
-           </form>
+                   </div>
            <div class="link">Vous avez déjà un compte? <router-link to="/login" class="a">se connecter</router-link></div>
        </section>
     </div>
@@ -49,6 +50,7 @@
 <script>
 import axios from 'axios'
 export default {
+    name:'signin',
    data(){
     return{
         form:{
@@ -58,6 +60,7 @@ export default {
             telephone:'',
             adresse:'',
             password:'',
+            status:0
         },
         errorMessage:''
     }
@@ -65,12 +68,19 @@ export default {
    methods:{
     savePatient(){
         axios.post('http://127.0.0.1:8000/api/register',this.form)
-        .then((response)=>{
-            this.$toast.success("Utilisateur a été enregistré")
+        .then((res)=>{
+            console.log(res.data.message);
+            this.form={
+            nom:'',
+            prenom:'',
+            email:'',
+            telephone:'',
+            adresse:'',
+            password:'',
+            status:0
+            }
         })
-        .catch((error)=>{
-            this.errorMessage= error.response.data.message;
-        })
+        
     }
    }
 }
@@ -115,10 +125,10 @@ export default {
     border-bottom: 1px solid #e6e6e6;
     color:#713acc;
 }
-.form form{
+.form .forme{
     margin:20px 0;
 }
-.form form .error-txt{
+.form .forme .error-txt{
     color:#721c24;
     background:#f8d7da;
     padding:8px 10px;
@@ -128,29 +138,29 @@ export default {
     border:1px solid #f5c6cb;
     display:none; 
 }
-.form form .name-details{
+.form .forme .name-details{
     display:flex;
     justify-content: space-around;
 }
-form .name-details .field:first-child{
+.forme .name-details .field:first-child{
     margin-right:5px;
 }
-form .name-details .field:last-child{
+.forme .name-details .field:last-child{
     margin-left:10px;
 }
-.form form .field{
+.form .forme .field{
     display:flex;
     position: relative;
     flex-direction:column;
     margin-bottom: 10px;
 }
-.form form .field label{
+.form .forme .field label{
     margin-bottom: 2px;
 }
-.form form .field input{
+.form .forme .field input{
     outline:none;
 }
-.form form .input input{
+.form .forme .input input{
     height:40px;
     width:100%;
     font-size:14px;
@@ -158,10 +168,10 @@ form .name-details .field:last-child{
     border:1px solid #ccc;
     border-radius: 5px;
 }
-.form form .image input{
+.form .forme .image input{
     font-size: 17px;
 }
-.form form .button button{
+.form .forme .button button{
     margin-top: 13px;
     height:45px;
     border:none;
