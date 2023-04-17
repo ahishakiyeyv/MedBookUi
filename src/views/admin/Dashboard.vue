@@ -3,63 +3,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-     <div class="container">
-        <div class="topbar">
-            <div class="logo">
-                <h2>MedBook</h2>
-            </div>
-            <div class="search">
-                <input type="text" name="search" placeholder="search here">
-                <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
-            </div>
-            <i class="fa fa-bell" aria-hidden="true"></i>
-            <div class="user">
-                <img src='@/assets/images/200.jpg' alt="">
-            </div>
-        </div>
-        <div class="sidebar">
-            <ul>
-                <li>
-                    <router-link to="/dashboard" class="a">
-                        <i class="fa fa-th-large" aria-hidden="true"></i>
-                        <div>Dashboard</div>
-                    </router-link>
-                </li>
-                <li>
-                    <a href="#" class="a">
-                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                        <div>Rendez-Vous</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="a">
-                        <i class="fa fa-medkit" aria-hidden="true"></i>
-                        <div>Details Test</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="a">
-                         <i class="fa fa-list-ul" aria-hidden="true"></i>
-                        <div>Service</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="a">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <div>Patient</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="a">
-                       
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                        <div>Utilisateur</div>
-                    </a>
-                </li>
-               
-            </ul>
-        </div>
-        <div class="main">
+<Dashboard/>
+       <div class="main">
             <div class="cards">
                 <div class="card">
                     <div class="card-content">
@@ -112,125 +57,24 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+       </div>
 </template>
+<script>
+import Dashboard from '@/components/Dashboard.vue'
+export default {
+   name:'Dashboard',
+   components:{
+    Dashboard
+   }
+}
+</script>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&family=Roboto:wght@100;300&display=swap');
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
-}
-
-.topbar {
-    position: fixed;
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-    width: 100%;
-    padding: 0 20px;
-    height: 60px;
-    display: grid;
-    grid-template-columns: 2fr 10fr 0.4fr 1fr;
-    align-items: center;
-    z-index: 1;
-}
-
-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.logo h2 {
-    color: #731acc;
-}
-
-.search {
-    position: relative;
-    width: 60%;
-    justify-self: center;
-}
-
-.search input {
-    width: 100%;
-    min-width: 128px;
-    height: 40px;
-    padding: 0 40px;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background: #f5f5f5;
-}
-
-.search i {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
-    color:#731acc;
-}
-
-.fa-bell {
-    justify-self: right;
-    color:#731acc;
-}
-
-.user {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    justify-self: right;
-}
-
-
-/* sidebar */
-
-.sidebar {
-    position: fixed;
-    top: 60px;
-    width: 260px;
-    height: calc(100% - 60px);
-    background: #731acc;
-    overflow-x: hidden;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    z-index: 2;
-}
-
-.sidebar ul {
-    margin-top: 20px;
-}
-
-.sidebar ul li {
-    width: 100%;
-    list-style: none;
-}
-
-.sidebar ul li:hover {
-    background: #fff;
-}
-
-.sidebar ul li:hover .a {
-    color: #731acc;
-}
-
-.sidebar ul li .a {
-    width: 100%;
-    text-decoration: none;
-    color: #fff;
-    height: 60px;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar ul li .a i {
-    min-width: 60px;
-    font-size: 24px;
-    text-align: center;
 }
 
 
