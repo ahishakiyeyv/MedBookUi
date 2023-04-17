@@ -22,12 +22,17 @@
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Pediatrie</td>
+                <tbody v-if="service.length > 0">
+                    <tr v-for="ser in service" :key="ser.id">
+                        <td>{{ser.id}}</td>
+                        <td>{{ser.nom_service}}</td>
                          <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                    </tr>
+                </tbody>
+                <tbody v-else>
+                    <tr>
+                        <td colspan="4">Chargement...</td>
                     </tr>
                 </tbody>
             </table>
@@ -37,11 +42,13 @@
 <script>
 import Dashboard from '@/components/Dashboard.vue'
 import Modal from '@/components/service/modal_service.vue'
+import axios from 'axios'
 export default {
     name:'Service',
     data(){
         return{
-            dialog:false
+            dialog:false,
+            service:[]
         }
     },
     components:{
@@ -51,7 +58,21 @@ export default {
     methods:{
         toggleModale:function(){
             this.dialog=!this.dialog
+        },
+        getService(){
+            axios
+            .get('http://127.0.0.1:8000/api/service')
+            .then((res)=>{
+                this.$store.state.service=res.data
+                this.service=res.data
+            })
+            .catch((error)=>{
+                console.log(error.response.data.message)
+            })
         }
+    },
+    mounted(){
+        this.getService()
     }
 }
 </script>
