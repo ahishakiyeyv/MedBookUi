@@ -6,7 +6,7 @@
      <div class="container">
         <div class="topbar">
             <div class="logo">
-                <h2>Brand.</h2>
+                <h2>MedBook</h2>
             </div>
             <div class="search">
                 <input type="text" name="search" placeholder="search here">
