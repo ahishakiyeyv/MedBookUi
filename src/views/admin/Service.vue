@@ -8,8 +8,9 @@
             <div class="search">
                 <input type="search" placeholder="Rechercher...">
             </div>
+            <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
             <div class="btn">
-                <button>Ajouter</button>
+                <button v-on:click="toggleModale">Ajouter</button>
             </div>
         </div>
         <div class="table">
@@ -35,10 +36,22 @@
 </template>
 <script>
 import Dashboard from '@/components/Dashboard.vue'
+import Modal from '@/components/service/modal_service.vue'
 export default {
     name:'Service',
+    data(){
+        return{
+            dialog:false
+        }
+    },
     components:{
-        Dashboard
+        Dashboard,
+        Modal
+    },
+    methods:{
+        toggleModale:function(){
+            this.dialog=!this.dialog
+        }
     }
 }
 </script>
@@ -58,6 +71,7 @@ export default {
     min-height: calc(100vh - 60px);
     left: 260px;
     background: #f5f5f5;
+    z-index:1000;
 }
 .label-top{
     margin-top:1.5rem;
