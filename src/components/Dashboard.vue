@@ -38,10 +38,10 @@
                     </router-link>
                 </li>
                 <li>
-                    <a href="#" class="a">
+                    <router-link to="/service" class="a">
                          <i class="fa fa-list-ul" aria-hidden="true"></i>
                         <div>Service</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a href="#" class="a">

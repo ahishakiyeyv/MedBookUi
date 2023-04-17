@@ -9,6 +9,7 @@ import signinadmin from '../views/admin/credentials/signup.vue'
 import dashboard from '../views/admin/Dashboard.vue'
 import Adminappointment from '../views/admin/Appointment.vue'
 import Test from '../views/admin/Test.vue'
+import Service from '../views/admin/Service.vue'
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
   { path: '/dashboard',name: 'dashboard',component: dashboard},
   { path: '/Adminappointment',name: 'Adminappointment',component: Adminappointment},
   { path: '/TestAdmin',name: 'TestAdmin',component: Test},
+  { path: '/service',name: 'service',component: Service},
 ]
 
 const router = createRouter({
