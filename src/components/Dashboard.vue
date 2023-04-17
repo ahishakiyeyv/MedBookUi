@@ -44,10 +44,10 @@
                     </router-link>
                 </li>
                 <li>
-                    <a href="#" class="a">
+                    <router-link to="/patient" class="a">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                         <div>Patient</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a href="#" class="a">
