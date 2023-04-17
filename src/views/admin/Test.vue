@@ -19,19 +19,24 @@
                     <tr>
                         <th>#</th>
                         <th>Nom Test</th>
-                        <th>Prix Test</th>
+                        <th>Prix</th>
                         <th>Description</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>UltraSound</td>
-                        <td>120000 fbu</td>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo doloribus, ad quo expedita exercitationem.</td>
+                <tbody v-if="test.length > 0">
+                    <tr v-for="te in test" :key="te.id">
+                        <td>{{te.id}}</td>
+                        <td>{{te.nom_test}}</td>
+                        <td>{{te.prix_test}}</td>
+                        <td>{{te.description}}</td>
                         <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                    </tr>
+                </tbody>
+                <tbody v-else>
+                    <tr>
+                        <td colspan="6">Aucun Resultat trouvé!</td>
                     </tr>
                 </tbody>
             </table>
@@ -41,11 +46,13 @@
 <script>
 import Dashboard from '@/components/Dashboard.vue'
 import Modal from '@/components/Test/modal_form.vue'
+import axios from 'axios'
 export default {
     name:'Test',
     data(){
         return{
-            dialog:false
+            dialog:false,
+            test:[]
         }
     },
     components:{
@@ -55,7 +62,22 @@ export default {
     methods:{
         toggleModale:function(){
             this.dialog=!this.dialog
+        },
+        getTest(){
+            axios
+            .get('http://127.0.0.1:8000/api/test')
+            .then((res)=>{
+                this.$store.state.test=res.data
+                this.test=res.data
+            })
+            .catch((error)=>{
+                console.log(error.response.data.message)
+            })
+
         }
+    },
+    mounted(){
+        this.getTest()
     }
 }
 </script>
