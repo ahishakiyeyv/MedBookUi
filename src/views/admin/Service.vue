@@ -25,8 +25,8 @@
                     <tr>
                         <td>1</td>
                         <td>Pediatrie</td>
-                         <td>mod</td>
-                        <td>supprimer</td>
+                         <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -125,5 +125,10 @@ table tbody td{
     color:#7e7c7c;
     text-align:center;
 }
-
+table td .modify i{
+    color:#63d471;
+}
+table td .delete i{
+    color:red;
+}
 </style>

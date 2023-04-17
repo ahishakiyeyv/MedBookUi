@@ -101,6 +101,7 @@ export default {
     border:none;
     border-radius:5px;
     cursor:pointer;
+    display:none;
 }
 .table{
     width:1020px;
