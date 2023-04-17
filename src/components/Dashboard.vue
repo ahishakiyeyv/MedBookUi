@@ -32,10 +32,10 @@
                     </router-link>
                 </li>
                 <li>
-                    <a href="#" class="a">
+                    <router-link to="/TestAdmin" class="a">
                         <i class="fa fa-medkit" aria-hidden="true"></i>
                         <div>Details Test</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a href="#" class="a">

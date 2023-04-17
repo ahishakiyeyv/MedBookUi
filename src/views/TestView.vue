@@ -127,12 +127,12 @@ section{
 .table{
     position:relative;
     top:30px;
-    left:220px;
-    width:900px;
+    left:160px;
+    width:1020px;
 }
 
 table{
-    width:900px;
+    width:1020px;
 }
 table,th,td{
     border:2px solid #7e7c7c;
