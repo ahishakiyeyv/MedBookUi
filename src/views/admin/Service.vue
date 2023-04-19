@@ -19,6 +19,8 @@
                     <tr>
                         <th>#</th>
                         <th>Nom Service</th>
+                        <th>Create at</th>
+                        <th>Update at</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -26,6 +28,8 @@
                     <tr v-for="ser in service" :key="ser.id">
                         <td>{{ser.id}}</td>
                         <td>{{ser.nom_service}}</td>
+                        <td>{{ser.created_at}}</td>
+                        <td>{{ser.updated_at}}</td>
                          <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
                     </tr>

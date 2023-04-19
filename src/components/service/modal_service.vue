@@ -9,17 +9,37 @@
             <div class="form">
                 <form>
                     <label>Nom du Service:</label>
-                    <input type="text" placeholder="Nom Service...">
-                    <button>Enregistrer</button>
+                    <input type="text" v-model="form.nom_service" placeholder="Nom Service...">
+                    <button @click="saveService()">Enregistrer</button>
                 </form>
             </div>
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
    name:'modal_service',
-   props:['dialog','toggleModale']
+   props:['dialog','toggleModale'],
+   data(){
+    return{
+        form:{
+            nom_service:''
+        }
+    }
+   },
+   methods:{
+    saveService(){
+        axios
+        .post('http://127.0.0.1:8000/api/create_service',this.form)
+        .then(res=>{
+            console.log(res.data)
+            this.form={
+                nom_service:''
+            }
+        })
+    }
+   }
 }
 </script>
 <style scoped>
@@ -96,5 +116,6 @@ form button{
     background:#731acc;
     color:#fff;
     font-size:1rem;
+    cursor:pointer;
 }
 </style>

@@ -24,16 +24,21 @@
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>12/04/2023</td>
-                    <td>Pediatrie</td>
+            <tbody v-if="appointment.length > 0">
+                <tr v-for="app in appointment" :key="app.id">
+                    <td>{{app.id}}</td>
+                    <td>{{app.nom}}</td>
+                    <td>{{app.prenom}}</td>
+                    <td>{{app.date_arrive}}</td>
+                    <td>{{app.service}}</td>
                     <td><a href="#" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                     <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                     <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                </tr>
+            </tbody>
+            <tbody v-else>
+                <tr>
+                    <td colspan="8">Chargement....</td>
                 </tr>
             </tbody>
         </table>
@@ -42,10 +47,32 @@
 </template>
 <script>
 import Dashboard from '@/components/Dashboard.vue'
+import axios from 'axios'
 export default {
    name:'Appointment',
+    data(){
+        return{
+            appointment:[]
+        }
+    },
    components:{
     Dashboard
+   },
+   methods:{
+        getAppointment(){
+            axios
+            .get('http://127.0.0.1:8000/api/appointment')
+            .then((res)=>{
+                this.$store.state.appointment=res.data
+                this.appointment=res.data
+            })
+            .catch((error)=>{
+                console.log(error.response.data.message)
+            })
+        }
+   },
+   mounted(){
+    this.getAppointment()
    }
 }
 </script>

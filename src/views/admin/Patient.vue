@@ -41,10 +41,22 @@
 </template>
 <script>
 import Dashboard from '@/components/Dashboard.vue'
+import axios from 'axios'
 export default {
     name:'Patient',
+    data(){
+        return{
+            users:[]
+        }
+    },
     components:{
         Dashboard
+    },
+    methods:{
+        getPatient(){
+            axios
+            .get()
+        }
     }
 }
 </script>
