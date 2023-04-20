@@ -1,16 +1,18 @@
 <template>
     <div class="bloc-modale" v-if="dialog">
-        <div class="overlay" v-on:click="toggleModale"></div>
+        <!-- <div class="overlay" v-on:click="toggleModale"></div> -->
+        <div class="overlay" @click="close"></div>
         <div class="modale">
             <div class="head">
-                <div class="title"><h3>Ajouter un Service</h3></div>
-                <div class="btn-close" v-on:click="toggleModale">X</div>
+                <div class="title"><h3>{{ title }}</h3></div>
+                <!-- <div class="btn-close" v-on:click="toggleModale">X</div> -->
+                <div class="btn-close" @click="close">X</div>
             </div>
             <div class="form">
                 <form>
                     <label>Nom du Service:</label>
-                    <input type="text" v-model="form.nom_service" placeholder="Nom Service...">
-                    <button @click="saveService()">Enregistrer</button>
+                    <input type="text" v-model="form.nom_service"  placeholder="Nom Service...">
+                    <button @click="saveService()">{{ btn }}</button>
                 </form>
             </div>
         </div>
@@ -20,24 +22,52 @@
 import axios from 'axios'
 export default {
    name:'modal_service',
-   props:['dialog','toggleModale'],
+   props:['dialog','edit_service'],
    data(){
     return{
+         title:'Ajouter un Service',
+         btn:'Enregistrer',
         form:{
             nom_service:''
         }
     }
    },
    methods:{
+    getService(){
+        this.$emit('getService')
+    },
+    close(){
+        this.$emit('close')
+    },
     saveService(){
+        if(this.edit_service){
+            axios
+            .put('http://127.0.0.1:8000/api/update_service/'+this.$store.state.service.id,this.form)
+
+            .then((res)=>{
+                console.log(res.data)
+                this.getService()
+                this.close()
+            })
+        }else{
         axios
         .post('http://127.0.0.1:8000/api/create_service',this.form)
         .then(res=>{
+            this.close()
             console.log(res.data)
             this.form={
                 nom_service:''
             }
         })
+    }
+    }
+   },
+   mounted(){
+    this.getService()
+    if(this.edit_service){
+        this.form.nom_service=this.$store.state.service.nom_service
+        this.btn='Modifier'
+        this.title='Modifier Service'
     }
    }
 }

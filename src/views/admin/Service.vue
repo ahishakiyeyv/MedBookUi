@@ -8,9 +8,10 @@
             <div class="search">
                 <input type="search" placeholder="Rechercher...">
             </div>
-            <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
+            <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale" @close="close" @getService="getService" :edit_service="modifier"></Modal> -->
+            <Modal v-bind:dialog="dialog"  @close="close" @getService="getService" :edit_service="modifier"></Modal>
             <div class="btn">
-                <button v-on:click="toggleModale">Ajouter</button>
+                <button @click="newModal">Ajouter</button>
             </div>
         </div>
         <div class="table">
@@ -30,7 +31,7 @@
                         <td>{{ser.nom_service}}</td>
                         <td>{{ser.created_at}}</td>
                         <td>{{ser.updated_at}}</td>
-                         <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                         <td><a @click="edit_service(ser)" class="modify" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
@@ -50,9 +51,12 @@ import axios from 'axios'
 export default {
     name:'Service',
     data(){
+        
         return{
             dialog:false,
-            service:[]
+            modifier:false,
+            service:[],
+            service:''
         }
     },
     components:{
@@ -60,6 +64,14 @@ export default {
         Modal
     },
     methods:{
+        edit_service(item){
+            this.dialog=true
+            this.modifier=true
+            this.$store.state.service=item
+        },
+        newModal(){
+            this.dialog=true
+        },
         toggleModale:function(){
             this.dialog=!this.dialog
         },
@@ -73,6 +85,9 @@ export default {
             .catch((error)=>{
                 console.log(error.response.data.message)
             })
+        },
+        close(){
+            this.dialog=false
         }
     },
     mounted(){
@@ -166,8 +181,10 @@ table tbody td{
 }
 table td .modify i{
     color:#63d471;
+    cursor:pointer;
 }
 table td .delete i{
     color:red;
+    cursor:pointer;
 }
 </style>
