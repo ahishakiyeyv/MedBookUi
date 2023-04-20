@@ -31,7 +31,7 @@
                         <td>{{te.prix_test}}</td>
                         <td>{{te.description}}</td>
                         <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                        <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                        <td><a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>

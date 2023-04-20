@@ -10,6 +10,7 @@
             </div>
             <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale" @close="close" @getService="getService" :edit_service="modifier"></Modal> -->
             <Modal v-bind:dialog="dialog"  @close="close" @getService="getService" :edit_service="modifier"></Modal>
+            <DeleteModal v-bind:modal="modal" @fermer="fermer" @getService="gerService"></DeleteModal>
             <div class="btn">
                 <button @click="newModal">Ajouter</button>
             </div>
@@ -21,7 +22,6 @@
                         <th>#</th>
                         <th>Nom Service</th>
                         <th>Create at</th>
-                        <th>Update at</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -30,9 +30,8 @@
                         <td>{{ser.id}}</td>
                         <td>{{ser.nom_service}}</td>
                         <td>{{ser.created_at}}</td>
-                        <td>{{ser.updated_at}}</td>
                          <td><a @click="edit_service(ser)" class="modify" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                        <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                        <td><a @click="confirmDelete(ser)" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
@@ -47,6 +46,7 @@
 <script>
 import Dashboard from '@/components/Dashboard.vue'
 import Modal from '@/components/service/modal_service.vue'
+import DeleteModal from '@/components/service/delete_modal.vue'
 import axios from 'axios'
 export default {
     name:'Service',
@@ -55,13 +55,15 @@ export default {
         return{
             dialog:false,
             modifier:false,
+            modal:false,
             service:[],
             service:''
         }
     },
     components:{
         Dashboard,
-        Modal
+        Modal,
+        DeleteModal
     },
     methods:{
         edit_service(item){
@@ -71,6 +73,10 @@ export default {
         },
         newModal(){
             this.dialog=true
+        },
+        confirmDelete(item){
+            this.modal=true
+            this.$store.state.service=item
         },
         toggleModale:function(){
             this.dialog=!this.dialog
@@ -88,6 +94,9 @@ export default {
         },
         close(){
             this.dialog=false
+        },
+        fermer(){
+            this.modal=false
         }
     },
     mounted(){
