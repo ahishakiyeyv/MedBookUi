@@ -27,6 +27,7 @@ export default createStore({
     logout(state){
       state.user='';
       localStorage.removeItem('user');
+      window.location.href="#/login"
     },
     initializeStore(state){
       if(localStorage.getItem('user')){

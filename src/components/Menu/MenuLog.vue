@@ -28,7 +28,8 @@ export default {
     methods:{
         logout(){
             localStorage.removeItem('user')
-            this.$router.push('/login')
+            this.$router.push('/')
+          //   window.location.reload()
         }
     }
 }

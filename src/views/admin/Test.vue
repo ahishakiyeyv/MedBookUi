@@ -9,6 +9,7 @@
                 <input type="search" placeholder="Rechercher...">
             </div>
             <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
+            <ModaleDelete v-bind:modale="modale" @getTest='getTest' @close="close"></ModaleDelete>
             <div class="btn">
                 <button v-on:click="toggleModale">Ajouter</button>
             </div>
@@ -31,7 +32,7 @@
                         <td>{{te.prix_test}}</td>
                         <td>{{te.description}}</td>
                         <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                        <td><a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                        <td><a @click='confirmDelete(te)' class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
@@ -46,20 +47,27 @@
 <script>
 import Dashboard from '@/components/Dashboard.vue'
 import Modal from '@/components/Test/modal_form.vue'
+import ModaleDelete from '@/components/Test/delete_test.vue'
 import axios from 'axios'
 export default {
     name:'Test',
     data(){
         return{
             dialog:false,
+            modale:false,
             test:[]
         }
     },
     components:{
         Dashboard,
-        Modal
+        Modal,
+        ModaleDelete
     },
     methods:{
+        confirmDelete(item){
+            this.modale=true
+            this.$store.state.test=item
+        },
         toggleModale:function(){
             this.dialog=!this.dialog
         },
@@ -74,6 +82,9 @@ export default {
                 console.log(error.response.data.message)
             })
 
+        },
+        close(){
+            this.modale=false
         }
     },
     mounted(){
@@ -166,8 +177,10 @@ table tbody td{
 }
 table td .modify i{
     color:#63d471;
+    cursor:pointer;
 }
 table td .delete i{
     color:red;
+    cursor: pointer;
 }
 </style>

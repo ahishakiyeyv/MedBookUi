@@ -11,17 +11,17 @@
                <div class="name-details">
                    <div class="field input">
                         <label>Nom</label>
-                        <input type="text" v-model="form.nom"  placeholder="Nom..." required>
+                        <input type="text" v-model="form.nom_patient"  placeholder="Nom..." required>
                    </div>
                    <div class="field input">
                         <label>Prenom</label>
-                        <input type="text" v-model="form.prenom" placeholder="Prenom..." required>
+                        <input type="text" v-model="form.prenom_patient" placeholder="Prenom..." required>
                    </div>
                </div>
                <div class="name-details">
                     <div class="field input">
-                        <label>Email</label>
-                        <input type="text" v-model="form.email" placeholder="Email..." required>
+                        <label>Adresse</label>
+                        <input type="text" v-model="form.adresse" placeholder="Adresse..." required>
                    </div>
                    <div class="field input">
                         <label>Telephone</label>
@@ -30,8 +30,8 @@
                </div>
                    
                    <div class="field input">
-                        <label>Adresse</label>
-                        <input type="text" v-model="form.adresse" placeholder="Adresse..." required>
+                        <label>Email</label>
+                        <input type="text" v-model="form.email" placeholder="Email..." required>
                    </div>
                    <div class="field input">
                         <label>Mot de Passe</label>
@@ -79,6 +79,7 @@ export default {
             password:'',
             status:0
             }
+            window.location.href="#/appointment"
         })
         
     }

@@ -85,6 +85,7 @@ export default {
 }
 .overlay{
     background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
     position:fixed;
     top:0;
     left:0;

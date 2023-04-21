@@ -9,12 +9,12 @@
             <div class="form">
                 <form>
                     <label>Nom Test:</label>
-                    <input type="text" placeholder="Nom...">
+                    <input type="text" v-model="form.nom_test" placeholder="Nom...">
                     <label>Prix Test:</label>
-                    <input type="text" placeholder="Prix...">
+                    <input type="text" v-model="form.prix_test" placeholder="Prix...">
                     <label>Description:</label>
-                    <textarea  cols="10" rows="10" placeholder="Description..."></textarea>
-                    <button>Enregistrer</button>
+                    <textarea  cols="10" rows="10" v-model="form.description" placeholder="Description..."></textarea>
+                    <button @click="saveTest">Enregistrer</button>
                 </form>
             </div>
             
@@ -22,9 +22,34 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name:'modal_form',
-    props:['dialog','toggleModale']
+    props:['dialog','toggleModale'],
+    data(){
+        return{
+            form:{
+                nom_test:'',
+                prix_test:'',
+                description:''
+            }
+        }
+    },
+    methods:{
+        saveTest(){
+            axios
+            .post('http://127.0.0.1:8000/api/create_test',this.form)
+            .then((res)=>{
+                console.log(res.data)
+                this.form={
+                    nom_test:'',
+                    prix_test:'',
+                    description:''
+                }
+                window.location.reload()
+            })
+        }
+    }
 }
 </script>
 <style scoped>
@@ -40,6 +65,7 @@ export default {
 }
 .overlay{
     background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
     position:fixed;
      top:0;
     left:0;
@@ -100,6 +126,9 @@ height:60px;
 padding:0.2rem 0.5rem;
 font-size:1rem;
 border:1px solid #731acc;
+outline:none;
+font-family:'poppins','sans serif';
+color:#731acc;
 border-radius:5px;
 }
 form button{
