@@ -9,11 +9,11 @@
             <div class="form">
                 <form>
                     <label>Nom Test:</label>
-                    <input type="text" v-model="form.nom_test" placeholder="Nom...">
+                    <input type="text" v-model="form.nom_test" placeholder="Nom..." required>
                     <label>Prix Test:</label>
-                    <input type="text" v-model="form.prix_test" placeholder="Prix...">
+                    <input type="text" v-model="form.prix_test" placeholder="Prix..." required>
                     <label>Description:</label>
-                    <textarea  cols="10" rows="10" v-model="form.description" placeholder="Description..."></textarea>
+                    <textarea  cols="10" rows="10" v-model="form.description" placeholder="Description..." required></textarea>
                     <button @click="saveTest">Enregistrer</button>
                 </form>
             </div>

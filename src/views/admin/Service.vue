@@ -9,8 +9,8 @@
                 <input type="search" placeholder="Rechercher...">
             </div>
             <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale" @close="close" @getService="getService" :edit_service="modifier"></Modal> -->
-            <Modal v-bind:dialog="dialog"  @close="close" @getService="getService" :edit_service="modifier"></Modal>
-            <DeleteModal v-bind:modal="modal" @fermer="fermer" @getService="gerService"></DeleteModal>
+            <Modal v-bind:dialog="dialog"  @close="close" @getServices="getService" :edit_service="modifier"></Modal>
+            <DeleteModal v-bind:modal="modal" @fermer="fermer" @getServices="getService"></DeleteModal>
             <div class="btn">
                 <button @click="newModal">Ajouter</button>
             </div>
@@ -66,10 +66,10 @@ export default {
         DeleteModal
     },
     methods:{
-        edit_service(item){
+        edit_service(id){
             this.dialog=true
             this.modifier=true
-            this.$store.state.service=item
+            this.$store.state.service=id
         },
         newModal(){
             this.dialog=true

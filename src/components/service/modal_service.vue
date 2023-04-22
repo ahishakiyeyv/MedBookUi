@@ -11,7 +11,7 @@
             <div class="form">
                 <form>
                     <label>Nom du Service:</label>
-                    <input type="text" v-model="form.nom_service"  placeholder="Nom Service...">
+                    <input type="text" v-model="form.nom_service"  placeholder="Nom Service..." required>
                     <button @click="saveService()">{{ btn }}</button>
                 </form>
             </div>
@@ -29,12 +29,24 @@ export default {
          btn:'Enregistrer',
         form:{
             nom_service:''
-        }
+        },
+        service:{}
     }
    },
    methods:{
+    // getServices(){
+    //     const serviceID = this.$route.params.id
+    //     axios
+    //     .get(`http://127.0.0.1:8000/api/services/${serviceID}`)
+    //     .then(response=>{
+    //         this.service=response.data
+    //     })
+    //     .catch(error=>{
+    //         console.log(JSON.stringify(error))
+    //     })
+    // },
     getService(){
-        this.$emit('getService')
+        this.$emit('getServices',this.form.nom_service)
     },
     close(){
         this.$emit('close')
@@ -45,9 +57,10 @@ export default {
             .put('http://127.0.0.1:8000/api/update_service/'+this.$store.state.service.id,this.form)
 
             .then((res)=>{
-                console.log(res.data)
-                this.getService()
+                console.log('Input:',this.form.nom_service)
+                this.getServices()
                 this.close()
+                window.location.reload()
             })
         }else{
         axios
@@ -58,18 +71,19 @@ export default {
             this.form={
                 nom_service:''
             }
+            window.location.reload()
         })
     }
     }
    },
-   mounted(){
-    this.getService()
-    if(this.edit_service){
-        this.form.nom_service=this.$store.state.service.nom_service
-        this.btn='Modifier'
-        this.title='Modifier Service'
-    }
-   }
+//    mounted(){
+//     this.getServices()
+//     if(this.edit_service){
+//         this.service.nom_service=this.$store.state.service.nom_service
+//         this.btn='Modifier'
+//         this.title='Modifier Service'
+//     }
+//    }
 }
 </script>
 <style scoped>
