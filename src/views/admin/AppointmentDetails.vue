@@ -18,7 +18,7 @@
                     <h2>Date: <span>{{appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{appointment.service}}</span></h2>
                     <h2>Status: 
-                        <select v-model="appointments.status">
+                        <select v-model="appointment.status">
                             <option value="" disabled>--Status--</option>
                             <option value="1">Accepte</option>
                             <option value="0">Refuser</option>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <h2 class="h2">Message</h2>
-            <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointments.remarque"></textarea>
+            <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointment.remarque"></textarea>
             <button class="btn-send" @click="saveAppointment">Envoyer</button>
             <!-- <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
             <p class="para" v-else>Pas de message pour le moment....</p> -->
@@ -44,7 +44,7 @@ export default {
   data(){
     return{
         appointments:{},
-        appointments:{
+        appointment:{
             status:'',
             remarque:''
         }
@@ -71,21 +71,20 @@ export default {
      },
     saveAppointment() {
         const ID = this.$route.params.id;
-        axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.appointments)
+        axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.appointment)
             .then(response => {
-                this.appointments={
+                this.appointment={
                     status:'',
                     remarque:''
                 }
-            this.appointments = response.data;
+            this.appointment = response.data;
             })
             .catch(error => {
             console.log(error);
             });
-}
-
+            } 
+    }
   }
-}
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&family=Roboto:wght@100;300&display=swap');

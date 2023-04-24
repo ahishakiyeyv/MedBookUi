@@ -23,7 +23,7 @@
   <span v-if="$store.state.appointment.status === '1'">Accepté</span>
   <span v-else-if="$store.state.appointment.status === '2'">En Attente</span>
   <span v-else-if="$store.state.appointment.status === '0'">Refuser</span>
-  <span v-else>Unknown</span>
+  <span v-else-if="$store.state.appointment.status===''">Inconnu</span>
 </h2>
 
                     <!-- <h2>Status: <span>{{$store.state.appointment.status}}</span></h2> -->
