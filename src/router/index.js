@@ -11,6 +11,7 @@ import Adminappointment from '../views/admin/Appointment.vue'
 import Test from '../views/admin/Test.vue'
 import Service from '../views/admin/Service.vue'
 import Patient from '../views/admin/Patient.vue'
+import AppointmentDetails from '../views/admin/AppointmentDetails.vue'
 
 const routes = [
   {
@@ -29,6 +30,7 @@ const routes = [
   { path: '/TestAdmin',name: 'TestAdmin',component: Test},
   { path: '/service',name: 'service',component: Service},
   { path: '/patient',name: 'patient',component: Patient},
+  { path: '/AppointmentDetails/:id',name: 'AppointmentDetails',component: AppointmentDetails},
 ]
 
 const router = createRouter({

@@ -103,6 +103,7 @@ export default {
             .then((res)=>{
                 this.$store.state.appointment = res.data
                 this.appointment = res.data
+                
             })
             .catch((error)=>{
                 console.log(error.response.data.message)

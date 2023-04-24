@@ -18,12 +18,21 @@
                     <h2>Adresse: <span>{{$store.state.appointment.sexe}}</span></h2>
                     <h2>Date: <span>{{$store.state.appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{$store.state.appointment.service}}</span></h2>
-                    <h2>Status: <span>Accepte</span></h2>
+                    <!-- <h2>Status: <span v-if="status==='1'">Accepté</span> <span v-else-if="status==='2'">En Attente</span> <span v-else-if="status==='0'">Refuser</span></h2> -->
+                    <h2>Status:
+  <span v-if="$store.state.appointment.status === '1'">Accepté</span>
+  <span v-else-if="$store.state.appointment.status === '2'">En Attente</span>
+  <span v-else-if="$store.state.appointment.status === '0'">Refuser</span>
+  <span v-else>Unknown</span>
+</h2>
+
+                    <!-- <h2>Status: <span>{{$store.state.appointment.status}}</span></h2> -->
                 </div>
             </div>
             <h2 class="h2">Message</h2>
-            <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
-            <p class="para" v-else>Pas de message pour le moment....</p>
+            <!-- <p class="para" v-if="remarque.length > 0">{{$store.state.appointment.remarque}}</p> -->
+            <p class="para">{{$store.state.appointment.remarque}}</p>
+            <!-- <p class="para" v-else>Pas de message pour le moment....</p> -->
         </div>
     </div>
 </template>
@@ -31,6 +40,12 @@
 export default {
     name:'app_details',
     props:['details','toggleModaleDetails'],
+    data(){
+        return{
+            selectedOption:null,
+            appointment:[]
+        }
+    },
     getAppointment(){
         this.$emit('getAppointment')
     },
@@ -123,7 +138,8 @@ h2 span{
     color:#731acc;
 }
 .para{
-    border:1px solid red;
+    border:1px solid #731acc;
+    border-radius:5px;
     margin:5px 40px;
     padding:10px;
     color:#7e7c7c;

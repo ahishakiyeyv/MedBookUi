@@ -31,7 +31,8 @@
                     <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{app.service}}</td>
-                    <td><a href="#" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                    <td><router-link :to="`/AppointmentDetails/${app.id}`" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td>
+                    <!-- <td><router-link to="/AppointmentDetails/" @click="Details(app)" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td> -->
                     <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                     <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
                 </tr>
@@ -69,6 +70,9 @@ export default {
             .catch((error)=>{
                 console.log(error.response.data.message)
             })
+        },
+        Details(id){
+            this.$store.state.appointment=id
         }
    },
    mounted(){

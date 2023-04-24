@@ -25,14 +25,19 @@
                         
                     </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="users.length > 0">
+                    <tr v-for="use in users" :key="use.id">
+                        <td>{{use.id}}</td>
+                        <td>{{use.nom_patient}}</td>
+                         <td>{{use.prenom_patient}}</td>
+                        <td>{{use.email}}</td>
+                        <td>{{use.telephone}}</td>
+                        <td>{{use.adresse}}</td>
+                    </tr>
+                </tbody>
+                <tbody v-else>
                     <tr>
-                        <td>1</td>
-                        <td>Ahishakiye</td>
-                         <td>Yvan Igor</td>
-                        <td>ahig@biu.bi</td>
-                        <td>79340728</td>
-                        <td>Carama</td>
+                        <td colspan="6">Chargement...</td>
                     </tr>
                 </tbody>
             </table>
@@ -55,8 +60,18 @@ export default {
     methods:{
         getPatient(){
             axios
-            .get()
+            .get('http://127.0.0.1:8000/api/user')
+            .then(res=>{
+                this.$store.users=res.data
+                this.users=res.data
+            })
+            .catch((error)=>{
+                console.log(error.response.data.message)
+            })
         }
+    },
+    mounted(){
+        this.getPatient()
     }
 }
 </script>
