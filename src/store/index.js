@@ -7,7 +7,9 @@ export default createStore({
     users:[],
     appointment:[],
     test:[],
-    service:[]
+    tests:{},
+    service:[],
+    services:{}
   },
   getters: {
     user : state=>{

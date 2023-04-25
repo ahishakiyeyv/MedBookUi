@@ -9,7 +9,7 @@
                 <input type="search" placeholder="Rechercher...">
             </div>
             <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale" @close="close" @getService="getService" :edit_service="modifier"></Modal> -->
-            <Modal v-bind:dialog="dialog"  @close="close" @getServices="getService" :edit_service="modifier"></Modal>
+            <Modal v-bind:dialog="dialog"  @close="close" @getServices="getService" :edit_service="modifier" v-if="dialog"></Modal>
             <DeleteModal v-bind:modal="modal" @fermer="fermer" @getServices="getService"></DeleteModal>
             <div class="btn">
                 <button @click="newModal">Ajouter</button>
@@ -57,7 +57,7 @@ export default {
             modifier:false,
             modal:false,
             service:[],
-            service:''
+            services:''
         }
     },
     components:{
@@ -69,10 +69,11 @@ export default {
         edit_service(id){
             this.dialog=true
             this.modifier=true
-            this.$store.state.service=id
+            this.$store.state.services=id
         },
         newModal(){
             this.dialog=true
+            this.modifier=false
         },
         confirmDelete(item){
             this.modal=true

@@ -17,6 +17,9 @@
                     <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
                     <h2>Date: <span>{{appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{appointment.service}}</span></h2>
+                    <pre>
+                        {{ JSON.stringify(appointment,null,2) }}
+                    </pre>
                     <h2>Status: 
                         <select v-model="appointment.status">
                             <option value="" disabled>--Status--</option>
@@ -28,8 +31,8 @@
                 </div>
             </div>
             <h2 class="h2">Message</h2>
-            <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointment.remarque"></textarea>
-            <button class="btn-send" @click="saveAppointment">Envoyer</button>
+            <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointment.remarque"/>
+            <button class="btn-send" @click="saveAppointment()">Envoyer</button>
             <!-- <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
             <p class="para" v-else>Pas de message pour le moment....</p> -->
         </div>
@@ -46,7 +49,7 @@ export default {
         appointments:{},
         appointment:{
             status:'',
-            remarque:''
+            remarque:'',
         }
     }
   },

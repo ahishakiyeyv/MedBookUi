@@ -8,10 +8,11 @@
             <div class="search">
                 <input type="search" placeholder="Rechercher...">
             </div>
-            <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
+            <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
+            <Modal v-bind:dialog="dialog" @close="close" @getTest="getTest" :edit_test="modifier" v-if="dialog"></Modal>
             <ModaleDelete v-bind:modale="modale" @getTest='getTest' @close="close"></ModaleDelete>
             <div class="btn">
-                <button v-on:click="toggleModale">Ajouter</button>
+                <button @click="newModal">Ajouter</button>
             </div>
         </div>
         <div class="table">
@@ -31,7 +32,7 @@
                         <td>{{te.nom_test}}</td>
                         <td>{{te.prix_test}}</td>
                         <td>{{te.description}}</td>
-                        <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a @click="edit_test(te)" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a @click='confirmDelete(te)' class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
@@ -55,7 +56,8 @@ export default {
         return{
             dialog:false,
             modale:false,
-            test:[]
+            test:[],
+            tests:''
         }
     },
     components:{
@@ -64,6 +66,16 @@ export default {
         ModaleDelete
     },
     methods:{
+        edit_test(id){
+            this.dialog=true
+            this.modifier=true
+            this.$store.state.tests=id
+        },
+        newModal(){
+            this.dialog=true
+            this.modifier=false
+        }
+        ,
         confirmDelete(item){
             this.modale=true
             this.$store.state.test=item
@@ -85,6 +97,7 @@ export default {
         },
         close(){
             this.modale=false
+            this.dialog=false
         }
     },
     mounted(){

@@ -54,11 +54,11 @@ export default {
     saveService(){
         if(this.edit_service){
             axios
-            .put('http://127.0.0.1:8000/api/update_service/'+this.$store.state.service.id,this.form)
+            .put('http://127.0.0.1:8000/api/update_service/'+this.$store.state.services.id,this.form)
 
             .then((res)=>{
                 console.log('Input:',this.form.nom_service)
-                this.getServices()
+                this.getService()
                 this.close()
                 window.location.reload()
             })
@@ -76,14 +76,14 @@ export default {
     }
     }
    },
-//    mounted(){
-//     this.getServices()
-//     if(this.edit_service){
-//         this.service.nom_service=this.$store.state.service.nom_service
-//         this.btn='Modifier'
-//         this.title='Modifier Service'
-//     }
-//    }
+   mounted(){
+    this.getService()
+    if(this.edit_service){
+        this.form.nom_service=this.$store.state.services.nom_service
+        this.btn='Modifier'
+        this.title='Modifier Service'
+    }
+   }
 }
 </script>
 <style scoped>

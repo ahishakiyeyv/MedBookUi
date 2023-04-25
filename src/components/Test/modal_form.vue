@@ -1,10 +1,12 @@
 <template>
     <div class="bloc-modale" v-if="dialog">
-        <div class="overlay" v-on:click="toggleModale"></div>
+        <!-- <div class="overlay" v-on:click="toggleModale"></div> -->
+        <div class="overlay" @click="close"></div>
         <div class="modale">
             <div class="head">
-                <div class="title"><h3>Ajouter un Test</h3></div>
-                 <div class="btn-close" v-on:click="toggleModale">X</div>
+                <div class="title"><h3>{{title}}</h3></div>
+                 <!-- <div class="btn-close" v-on:click="toggleModale">X</div> -->
+                 <div class="btn-close" @click="close">X</div>
             </div>
             <div class="form">
                 <form>
@@ -14,7 +16,7 @@
                     <input type="text" v-model="form.prix_test" placeholder="Prix..." required>
                     <label>Description:</label>
                     <textarea  cols="10" rows="10" v-model="form.description" placeholder="Description..." required></textarea>
-                    <button @click="saveTest">Enregistrer</button>
+                    <button @click="saveTest">{{btn}}</button>
                 </form>
             </div>
             
@@ -25,18 +27,36 @@
 import axios from 'axios'
 export default {
     name:'modal_form',
-    props:['dialog','toggleModale'],
+    props:['dialog','edit_test'],
     data(){
         return{
+            title:'Ajouter un Test',
+            btn:'Enregistrer',
             form:{
                 nom_test:'',
                 prix_test:'',
                 description:''
-            }
+            },
+            tests:{}
         }
     },
     methods:{
+        getTest(){
+            this.$emit('getTest')
+        },
+        close(){
+            this.$emit('close')
+        },
         saveTest(){
+            if(this.edit_test){
+                axios 
+                .put('http://127.0.0.1:8000/api/update_test/'+this.$store.state.tests.id,this.form)
+                .then(res=>{
+                    this.getTest()
+                    this.close()
+                    window.location.reload()
+                })
+            }else{
             axios
             .post('http://127.0.0.1:8000/api/create_test',this.form)
             .then((res)=>{
@@ -48,6 +68,17 @@ export default {
                 }
                 window.location.reload()
             })
+        }
+    }
+    },
+    mounted(){
+        this.getTest()
+        if(this.edit_test){
+            this.form.nom_test=this.$store.state.tests.nom_test
+            this.form.prix_test=this.$store.state.tests.prix_test
+            this.form.description=this.$store.state.tests.description
+            this.btn='Modifier'
+            this.title='Modifier Test'
         }
     }
 }
