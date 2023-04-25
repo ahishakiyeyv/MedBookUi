@@ -6,7 +6,7 @@
         </div>
         <div class="top_row">
             <div class="search">
-                <input type="search" placeholder="Rechercher...">
+                <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
             <div class="btn">
                 <button>Prendre Rendez-Vous</button>
@@ -53,7 +53,8 @@ export default {
    name:'Appointment',
     data(){
         return{
-            appointment:[]
+            appointment:[],
+            inputSearch:''
         }
     },
    components:{
@@ -77,6 +78,17 @@ export default {
    },
    mounted(){
     this.getAppointment()
+   },
+   computed:{
+    appointment(){
+        return this.$store.state.appointment.filter(app=>{
+            return(app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+            app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+            )
+                
+            
+        })
+    }
    }
 }
 </script>

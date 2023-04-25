@@ -12,27 +12,31 @@
                     <h2>Nom: <span>{{ appointment.nom}}</span></h2>
                     <h2>Prenom: <span>{{appointment.prenom}}</span></h2>
                     <h2>Age: <span>{{appointment.age}}</span></h2>
+                    <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
                 </div>
                 <div class="body2">
-                    <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
+                    
                     <h2>Date: <span>{{appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{appointment.service}}</span></h2>
-                    <pre>
+                    <!-- <pre>
                         {{ JSON.stringify(appointment,null,2) }}
-                    </pre>
-                    <h2>Status: 
-                        <select v-model="appointment.status">
-                            <option value="" disabled>--Status--</option>
-                            <option value="1">Accepte</option>
-                            <option value="0">Refuser</option>
-                            <option value="2">En Attente</option>
-                        </select>
-                    </h2>
+                    </pre> -->
+                        <h2>Status: 
+                            <select v-model="appointment.status">
+                                <option value="" disabled>--Status--</option>
+                                <option value="1">Accepte</option>
+                                <option value="0">Refuser</option>
+                                <option value="2">En Attente</option>
+                            </select>
+                        </h2>
+                        <h2>Message:
+                            <textarea  class="message" placeholder="Message..." v-model="appointment.remarque"></textarea>
+                        </h2>
+                    </div>
                 </div>
-            </div>
-            <h2 class="h2">Message</h2>
-            <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointment.remarque"/>
-            <button class="btn-send" @click="saveAppointment()">Envoyer</button>
+                <!-- <h2 class="h2">Message</h2>
+                <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointment.remarque"/> -->
+                <button class="btn-send" @click="saveAppointment()">Envoyer</button>
             <!-- <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
             <p class="para" v-else>Pas de message pour le moment....</p> -->
         </div>
@@ -76,11 +80,9 @@ export default {
         const ID = this.$route.params.id;
         axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.appointment)
             .then(response => {
-                this.appointment={
-                    status:'',
-                    remarque:''
-                }
+                this.$store.state.appointment=response.data
             this.appointment = response.data;
+            window.location.reload()
             })
             .catch(error => {
             console.log(error);
@@ -186,7 +188,7 @@ h2 select{
     padding:10px;
     color:#7e7c7c;
 }
-.text{
+/* .text{
     margin-top:10px;
     margin-left:3rem;
     width:930px;
@@ -196,6 +198,15 @@ h2 select{
     outline:none;
     padding:5px;
     font-size:1rem;
+    color:#731acc;
+} */
+.message{
+    height:50px;
+    width:300px;
+    outline:none;
+    border:1px solid #731acc;
+    border-radius:5px;
+    padding:5px;
     color:#731acc;
 }
 .btn-send{
@@ -211,5 +222,8 @@ h2 select{
     border-radius:5px;
     margin-bottom:20px;
     cursor:pointer;
+}
+.btn-send:hover{
+    background:#894ec5;
 }
 </style>

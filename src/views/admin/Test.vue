@@ -6,7 +6,7 @@
         </div>
         <div class="top_row">
             <div class="search">
-                <input type="search" placeholder="Rechercher...">
+                <input type="search" placeholder="Rechercher..." v-model="inputSearch">
             </div>
             <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
             <Modal v-bind:dialog="dialog" @close="close" @getTest="getTest" :edit_test="modifier" v-if="dialog"></Modal>
@@ -57,7 +57,8 @@ export default {
             dialog:false,
             modale:false,
             test:[],
-            tests:''
+            tests:'',
+            inputSearch:''
         }
     },
     components:{
@@ -102,6 +103,15 @@ export default {
     },
     mounted(){
         this.getTest()
+    },
+    computed:{
+        test(){
+            return this.$store.state.test.filter(te=>{
+                return(te.nom_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+                te.prix_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+                )
+            })
+        }
     }
 }
 </script>

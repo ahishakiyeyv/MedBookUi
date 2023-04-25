@@ -6,7 +6,7 @@
         </div>
         <div class="top_row">
             <div class="search">
-                <input type="search" placeholder="Rechercher...">
+                <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
             <div class="btn">
                 <button>Ajouter</button>
@@ -51,7 +51,8 @@ export default {
     name:'Patient',
     data(){
         return{
-            users:[]
+            users:[],
+            inputSearch:''
         }
     },
     components:{
@@ -72,7 +73,16 @@ export default {
     },
     mounted(){
         this.getPatient()
-    }
+    },
+    // computed:{
+    //     users(){
+    //         return this.$store.state.users.filter(use=>{
+    //             return(use.nom_patient.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+    //             use.prenom_patient.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+    //             )
+    //         })
+    //     }
+    // }
 }
 </script>
 <style scoped>

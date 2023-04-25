@@ -6,7 +6,7 @@
         </div>
         <div class="top_row">
             <div class="search">
-                <input type="search" placeholder="Rechercher...">
+                <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
             <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale" @close="close" @getService="getService" :edit_service="modifier"></Modal> -->
             <Modal v-bind:dialog="dialog"  @close="close" @getServices="getService" :edit_service="modifier" v-if="dialog"></Modal>
@@ -57,7 +57,8 @@ export default {
             modifier:false,
             modal:false,
             service:[],
-            services:''
+            services:'',
+            inputSearch:''
         }
     },
     components:{
@@ -102,6 +103,13 @@ export default {
     },
     mounted(){
         this.getService()
+    },
+    computed:{
+        service(){
+            return this.$store.state.service.filter(ser=>{
+                return(ser.nom_service.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1)
+            })
+        }
     }
 }
 </script>

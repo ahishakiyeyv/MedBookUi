@@ -16,7 +16,7 @@
     <div class="top_row">
          <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
         <div class="search">
-            <input type="search" class="search-input" placeholder="Search...">
+            <input type="text" class="search-input" placeholder="Search..." v-model="inputSearch">
         </div>
       
         <div class="addBtn">
@@ -77,7 +77,8 @@ export default {
         return{
             appointment:[],
             dialog:false,
-            details:false
+            details:false,
+            inputSearch:''
         }
     },
     components:{
@@ -115,6 +116,15 @@ export default {
     },
         close(){
             this.details=false
+        },
+        computed:{
+            appointment(){
+                return this.$store.state.appointment.filter(app=>{
+                    return(app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+                    app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+                    )
+                })
+            }
         }
     // computed:{
     //     appointment(){
