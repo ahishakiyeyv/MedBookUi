@@ -1,11 +1,12 @@
 <template>
-    <div class="bloc-modale" >
-        <div class="overlay" ></div>
+    <div class="bloc-modale" v-if="details">
+        <div class="overlay" v-on:click="toggleModaleDetails"></div>
+        <!-- <div class="overlay" @click="close"></div> -->
 
         <div class="modale">
             <div class="head">
                 <div class="title">Details Rendez-Vous</div>
-                <button v-on:click="close" class="btn-close">X</button>
+                <button v-on:click="toggleModaleDetails" class="btn-close">X</button>
             </div>
             <div class="body-container">
                 <div class="body1">
@@ -46,14 +47,18 @@ export default {
             appointment:[]
         }
     },
-    getAppointment(){
-        this.$emit('getAppointment')
-    },
+    
     // mounted(){
     //    this.getAppointment()
     // },
-    close(){
+   
+    methods:{
+         close(){
        this.$emit('close')
+    },
+    getAppointment(){
+        this.$emit('getAppointment')
+    },
     }
 }
 </script>

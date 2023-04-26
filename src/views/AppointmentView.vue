@@ -47,8 +47,9 @@
                     <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{ app.service }}</td>
-                    <ModalDetails @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails>
-                    <td><button   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
+                    <ModalDetails v-bind:details="details" v-bind:toggleModaleDetails="toggleModaleDetails" @getAppointment="getAppointment" @close="close" ></ModalDetails>
+                    <!-- <ModalDetails v-bind:details="details" @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails> -->
+                    <td><a   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                     <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                     <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                 </tr>
@@ -91,9 +92,9 @@ export default {
         toggleModale:function(){
             this.dialog=!this.dialog
         },
-        // toggleModaleDetails:function(){
-        //     this.details=!this.details
-        // },
+        toggleModaleDetails:function(){
+            this.details=!this.details
+        },
         detailsAppointment(item){
             this.details=true,
             this.$store.state.appointment=item
@@ -117,15 +118,17 @@ export default {
         close(){
             this.details=false
         },
-        computed:{
-            appointment(){
-                return this.$store.state.appointment.filter(app=>{
-                    return(app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
-                    app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
-                    )
-                })
-            }
-        }
+//         computed: {
+//             appointment() {
+//                return this.$store.state.appointment.filter(app => {
+//                return (
+//                   app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+//                   app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+//             )
+//         })
+//     }
+// }
+
     // computed:{
     //     appointment(){
     //         const appointment =this.$store.state?.appointment
@@ -210,5 +213,8 @@ table tbody td{
     height:35px;
     color:#7e7c7c;
     text-align:center;
+}
+table tbody td a{
+    cursor:pointer;
 }
 </style>
