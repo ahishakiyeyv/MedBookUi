@@ -118,16 +118,16 @@ export default {
         close(){
             this.details=false
         },
-//         computed: {
-//             appointment() {
-//                return this.$store.state.appointment.filter(app => {
-//                return (
-//                   app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
-//                   app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
-//             )
-//         })
-//     }
-// }
+        computed: {
+            appointment() {
+               return this.$store.state.appointment.filter(app => {
+               return (
+                  app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+                  app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+            )
+        })
+    }
+}
 
     // computed:{
     //     appointment(){
