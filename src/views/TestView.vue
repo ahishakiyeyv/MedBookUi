@@ -9,7 +9,7 @@
 <section>
     <div class="top_row">
         <div class="search">
-            <input type="search" class="search-input" placeholder="Search...">
+            <input type="search" class="search-input" placeholder="Search..." v-model="inputSearch">
         </div>
         <div class="addBtn">
             <button>Ajouter</button>
@@ -52,7 +52,8 @@ export default {
    name:'TestView',
    data(){
         return{
-            test:[]
+            test:[],
+            inputSearch:''
         }
    },
    components:{
@@ -74,6 +75,15 @@ export default {
    },
    mounted(){
     this.getTest()
+   },
+   computed:{
+    test(){
+        return this.$store.state.test.filter(tes=>{
+            return(tes.nom_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+            tes.prix_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+            )
+        })
+    }
    }
 }
 </script>
