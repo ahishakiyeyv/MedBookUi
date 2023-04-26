@@ -15,6 +15,7 @@
         
     <div class="top_row">
          <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
+          <ModalDetails v-bind:details="details" v-bind:toggleModaleDetails="toggleModaleDetails" @getAppointment="getAppointment" @close="close" ></ModalDetails>
         <div class="search">
             <input type="text" class="search-input" placeholder="Search..." v-model="inputSearch">
         </div>
@@ -47,9 +48,9 @@
                     <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{ app.service }}</td>
-                    <ModalDetails v-bind:details="details" v-bind:toggleModaleDetails="toggleModaleDetails" @getAppointment="getAppointment" @close="close" ></ModalDetails>
+                   
                     <!-- <ModalDetails v-bind:details="details" @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails> -->
-                    <td><a   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                    <td><button   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
                     <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                     <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                 </tr>
