@@ -9,11 +9,11 @@
                <div class="error-txt">{{ errorMessage }}</div>
                    <div class="field input">
                     <label>Email</label>
-                    <input type="email" v-model="form.email" placeholder="Entrer le mail...">
+                    <input type="email" v-model="form.email" placeholder="Entrer le mail..." required>
                    </div>
                    <div class="field input">
                     <label>Password</label>
-                    <input type="password" v-model="form.password" placeholder="Entrer le mot de passe...">
+                    <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." required>
                    </div>
                    <div class="field button">
                     <button>Se Connecter</button>
@@ -42,6 +42,7 @@ export default {
                 .then((response)=>{
                     if(response.data.success){
                         this.$store.commit("login",JSON.stringify(response.data.data))
+                        this.$router.push({path:'/dashboard'})
                         alert('Good!')
                     }
                     
