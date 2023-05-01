@@ -22,7 +22,7 @@
                     <th>Date</th>
                     <th>Service</th>
                     <th>Status</th>
-                    <th colspan="3">Action</th>
+                    <th colspan="1">Action</th>
                 </tr>
             </thead>
             <tbody v-if="appointment.length > 0">
@@ -38,8 +38,8 @@
                     <td v-if="app.status===''" class="inconnu"><h4>Inconu</h4></td>
                     <td><router-link :to="`/AppointmentDetails/${app.id}`" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td>
                     <!-- <td><router-link to="/AppointmentDetails/" @click="Details(app)" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td> -->
-                    <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                    <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                    <!-- <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td> -->
                 </tr>
             </tbody>
             <tbody v-else>
