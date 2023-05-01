@@ -4,7 +4,9 @@
         <div class="label-top">
             <h3>Details Rendez-Vous</h3>
         </div>
+        <Modal v-bind:actualiser="actualiser" v-bind:toggleModale="toggleModale" v-if="actualiser"></Modal>
         <div class="modale">
+            <button class="btn-back" v-on:click="toggleModale">Actualiser Status</button>
             <!-- <router-link to="/AdminAppointment" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></router-link> -->
             <div class="body-container" v-for="appointment in appointments" :key="appointment.id">
                 <div class="body1">
@@ -36,7 +38,7 @@
                         </h2> -->
                     </div>
                 </div>
-                <h2>Status: 
+                <!-- <h2>Status: 
                             <select name="" v-model="form.status">
                                 <option value="" selected>--Status--</option>
                                 <option value="1">Accepte</option>
@@ -46,7 +48,7 @@
                         </h2>
                 <h2 class="h2">Message</h2>
                 <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="form.remarque"/>
-                <button class="btn-send" @click="saveAppointment()">Envoyer</button>
+                <button class="btn-send" @click="saveAppointment()">Envoyer</button> -->
             <!-- <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
             <p class="para" v-else>Pas de message pour le moment....</p> -->
         </div>
@@ -56,6 +58,7 @@
 <script>
 import Dashboard from '@/components/Dashboard.vue'
 import axios from 'axios'
+import Modal from '@/components/appointment/status.vue'
 export default {
   name:'AppointmentDetails',
   data(){
@@ -65,16 +68,20 @@ export default {
             remarque:'',
         },
         appointments:{},
-        
+        actualiser:true
     }
   },
   components:{
-    Dashboard
+    Dashboard,
+    Modal
   },
   mounted(){
     this.getAppointment()
   },
   methods:{
+    toggleModale:function(){
+            this.actualiser=!this.actualiser
+        },
     
      getAppointment(){
         const appID = this.$route.params.id
