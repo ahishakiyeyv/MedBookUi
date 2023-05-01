@@ -9,14 +9,14 @@
             <div class="form">
                 <form>
                     <label>Status:</label>
-                    <select name="" >
+                    <select name="" v-model="form.status">
                                 <option value="" selected>--Status--</option>
                                 <option value="1">Accepte</option>
                                 <option value="0">Refuser</option>
                                 <option value="2">En Attente</option>
                             </select>
                     <label>Message:</label>
-                 <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." />
+                 <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="form.remarque" />
               <button class="btn-send" @click="saveAppointment()">Envoyer</button>
                 </form>
             </div>
@@ -25,10 +25,32 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name:'status',
     props:['actualiser','toggleModale'],
-    
+    data(){
+        return{
+            form:{
+                status:'',
+                remarque:''
+            }
+        }
+    },
+    methods:{
+        saveAppointment() {
+        const ID = this.$route.params.id;
+        axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.form)
+            .then(response => {
+            this.appointment = response.data;
+            window.location.reload()
+            })
+            .catch(error => {
+            console.log(error);
+            });
+            } 
+    }
+
 }
 </script>
 <style scoped>

@@ -92,18 +92,18 @@ export default {
             console.log(JSON.stringify(error))
         })
      },
-    saveAppointment() {
-        const ID = this.$route.params.id;
-        axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.form)
-            .then(response => {
-                this.$store.state.appointment=response.data
-            this.appointment = response.data;
-            window.location.reload()
-            })
-            .catch(error => {
-            console.log(error);
-            });
-            } 
+    // saveAppointment() {
+    //     const ID = this.$route.params.id;
+    //     axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.form)
+    //         .then(response => {
+    //             this.$store.state.appointment=response.data
+    //         this.appointment = response.data;
+    //         window.location.reload()
+    //         })
+    //         .catch(error => {
+    //         console.log(error);
+    //         });
+    //         } 
     }
   }
 </script>
