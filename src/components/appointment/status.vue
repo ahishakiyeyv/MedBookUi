@@ -27,7 +27,8 @@
 <script>
 export default {
     name:'status',
-    props:['actualiser','toggleModale']
+    props:['actualiser','toggleModale'],
+    
 }
 </script>
 <style scoped>

@@ -14,28 +14,26 @@
                     <h2>Nom: <span>{{ appointment.nom}}</span></h2>
                     <h2>Prenom: <span>{{appointment.prenom}}</span></h2>
                     <h2>Age: <span>{{appointment.age}}</span></h2>
-                    
+                    <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
                 </div>
                 <div class="body2">
-                    <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
+                    
                     <h2>Date: <span>{{appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{appointment.service}}</span></h2>
-                    <h2>Status: <span>{{appointment.status}}</span></h2>
+                    <h2>Status:
+                         <span v-if="appointment.status ==='1'">Accepté</span>
+                         <span v-if="appointment.status ==='0'">Refusé</span>
+                         <span v-if="appointment.status ==='2'">En Attente</span>
+                         <span v-if="appointment.status ===''">Pas Encore actualiser!</span>
+                         
+                         </h2>
                     <h2>Message: <span>{{appointment.remarque}}</span></h2>
+                    <h2></h2>
+          
                     <!-- <pre>
                         {{ JSON.stringify(appointment,null,2) }}
                     </pre> -->
-                        <!-- <h2>Status: 
-                            <select name="" v-model="appointment.status">
-                                <option value="" selected>--Status--</option>
-                                <option value="1">Accepte</option>
-                                <option value="0">Refuser</option>
-                                <option value="2">En Attente</option>
-                            </select>
-                        </h2>
-                        <h2>Message:
-                            <textarea  class="message" placeholder="Message..." v-model="appointment.remarque"></textarea>
-                        </h2> -->
+                        
                     </div>
                 </div>
                 <!-- <h2>Status: 
@@ -68,7 +66,7 @@ export default {
             remarque:'',
         },
         appointments:{},
-        actualiser:true
+        actualiser:false
     }
   },
   components:{
@@ -140,13 +138,11 @@ export default {
 .btn-back{
     background: #731acc;
     border-radius:5px;
-    padding:0rem 0.5rem;
+    padding:0.5rem 1rem;
     float:right;
-    
-}
-.btn-back i{
+    border:none;
     color:#fff;
-    font-size:2rem;
+    font-size:0.8rem;
 }
 
 .modale{
@@ -218,7 +214,7 @@ h2 select{
     font-size:1rem;
     color:#731acc;
 } */
-.message{
+/* .message{
     height:50px;
     width:300px;
     outline:none;
@@ -243,5 +239,5 @@ h2 select{
 }
 .btn-send:hover{
     background:#894ec5;
-}
+} */
 </style>
