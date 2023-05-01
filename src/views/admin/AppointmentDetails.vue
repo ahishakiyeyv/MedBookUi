@@ -5,25 +5,27 @@
             <h3>Details Rendez-Vous</h3>
         </div>
         <div class="modale">
-            <router-link to="/AdminAppointment" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></router-link>
+            <!-- <router-link to="/AdminAppointment" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></router-link> -->
             <div class="body-container" v-for="appointment in appointments" :key="appointment.id">
                 <div class="body1">
                     <h2>Numero: <span>{{ appointment.numero_ordre}}</span></h2>
                     <h2>Nom: <span>{{ appointment.nom}}</span></h2>
                     <h2>Prenom: <span>{{appointment.prenom}}</span></h2>
                     <h2>Age: <span>{{appointment.age}}</span></h2>
-                    <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
+                    
                 </div>
                 <div class="body2">
-                    
+                    <h2>Sexe: <span>{{appointment.sexe}}</span></h2>
                     <h2>Date: <span>{{appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{appointment.service}}</span></h2>
+                    <h2>Status: <span>{{appointment.status}}</span></h2>
+                    <h2>Message: <span>{{appointment.remarque}}</span></h2>
                     <!-- <pre>
                         {{ JSON.stringify(appointment,null,2) }}
                     </pre> -->
-                        <h2>Status: 
-                            <select v-model="appointment.status">
-                                <option value="" disabled>--Status--</option>
+                        <!-- <h2>Status: 
+                            <select name="" v-model="appointment.status">
+                                <option value="" selected>--Status--</option>
                                 <option value="1">Accepte</option>
                                 <option value="0">Refuser</option>
                                 <option value="2">En Attente</option>
@@ -31,11 +33,19 @@
                         </h2>
                         <h2>Message:
                             <textarea  class="message" placeholder="Message..." v-model="appointment.remarque"></textarea>
-                        </h2>
+                        </h2> -->
                     </div>
                 </div>
-                <!-- <h2 class="h2">Message</h2>
-                <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="appointment.remarque"/> -->
+                <h2>Status: 
+                            <select name="" v-model="form.status">
+                                <option value="" selected>--Status--</option>
+                                <option value="1">Accepte</option>
+                                <option value="0">Refuser</option>
+                                <option value="2">En Attente</option>
+                            </select>
+                        </h2>
+                <h2 class="h2">Message</h2>
+                <textarea class="text" id="" cols="0" rows="0" placeholder="Message..." v-model="form.remarque"/>
                 <button class="btn-send" @click="saveAppointment()">Envoyer</button>
             <!-- <p class="para" v-if="remarque > 0">{{$store.state.appointment.remarque}}</p>
             <p class="para" v-else>Pas de message pour le moment....</p> -->
@@ -50,11 +60,12 @@ export default {
   name:'AppointmentDetails',
   data(){
     return{
-        appointments:{},
-        appointment:{
+        form:{
             status:'',
             remarque:'',
-        }
+        },
+        appointments:{},
+        
     }
   },
   components:{
@@ -78,7 +89,7 @@ export default {
      },
     saveAppointment() {
         const ID = this.$route.params.id;
-        axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.appointment)
+        axios.put(`http://127.0.0.1:8000/api/update_message/${ID}`, this.form)
             .then(response => {
                 this.$store.state.appointment=response.data
             this.appointment = response.data;
