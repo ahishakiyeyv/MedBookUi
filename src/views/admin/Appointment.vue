@@ -21,6 +21,7 @@
                     <th>Prenom</th>
                     <th>Date</th>
                     <th>Service</th>
+                    <th>Status</th>
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
@@ -31,6 +32,10 @@
                     <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{app.service}}</td>
+                    <td v-if="app.status==='1'" class="accepte"><h4>Accepté</h4></td>
+                    <td v-if="app.status==='0'" class="refus"><h4>Refusé</h4></td>
+                    <td v-if="app.status==='2'" class="wait"><h4>En Attente</h4></td>
+                    <td v-if="app.status===''" class="inconnu"><h4>Inconu</h4></td>
                     <td><router-link :to="`/AppointmentDetails/${app.id}`" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td>
                     <!-- <td><router-link to="/AppointmentDetails/" @click="Details(app)" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td> -->
                     <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
@@ -180,5 +185,33 @@ table td .modify i{
 }
 table td .delete i{
     color:red;
+}
+.accepte h4{
+    border:1px solid green;
+    border-radius:5px;
+    background:green;
+    color:#fff;
+    font-weight:normal;
+}
+.refus h4{
+    border:1px solid red;
+    border-radius:5px;
+    background:red;
+    color:#fff;
+    font-weight:normal;
+}
+.wait h4{
+    border:1px solid gray;
+    border-radius:5px;
+    background:gray;
+    color:#fff;
+    font-weight:normal;
+}
+.inconnu h4{
+    border:1px solid red;
+    border-radius:5px;
+    background:#333;
+    color:#fff;
+    font-weight:normal;
 }
 </style>

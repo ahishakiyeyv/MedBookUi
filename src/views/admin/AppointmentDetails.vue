@@ -6,8 +6,9 @@
         </div>
         <Modal v-bind:actualiser="actualiser" v-bind:toggleModale="toggleModale" v-if="actualiser"></Modal>
         <div class="modale">
+            <router-link to="/AdminAppointment" class="btn-ba"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></router-link>
             <button class="btn-back" v-on:click="toggleModale">Actualiser Status</button>
-            <!-- <router-link to="/AdminAppointment" class="btn-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></router-link> -->
+            
             <div class="body-container" v-for="appointment in appointments" :key="appointment.id">
                 <div class="body1">
                     <h2>Numero: <span>{{ appointment.numero_ordre}}</span></h2>
@@ -21,10 +22,10 @@
                     <h2>Date: <span>{{appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{appointment.service}}</span></h2>
                     <h2>Status:
-                         <span v-if="appointment.status ==='1'">Accepté</span>
-                         <span v-if="appointment.status ==='0'">Refusé</span>
-                         <span v-if="appointment.status ==='2'">En Attente</span>
-                         <span v-if="appointment.status ===''">Pas Encore actualiser!</span>
+                         <span v-if="appointment.status ==='1'" class="accepte">Accepté</span>
+                         <span v-if="appointment.status ==='0'" class="refus">Refusé</span>
+                         <span v-if="appointment.status ==='2'" class="wait">En Attente</span>
+                         <span v-if="appointment.status ===''" class="inconnu">Pas Encore actualiser!</span>
                          
                          </h2>
                     <h2>Message: <span>{{appointment.remarque}}</span></h2>
@@ -202,6 +203,16 @@ h2 select{
     padding:10px;
     color:#7e7c7c;
 }
+.btn-ba{
+    float:left;
+    border:1px solid #731acc;
+    padding:0.2rem 1rem;
+    border-radius:5px;
+}
+.btn-ba i{
+    font-size:2rem;
+    color:#731acc;
+}
 /* .text{
     margin-top:10px;
     margin-left:3rem;
@@ -240,4 +251,32 @@ h2 select{
 .btn-send:hover{
     background:#894ec5;
 } */
+.accepte{
+    border:1px solid green;
+    border-radius:5px;
+    background:green;
+    color:#fff;
+    padding:0.1rem 1rem;
+}
+.refus{
+    border:1px solid red;
+    border-radius:5px;
+    background:red;
+    color:#fff;
+    padding:0.1rem 1rem;
+}
+.wait{
+    border:1px solid gray;
+    border-radius:5px;
+    background:gray;
+    color:#fff;
+    padding:0.1rem 1rem;
+}
+.inconnu{
+    border:1px solid red;
+    border-radius:5px;
+    background:#333;
+    color:#fff;
+    padding:0.1rem 1rem;
+}
 </style>
