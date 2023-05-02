@@ -24,7 +24,7 @@
                         <option value="femme">Femme</option>
                     </select>
                     <input type="text" v-model="appointment.adresse" placeholder="Adresse..." required>
-                    <input type="Date" v-model="appointment.date_arrive" placeholder="Date..." required>
+                    <input type="date" v-model="appointment.date_arrive" placeholder="Date..." :min="minDate" required> 
                     <select v-model="appointment.service" class="selected">
                         <option value="">--Service--</option>
                         <option value="cardiologie">Cardiologie</option>
@@ -33,12 +33,12 @@
                         <option value="Minterne">Medecine interne</option>
                         <option value="Mgenerale">Medecine Generale</option>
                         <option value="laboratoire">Laboratoire</option>
-                        <option value="pharamacie">Pharmacie</option>
+                        <option value="pharmacie">Pharmacie</option>
                     </select>
                 </div>
                 
             </div>
-            <button class="btn" @click="saveAppointment">Envoyer</button>
+            <button class="btn" @click="saveAppointment" :disabled="!isDateValid">Envoyer</button>
             </form>
 
         </div>
@@ -50,17 +50,21 @@ export default {
     name:'modal_app',
     props:['dialog','toggleModale'],
     data(){
+        const today=new Date();
+        today.setDate(today.getDate());
         return{
             appointment:{
-                numero_ordre:'PSJ-12-01',
+                numero_ordre:'PSJ-',
                 nom:'',
                 prenom:'',
                 age:'',
                 sexe:'',
                 adresse:'',
-                date_arrive:'',
+                date_arrive:null,
                 service:'',
-            }
+                
+            },
+            minDate:today.toISOString().substr(0,10),
         }
     },
     methods:{
@@ -69,8 +73,9 @@ export default {
             .then(res=>{
                 console.log(res.data)
                 alert(res.data.message)
+                // this.numero_ordre=Math.floor(Math.random() * 100) +1;
                 this.appointment={
-                    numero_ordre:'PSJ-12-01',
+                    numero_ordre:null,
                     nom:'',
                     prenom:'',
                     age:'',
@@ -80,8 +85,18 @@ export default {
                     service:'',
                 }
             })
-           
+           window.location.reload()
 
+            },
+            // generateNumber(){
+            //     this.numero_ordre=Math.floor(Math.random() * 100) +1;
+            // }
+        },
+        computed:{
+            isDateValid(){
+                const selected=new Date(this.appointment.date_arrive)
+                const min = new Date(this.minDate)
+                return selected >= min
             }
         }
     }
@@ -100,6 +115,7 @@ export default {
 }
 .overlay{
     background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
     position:fixed;
     top:0;
     right:0;

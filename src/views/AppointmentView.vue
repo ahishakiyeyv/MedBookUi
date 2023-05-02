@@ -34,20 +34,25 @@
                 <thead>
                     <tr>
                     <th>#</th>
+                    <th>Numero</th>
                     <th>Nom</th>
-                    <th>Prenom</th>
                     <th>Date</th>
                     <th>Service</th>
+                    <th>Status</th>
                     <th colspan="3">Action</th>
                  </tr>
                 </thead>
             <tbody v-if="appointment.length > 0">
                 <tr v-for="app in appointment" :key="app.id">
                     <td>{{app.id}}</td>
+                    <td>{{app.numero_ordre}}-0{{app.id}}</td>
                     <td>{{app.nom}}</td>
-                    <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{ app.service }}</td>
+                    <td v-if="app.status==='1'" class="accepte"><h4>Accepté</h4></td>
+                    <td v-if="app.status==='0'" class="refus"><h4>Refusé</h4></td>
+                    <td v-if="app.status==='2'" class="wait"><h4>En Attente</h4></td>
+                    <td v-if="app.status===null" class="inconnu"><h4>Inconnu</h4></td>
                    
                     <!-- <ModalDetails v-bind:details="details" @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails> -->
                     <td><button   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
@@ -119,16 +124,16 @@ export default {
         close(){
             this.details=false
         },
-        computed: {
-            appointment() {
-               return this.$store.state.appointment.filter(app => {
-               return (
-                  app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
-                  app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
-            )
-        })
-    }
-}
+//         computed: {
+//             appointment() {
+//                return this.$store.state.appointment.filter(app => {
+//                return (
+//                   app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+//                   app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+//             )
+//         })
+//     }
+// }
 
     // computed:{
     //     appointment(){
@@ -188,11 +193,11 @@ section{
     position:relative;
     top:30px;
     left:220px;
-    width:900px;
+    width:1020px;
 }
 
 table{
-    width:900px;
+    width:1020px;
 }
 table,td{
     border:none;
@@ -217,5 +222,33 @@ table tbody td{
 }
 table tbody td a{
     cursor:pointer;
+}
+.accepte h4{
+    border:1px solid green;
+    border-radius:5px;
+    background:green;
+    color:#fff;
+    font-weight:normal;
+}
+.refus h4{
+    border:1px solid red;
+    border-radius:5px;
+    background:red;
+    color:#fff;
+    font-weight:normal;
+}
+.wait h4{
+    border:1px solid gray;
+    border-radius:5px;
+    background:gray;
+    color:#fff;
+    font-weight:normal;
+}
+.inconnu h4{
+    border:1px solid #333;
+    border-radius:5px;
+    background:#333;
+    color:#fff;
+    font-weight:normal;
 }
 </style>

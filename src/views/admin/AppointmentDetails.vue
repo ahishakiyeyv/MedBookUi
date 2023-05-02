@@ -25,7 +25,7 @@
                          <span v-if="appointment.status ==='1'" class="accepte">Accepté</span>
                          <span v-if="appointment.status ==='0'" class="refus">Refusé</span>
                          <span v-if="appointment.status ==='2'" class="wait">En Attente</span>
-                         <span v-if="appointment.status ===''" class="inconnu">Pas Encore actualiser!</span>
+                         <span v-if="appointment.status ===null" class="inconnu">Pas Encore actualiser!</span>
                          
                          </h2>
                     <h2>Message: <span>{{appointment.remarque}}</span></h2>
@@ -273,7 +273,7 @@ h2 select{
     padding:0.1rem 1rem;
 }
 .inconnu{
-    border:1px solid red;
+    border:1px solid #333;
     border-radius:5px;
     background:#333;
     color:#fff;

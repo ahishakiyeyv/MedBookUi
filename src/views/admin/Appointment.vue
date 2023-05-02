@@ -35,7 +35,7 @@
                     <td v-if="app.status==='1'" class="accepte"><h4>Accepté</h4></td>
                     <td v-if="app.status==='0'" class="refus"><h4>Refusé</h4></td>
                     <td v-if="app.status==='2'" class="wait"><h4>En Attente</h4></td>
-                    <td v-if="app.status===''" class="inconnu"><h4>Inconu</h4></td>
+                    <td v-if="app.status===null" class="inconnu"><h4>Inconnu</h4></td>
                     <td><router-link :to="`/AppointmentDetails/${app.id}`" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td>
                     <!-- <td><router-link to="/AppointmentDetails/" @click="Details(app)" class="voir"><i class="fa fa-eye" aria-hidden="true"></i></router-link></td> -->
                     <!-- <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
@@ -208,7 +208,7 @@ table td .delete i{
     font-weight:normal;
 }
 .inconnu h4{
-    border:1px solid red;
+    border:1px solid #333;
     border-radius:5px;
     background:#333;
     color:#fff;
