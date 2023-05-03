@@ -1,7 +1,7 @@
 <template>
      <header class="navbar"> 
           <div class="logo">
-               <a href="#" class="icon">LOGO</a>
+               <a href="#" class="icon"><span>Med</span>Book</a>
           </div>
           <div class="menu">
                <ul>
@@ -39,6 +39,15 @@ export default {
      z-index:100;
     box-shadow: 0 1px 0px 0px rgba(0,0,0,0.1);
 }
+.logo a{
+     color:#416991
+}
+.logo a span{
+     background:#416991;
+     color:#fff;
+     padding:0.1rem 0.3rem;
+     border-radius:5px;
+}
 .menu ul{
      display:flex;
      flex-direction: row;
@@ -49,17 +58,17 @@ export default {
 }
 .menu .menu-link{
      text-decoration:none;
-     color:#713acc;
+     color:#416991;
      font-size:1rem;
      font-weight:500;
 }
 .btn{
      text-decoration:none;
      font-size:1.2rem;
-     background:#713acc;
+     background:#416991;
      color:#fff;
      padding:0.5rem 1.3rem;
-     border:1px solid #713acc;
+     border:1px solid #416991;
      border-radius:10px;
 }
 .icon{
