@@ -25,7 +25,7 @@ export default {
   width:3px;
 }
 ::-webkit-scrollbar-thumb{
-  background:#731acc;
+  background:#416991;
   border-radius:10px;
 }
 </style>
