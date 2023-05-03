@@ -217,7 +217,7 @@ export default {
 .btn1{
   padding:0.5rem 4.5rem;
   margin:2rem 0rem;
-  background:#713acc;
+  background:#416991;
   border:none;
   border-radius:10px;
   font-weight:700;
@@ -243,7 +243,7 @@ export default {
   display:block;
   margin-left:auto;
   margin-right:auto;
-  background:#713acc;
+  background:#416991;
   border-radius:10px;
 }
 .boxes{
@@ -270,7 +270,7 @@ export default {
 }
 .box1 .subtitle{
   font-size:1rem;
-  color:#713acc;
+  color:#416991;
   text-align:center;
   font-weight:600;
 }
@@ -317,10 +317,10 @@ export default {
   list-style-type: none;
   line-height:40px;
   font-size:1.1rem;
-  color:#713acc;
+  color:#416991;
 }
 .li i{
-  color:#713acc;
+  color:#416991;
 }
 
 /* =========================================service==================================== */
@@ -342,7 +342,7 @@ margin-bottom:50px;
 .grid{
   height:250px;
   width:300px;
-  background:#713acc;
+  background:#416991;
   border-radius:10px;
   padding:1rem;
 }
@@ -382,7 +382,7 @@ box-shadow: 0px 0px 30px -20px #999999;
   border-top-right-radius: inherit;
   }
 .name{
-color:#713acc;
+color:#416991;
 text-align: center;
 font-size:1.2rem;
 }
@@ -406,7 +406,7 @@ font-size:1.2rem;
   display:flex;
   align-items: center;
   justify-content: space-around;
-  background:#713acc;
+  background:#416991;
   width:80%;
   margin:50px auto 50px auto;
   padding:2rem 1rem;
@@ -431,7 +431,7 @@ width:50%;
 padding:0.5rem 4.5rem;
   margin:2rem 0rem;
   background:#d9d9d9;
-  color:#713acc;
+  color:#416991;
   border:1px solid gray;
   border-radius:10px;
   font-weight:700;
