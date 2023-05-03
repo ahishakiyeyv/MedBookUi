@@ -230,7 +230,7 @@ img {
 .number {
     font-size: 35px;
     font-weight: 500;
-    color: #731acc;
+    color: #416991;
 }
 
 .card-name {
@@ -240,7 +240,7 @@ img {
 
 .icon-box i {
     font-size: 45px;
-    color: #731acc;
+    color: #416991;
 }
 
 

@@ -89,7 +89,7 @@ export default {
 .number {
     font-size: 35px;
     font-weight: 500;
-    color: #731acc;
+    color: #416991;
 }
 
 .card-name {
@@ -99,7 +99,7 @@ export default {
 
 .icon-box i {
     font-size: 45px;
-    color: #731acc;
+    color: #416991;
 }
 
 </style>
