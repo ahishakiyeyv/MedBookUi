@@ -12,6 +12,8 @@ import Test from '../views/admin/Test.vue'
 import Service from '../views/admin/Service.vue'
 import Patient from '../views/admin/Patient.vue'
 import AppointmentDetails from '../views/admin/AppointmentDetails.vue'
+import store from '../store'
+import {IS_USER_AUTHENTICATE_GETTER} from '../store'
 
 const routes = [
   {
@@ -19,10 +21,10 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  { path: '/login', name: 'login', component: login},
-  { path: '/signin', name: 'signin', component: signin },
+  { path: '/login', name: 'login', component: login, meta:{auth:false}},
+  { path: '/signin', name: 'signin', component: signin, meta:{ auth:false} },
   { path: '/test',name: 'test',component: TestView},
-  { path: '/appointment',name: 'appointment',component: AppointmentView},
+  { path: '/appointment',name: 'appointment',component: AppointmentView, meta:{auth:true}},
   { path: '/admin',name: 'admin',component: Admin},
   { path: '/signinAdmin',name: 'signinAdmin',component: signinadmin},
   { path: '/dashboard',name: 'dashboard',component: dashboard},
@@ -36,6 +38,18 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
-})
+});
 
+// router.beforeEach((to, from, next)=>{
+//   if(to.meta.auth ){
+//     next('/login')
+//   }else if(!to.meta.auth){
+//     next({
+//       path:'/appointment',
+//       query:{redirect:to.fullPath}
+//     })
+//   }else{
+//     next()
+//   }
+// })
 export default router

@@ -32,8 +32,13 @@ export default createStore({
       window.location.href="#/login"
     },
     initializeStore(state){
-      if(localStorage.getItem('user')){
-        state.user = JSON.parse(localStorage.getItem('user'));
+      const storedUser=localStorage.getItem('user')
+      if(storedUser){
+        try{
+          state.user = JSON.parse(storedUser);
+        }catch(e){
+          console.error("Error parsing user data from localStorage",e)
+        }
       }else{
         this.commit('logout');
       }
