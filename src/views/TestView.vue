@@ -104,15 +104,15 @@ section{
     justify-content:space-between;
     margin-left:auto;
     margin-right:auto;
-    width:900px;
+    width:1020px;
 }
 .search .search-input{
     height:2.5rem;
     width:15rem;
-    border:2px solid #713acc;
+    border:2px solid #416991;
     border-radius:5px;
     outline:none;
-    color:#713acc;
+    color:#416991;
     font-size:1rem;
     padding:10px;
 }
@@ -131,7 +131,7 @@ section{
     cursor:pointer;
 }
 ::placeholder{
-    color:#713acc;
+    color:#416991;
     letter-spacing: 1px;
 }
 .table{
@@ -145,11 +145,12 @@ table{
     width:1020px;
 }
 table,th,td{
-    border:2px solid #7e7c7c;
+    border:none;
+    border-bottom:2px solid #7e7c7c;
     border-collapse: collapse;
 }
 table thead{
-    background:#896cb8;
+    background:#343a40;
     height:50px;
 }
 table thead th{
