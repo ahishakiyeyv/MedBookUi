@@ -17,8 +17,8 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>Numero</th>
                     <th>Nom</th>
-                    <th>Prenom</th>
                     <th>Date</th>
                     <th>Service</th>
                     <th>Status</th>
@@ -28,8 +28,8 @@
             <tbody v-if="appointment.length > 0">
                 <tr v-for="app in appointment" :key="app.id">
                     <td>{{app.id}}</td>
+                    <td>{{app.numero_ordre}}-0{{app.id}}</td>
                     <td>{{app.nom}}</td>
-                    <td>{{app.prenom}}</td>
                     <td>{{app.date_arrive}}</td>
                     <td>{{app.service}}</td>
                     <td v-if="app.status==='1'" class="accepte"><h4>Accepté</h4></td>

@@ -11,7 +11,7 @@
             <form>
             <div class="container">
                 <div class="content1">
-                    <input type="text" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
+                    <input type="hidden" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
                     <input type="text" v-model="appointment.nom" placeholder="Nom..." required>
                     <input type="text" v-model="appointment.prenom" placeholder="Prenom..." required>
                     <input type="text" v-model="appointment.age" placeholder="Age..." required>
@@ -54,7 +54,7 @@ export default {
         today.setDate(today.getDate());
         return{
             appointment:{
-                numero_ordre:'PSJ-',
+                numero_ordre:'PSJ-2023',
                 nom:'',
                 prenom:'',
                 age:'',
@@ -73,6 +73,7 @@ export default {
             .then(res=>{
                 console.log(res.data)
                 alert(res.data.message)
+                window.location.reload()
                 // this.numero_ordre=Math.floor(Math.random() * 100) +1;
                 this.appointment={
                     numero_ordre:null,
@@ -85,8 +86,6 @@ export default {
                     service:'',
                 }
             })
-           window.location.reload()
-
             },
             // generateNumber(){
             //     this.numero_ordre=Math.floor(Math.random() * 100) +1;
@@ -206,7 +205,7 @@ export default {
     letter-spacing: 1px;
 }
 .btn{
-    padding:1rem 4rem;
+    padding:0.5rem 3rem;
     background:#731acc;
     color:#fff;
     font-weight:normal;

@@ -11,7 +11,7 @@
             
             <div class="body-container" v-for="appointment in appointments" :key="appointment.id">
                 <div class="body1">
-                    <h2>Numero: <span>{{ appointment.numero_ordre}}</span></h2>
+                    <h2>Numero: <span>{{ appointment.numero_ordre}}-0{{appointment.id}}</span></h2>
                     <h2>Nom: <span>{{ appointment.nom}}</span></h2>
                     <h2>Prenom: <span>{{appointment.prenom}}</span></h2>
                     <h2>Age: <span>{{appointment.age}}</span></h2>
@@ -157,9 +157,7 @@ export default {
     justify-content: space-between;
     margin-top:30px;
 }
-.body1{
-    margin-left:1rem;
-}
+
 .body1 h2{
     margin-top:40px;
     font-size:1.4rem;
@@ -184,9 +182,7 @@ h2 select{
     margin-left:30px;
     outline: none;
 }
-.body2{
-    margin-right:1rem;
-}
+
 .body2 h2{
      margin-top:40px;
     font-size:1.4rem;

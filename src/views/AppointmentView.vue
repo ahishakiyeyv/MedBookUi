@@ -161,7 +161,7 @@ section{
     justify-content:space-between;
     margin-left:auto;
     margin-right:auto;
-    width:900px;
+    width:1020px;
 }
 .search .search-input{
     height:2.5rem;
@@ -192,7 +192,7 @@ section{
 .table{
     position:relative;
     top:30px;
-    left:220px;
+    left:170px;
     width:1020px;
 }
 

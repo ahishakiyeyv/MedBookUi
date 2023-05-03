@@ -32,7 +32,7 @@
                         <td>{{ser.created_at}}</td>
                          <td><a @click="edit_service(ser)" class="modify" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a @click="confirmDelete(ser)" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-                    </tr>
+                    </tr>           
                 </tbody>
                 <tbody v-else>
                     <tr>
@@ -58,9 +58,11 @@ export default {
             modal:false,
             service:[],
             services:'',
-            inputSearch:''
+            inputSearch:'',
         }
     },
+   
+    
     components:{
         Dashboard,
         Modal,
@@ -99,7 +101,8 @@ export default {
         },
         fermer(){
             this.modal=false
-        }
+        },
+       
     },
     mounted(){
         this.getService()
