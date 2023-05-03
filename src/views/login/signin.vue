@@ -105,6 +105,7 @@ export default {
 }
 .icons i{
     font-size:40px;
+    color:#416991;
 }
 .wrapper{
     position:absolute;
@@ -124,7 +125,7 @@ export default {
     font-weight:600;
     padding-bottom: 10px;
     border-bottom: 1px solid #e6e6e6;
-    color:#713acc;
+    color:#416991;
 }
 .form .forme{
     margin:20px 0;
@@ -178,7 +179,7 @@ export default {
     border:none;
     font-size:17px;
     font-weight:bold;
-    background:#713acc;   
+    background:#416991;   
     color:#fff;
     border-radius: 5px;
     cursor:pointer;
@@ -189,7 +190,7 @@ export default {
     font-size: 15px;
 }
 .form .link .a{
-    color:#333;
+    color:#416991;
     font-weight:bold;
     text-decoration: underline;
 }

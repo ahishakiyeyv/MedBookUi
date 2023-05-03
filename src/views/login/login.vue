@@ -164,7 +164,7 @@ form .name-details .field:last-child{
     font-size: 15px;
 }
 .form .link .a{
-    color:#333;
+    color:#416991;
     font-weight:bold;
     text-decoration: underline;
 }
