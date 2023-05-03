@@ -6,15 +6,18 @@
      <div class="container">
         <div class="topbar">
             <div class="logo">
-                <h2>MedBook</h2>
+                <h2><span>Med</span>Book</h2>
             </div>
-            <div class="search">
+            <!-- <div class="search">
                 <input type="text" name="search" placeholder="search here">
                 <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
-            </div>
+            </div> -->
             <i class="fa fa-bell" aria-hidden="true"></i>
             <div class="user">
                 <img src='@/assets/images/200.jpg' alt="">
+            </div>
+            <div class="logout">
+                <a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="sidebar">
@@ -96,7 +99,13 @@ img {
 }
 
 .logo h2 {
-    color: #731acc;
+    color: #416991;
+}
+.logo h2 span{
+    background:#416991;
+    color:#fff;
+    padding:0.1rem 0.3rem;
+    border-radius:5px;
 }
 
 .search {
@@ -122,21 +131,27 @@ img {
     right: 15px;
     top: 15px;
     cursor: pointer;
-    color:#731acc;
+    color:#343a40;
 }
 
 .fa-bell {
     justify-self: right;
-    color:#731acc;
+    color:#416991;
 }
 
 .user {
     position: relative;
-    width: 50px;
-    height: 50px;
-    justify-self: right;
+    width: 20px;
+    height: 20px;
+    /* justify-self: right; */
+    margin-left:30px;
 }
-
+.logout{
+    margin-left:30px;
+}
+.logout a i{
+    color:#416991;
+}
 
 /* sidebar */
 
@@ -145,7 +160,7 @@ img {
     top: 60px;
     width: 260px;
     height: calc(100% - 60px);
-    background: #731acc;
+    background:#416991;
     overflow-x: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     z-index: 2;
@@ -165,7 +180,7 @@ img {
 }
 
 .sidebar ul li:hover .a {
-    color: #731acc;
+    color: #416991;
 }
 
 .sidebar ul li .a {
@@ -182,7 +197,6 @@ img {
     font-size: 24px;
     text-align: center;
 }
-
 
 /* main */
 
