@@ -138,7 +138,7 @@ export default {
     margin-top:1.5rem;
     margin-left:2rem;
     border-radius:5px;
-    background:#731acc;
+    background:#416991;
     width:1020px;
     padding:1rem 1rem;
 }
@@ -156,17 +156,17 @@ export default {
 .search input{
     height:35px;
     width:230px;
-    border:1px solid #731acc;
+    border:1px solid #416991;
     border-radius:3px;
     padding:0 1rem;
     font-size:1rem;
     outline:none;
-    color:#731acc;
+    color:#416991;
 }
 .btn button{
     padding:0.5rem 1.5rem;
     font-size:1rem;
-    background:#731acc;
+    background:#416991;
     color:#fff;
     border:none;
     border-radius:5px;
@@ -185,7 +185,7 @@ table,td{
     border-collapse: collapse;
 }
 table thead{
-    background:#896cb8;
+    background:#343a40;
     height:50px;
 }
 table thead th{
