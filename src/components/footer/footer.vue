@@ -29,7 +29,7 @@
 </script>
 <style scoped>
 footer{
-    background:#2c3747;
+    background:#343a40;
     display:flex;
     align-items:center;
     justify-content:center;
