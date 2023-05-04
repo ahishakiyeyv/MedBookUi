@@ -107,32 +107,32 @@ form{
 }
 form label{
     font-size:1rem;
-    color:#731acc;
+    color:#416991;
     font-weight:bold;
     margin-top:10px;
 }
 form select{
     height:30px;
-    color:#731acc;
+    color:#416991;
     font-size:1rem;
     outline:none;
-    border:1px solid #731acc;
+    border:1px solid #416991;
     border-radius:5px;
 }
 form .text{
     height:50px;
     outline:none;
-    border:1px solid #731acc;
+    border:1px solid #416991;
     border-radius:5px;
     font-size:1rem;
     padding:5px 10px;
-    color:#731acc;
+    color:#416991;
     font-family: 'poppins';
 }
 .btn-send{
     margin-top:10px;
     height:30px;
-    background:#731acc;
+    background:#416991;
     color:#fff;
     border:none;
     border-radius:5px;

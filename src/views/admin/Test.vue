@@ -30,7 +30,7 @@
                     <tr v-for="te in test" :key="te.id">
                         <td>{{te.id}}</td>
                         <td>{{te.nom_test}}</td>
-                        <td>{{te.prix_test}}</td>
+                        <td>{{te.prix_test}}Fbu</td>
                         <td>{{te.description}}</td>
                         <td><a @click="edit_test(te)" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a @click='confirmDelete(te)' class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>

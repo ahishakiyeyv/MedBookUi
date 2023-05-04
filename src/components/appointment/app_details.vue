@@ -141,10 +141,10 @@ h2 span{
 .h2{
     margin-left:40px;
     margin-top:40px;
-    color:#731acc;
+    color:#416991;
 }
 .para{
-    border:1px solid #731acc;
+    border:1px solid #416991;
     border-radius:5px;
     margin:5px 40px;
     padding:10px;

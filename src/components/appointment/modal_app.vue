@@ -165,11 +165,11 @@ export default {
     margin:15px;
     height:40px;
     font-size:1rem;
-    color:#731acc;
+    color:#416991;
     letter-spacing: 1px;
     outline:none;
     border:none;
-    border-bottom:2px solid #731acc;
+    border-bottom:2px solid #416991;
     background:transparent; 
 }
 .content2{
@@ -181,11 +181,11 @@ export default {
     margin:15px;
     height:40px;
     font-size:1rem;
-    color:#731acc;
+    color:#416991;
     letter-spacing: 1px;
     outline:none;
     border:none;
-    border-bottom:2px solid #731acc;
+    border-bottom:2px solid #416991;
     background:transparent; 
 }
 .content2 select{
@@ -194,19 +194,19 @@ export default {
     height:40px;
     font-size:1rem;
     outline:none;
-    color:#731acc;
+    color:#416991;
     letter-spacing: 1px;
     border:none;
-    border-bottom:2px solid #731acc;
+    border-bottom:2px solid #416991;
     background:transparent;
 }
 ::placeholder{
-    color:#731acc;
+    color:#416991;
     letter-spacing: 1px;
 }
 .btn{
     padding:0.5rem 3rem;
-    background:#731acc;
+    background:#416991;
     color:#fff;
     font-weight:normal;
     letter-spacing:1px;
