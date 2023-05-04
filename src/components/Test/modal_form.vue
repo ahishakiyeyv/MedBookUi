@@ -136,7 +136,7 @@ form {
 form label{
     padding:0.3rem 1.1rem;
     font-size:1.1rem;
-    color:#731acc;
+    color:#416991;
     font-weight:bold;
     margin-top:15px;
 }
@@ -146,17 +146,17 @@ form input{
     margin-left:20px;
     padding:1rem 0.5rem;
     font-size:1rem;
-    border:1px solid #731acc;
+    border:1px solid #416991;
     outline:none;
     border-radius:5px;
-    color:#731acc;
+    color:#416991;
 }
 form textarea{
 margin:0 30px 30px 18px;
 height:60px;
 padding:0.2rem 0.5rem;
 font-size:1rem;
-border:1px solid #731acc;
+border:1px solid #416991;
 outline:none;
 font-family:'poppins','sans serif';
 color:#731acc;
@@ -170,7 +170,7 @@ form button{
     font-size:1rem;
     color:#fff;
     font-weight:bold;
-    background:#731acc;
+    background:#416991;
     border-radius:5px;
     border:none;
     cursor:pointer;

@@ -139,15 +139,15 @@ form{
 }
 form label{
     font-size:1rem;
-    color:#731acc;
+    color:#416991;
     font-weight:bold;
 }
 form input{
     height:35px;
     width:300px;
     margin-bottom:10px;
-    border:1px solid #731acc;
-    color:#731acc;
+    border:1px solid #416991;
+    color:#416991;
     border-radius:5px;
     outline:none;
     padding:1rem 0.5rem;
@@ -158,7 +158,7 @@ form button{
     width:300px;
     border-radius:5px;
     border:none;
-    background:#731acc;
+    background:#416991;
     color:#fff;
     font-size:1rem;
     cursor:pointer;
