@@ -32,14 +32,22 @@
                         <td>{{ser.created_at}}</td>
                          <td><a @click="edit_service(ser)" class="modify" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a @click="confirmDelete(ser)" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-                    </tr>           
+                    </tr>  
+                        
                 </tbody>
+                
+
                 <tbody v-else>
                     <tr>
                         <td colspan="4">Chargement...</td>
                     </tr>
                 </tbody>
             </table>
+            <div class="pagination">
+                <button @click="prevPage" :disabled="currentPages===1" class="precedent">Precedent</button>     
+                <button @click="nextPage" :disabled="currentPages===totalPages" class="suivant">Suivant</button>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -59,6 +67,9 @@ export default {
             service:[],
             services:'',
             inputSearch:'',
+            currentPages:1,
+            totalPages:1,
+            pageSize:5
         }
     },
    
@@ -87,14 +98,33 @@ export default {
         },
         getService(){
             axios
-            .get('http://127.0.0.1:8000/api/service')
+            .get(`http://127.0.0.1:8000/api/service?page=${this.currentPages}&size=${this.pageSize}`)
             .then((res)=>{
-                this.$store.state.service=res.data
-                this.service=res.data
+                if(res.status===200){
+                    // this.$store.state.service=res.data
+                this.service=res.data.data
+                this.totalPages=res.data
+                }else{
+                    console.error(`Request failed with status ${res.status}`);
+                }
+                
             })
             .catch((error)=>{
-                console.log(error.response.data.message)
+                console.log(error)
             })
+        },
+        prevPage(){
+            if(this.currentPages > 1){
+                this.currentPages--;
+                this.getService();
+            }
+        },
+        nextPage(){
+            // if(this.currentPages < this.totalPages){
+                // console.log(this.currentPages)
+                this.currentPages++;
+                this.getService();
+            // }
         },
         close(){
             this.dialog=false
@@ -109,7 +139,7 @@ export default {
     },
     computed:{
         service(){
-            return this.$store.state.service.filter(ser=>{
+            return this.service.filter(ser=>{
                 return(ser.nom_service.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1)
             })
         }
@@ -207,5 +237,30 @@ table td .modify i{
 table td .delete i{
     color:red;
     cursor:pointer;
+}
+.pagination{
+    display:flex;
+    justify-content: space-between;
+    margin-top:10px;
+}
+.precedent{
+    padding:0.2rem 1rem;
+    font-size:1rem;
+    color:#fff;
+    background:#416991;
+    border:none;
+    border-radius:5px;
+}
+.precedent:disabled{
+    color:#7e7c7c;
+    background:#5d6e80;
+}
+.suivant{
+    padding:0.2rem 1rem;
+    font-size:1rem;
+    color:#fff;
+    background:#416991;
+    border:none;
+    border-radius:5px;
 }
 </style>

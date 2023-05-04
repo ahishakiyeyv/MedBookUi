@@ -30,7 +30,7 @@
                     <tr v-for="te in test" :key="te.id">
                         <td>{{te.id}}</td>
                         <td>{{te.nom_test}}</td>
-                        <td>{{te.prix_test}}Fbu</td>
+                        <td>{{te.prix_test}} Fbu</td>
                         <td>{{te.description}}</td>
                         <td><a @click="edit_test(te)" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a @click='confirmDelete(te)' class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
@@ -42,6 +42,10 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="pagination">
+                <button @click="prevPage" :disabled="currentPages===1" class="precedent">Precedent</button>     
+                <button @click="nextPage" :disabled="currentPages===totalPages" class="suivant">Suivant</button>
+            </div>
         </div>
     </div>
 </template>
@@ -58,13 +62,25 @@ export default {
             modale:false,
             test:[],
             tests:'',
-            inputSearch:''
+            inputSearch:'',
+            currentPages:1,
+            totalPages:1,
+            pageSize:5
         }
     },
     components:{
         Dashboard,
         Modal,
         ModaleDelete
+    },
+      computed:{
+        test(){
+            return this.test.filter(te=>{
+                return(te.nom_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+                te.prix_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+                )
+            })
+        }
     },
     methods:{
         edit_test(id){
@@ -86,15 +102,26 @@ export default {
         },
         getTest(){
             axios
-            .get('http://127.0.0.1:8000/api/test')
+            .get(`http://127.0.0.1:8000/api/test?page=${this.currentPages}&size=${this.pageSize}`)
             .then((res)=>{
-                this.$store.state.test=res.data
-                this.test=res.data
+                // this.$store.state.test=res.data
+                this.test=res.data.data
+                this.totalPages=res.data
             })
             .catch((error)=>{
-                console.log(error.response.data.message)
+                console.log(error)
             })
 
+        },
+        prevPage(){
+            if(this.currentPages > 1){
+                this.currentPages--;
+                this.getTest();
+            }
+        },
+        nextPage(){
+            this.currentPages++;
+            this.getTest()
         },
         close(){
             this.modale=false
@@ -104,15 +131,7 @@ export default {
     mounted(){
         this.getTest()
     },
-    computed:{
-        test(){
-            return this.$store.state.test.filter(te=>{
-                return(te.nom_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
-                te.prix_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
-                )
-            })
-        }
-    }
+  
 }
 </script>
 <style scoped>
@@ -205,5 +224,31 @@ table td .modify i{
 table td .delete i{
     color:red;
     cursor: pointer;
+}
+.pagination{
+    display:flex;
+    justify-content: space-between;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+.precedent{
+    padding:0.2rem 1rem;
+    font-size:1rem;
+    color:#fff;
+    background:#416991;
+    border:none;
+    border-radius:5px;
+}
+.precedent:disabled{
+    color:#7e7c7c;
+    background:#5d6e80;
+}
+.suivant{
+    padding:0.2rem 1rem;
+    font-size:1rem;
+    color:#fff;
+    background:#416991;
+    border:none;
+    border-radius:5px;
 }
 </style>
