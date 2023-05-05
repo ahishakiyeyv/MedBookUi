@@ -8,7 +8,7 @@ export default createStore({
     appointment:[],
     test:[],
     tests:{},
-    service:[],
+    service:[], 
     services:{}
   },
   getters: {
@@ -29,7 +29,9 @@ export default createStore({
     logout(state){
       state.user='';
       localStorage.removeItem('user');
-      window.location.href="#/login"
+      // this.$router.push('#/login')
+     // window.location.href="#/login"
+      // window.location.reload()
     },
     initializeStore(state){
       const storedUser=localStorage.getItem('user')

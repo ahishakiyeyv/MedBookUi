@@ -93,6 +93,7 @@ export default {
     display:flex;
     align-items:center;
     justify-content:center;
+    z-index:1000;
 }
 .overlay{
     background:rgba(0,0,0,0.5);

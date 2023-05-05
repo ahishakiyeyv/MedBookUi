@@ -10,6 +10,9 @@ export default {
   components:{
     Menu,
     MenuLog
+  },
+  mounted(){
+    this.$store.commit("initializeStore")
   }
   
 }

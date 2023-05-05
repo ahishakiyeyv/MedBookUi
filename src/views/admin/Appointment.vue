@@ -86,7 +86,7 @@ export default {
    },
    computed:{
     appointment(){
-        return this.$store.state.appointment.filter(app=>{
+        return this.appointment.filter(app=>{
             return(app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
             app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
             app.service.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1

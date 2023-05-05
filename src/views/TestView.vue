@@ -30,7 +30,7 @@
                 <tr v-for="tes in test" :key="tes.id">
                     <td>{{tes.id}}</td>
                     <td>{{tes.nom_test}}</td>
-                    <td>{{tes.prix_test}}</td>
+                    <td>{{tes.prix_test}} Fbu</td>
                     <td>{{tes.description}}</td>
                     </tr>
                
@@ -41,6 +41,10 @@
                 </tr>
             </tbody>
         </table>
+        <div class="pagination">
+                <button @click="prevPage" :disabled="currentPages===1" class="precedent">Precedent</button>     
+                <button @click="nextPage" :disabled="currentPages===totalPages" class="suivant">Suivant</button>
+            </div>
     </div>
 </section>
 </template>
@@ -53,7 +57,10 @@ export default {
    data(){
         return{
             test:[],
-            inputSearch:''
+            inputSearch:'',
+            currentPages:1,
+            totalPages:1,
+            pageSize:5
         }
    },
    components:{
@@ -63,22 +70,33 @@ export default {
    methods:{
     getTest(){
         axios
-        .get('http://127.0.0.1:8000/api/test')
-        .then((res)=>{
-            this.$store.state.test = res.data
-            this.test=res.data
-        })
-        .catch((error)=>{
-            console.log(error.response.data.message)
-        })
-    }
+            .get(`http://127.0.0.1:8000/api/test?page=${this.currentPages}&size=${this.pageSize}`)
+            .then((res)=>{
+                // this.$store.state.test=res.data
+                this.test=res.data.data
+                this.totalPages=res.data
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+    },
+     prevPage(){
+            if(this.currentPages > 1){
+                this.currentPages--;
+                this.getTest();
+            }
+        },
+        nextPage(){
+            this.currentPages++;
+            this.getTest()
+        }
    },
    mounted(){
     this.getTest()
    },
    computed:{
     test(){
-        return this.$store.state.test.filter(tes=>{
+        return this.test.filter(tes=>{
             return(tes.nom_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
             tes.prix_test.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
             )
@@ -165,6 +183,33 @@ table tbody td{
     color:#7e7c7c;
     text-align:center;
 }
-
+.pagination{
+    display:flex;
+    justify-content: space-between;
+    margin-top:10px;
+    margin-bottom:50px;
+}
+.precedent{
+    padding:0.2rem 1rem;
+    font-size:1rem;
+    color:#fff;
+    background:#416991;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+.precedent:disabled{
+    color:#7e7c7c;
+    background:#5d6e80;
+}
+.suivant{
+    padding:0.2rem 1rem;
+    font-size:1rem;
+    color:#fff;
+    background:#416991;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
 
 </style>

@@ -37,6 +37,7 @@
                         
                     </div>
                     <div class="message">Message: <span>{{appointment.remarque}}</span></div>
+                    <div class="utilisateur">fait par:{{appointment.user_id}}</div>
                 </div>
                 <!-- <h2>Status: 
                             <select name="" v-model="form.status">

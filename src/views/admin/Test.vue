@@ -149,7 +149,7 @@ export default {
     min-height: calc(100vh - 60px);
     left: 260px;
     background: #f5f5f5;
-    z-index:1000;
+    
 }
 .label-top{
     margin-top:1.5rem;
