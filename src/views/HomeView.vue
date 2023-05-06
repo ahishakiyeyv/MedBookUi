@@ -71,7 +71,7 @@
   <div class="grid-box">
     <div class="grid">
       <h2 class="title-service">Cardiologie</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">La cardiologie est la branche de la médecine qui se concentre sur l'étude, le diagnostic et le traitement des maladies du cœur et du système cardiovasculaire, tels que les maladies coronariennes, l'insuffisance cardiaque et les arythmies.</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Pediatrie</h2>
