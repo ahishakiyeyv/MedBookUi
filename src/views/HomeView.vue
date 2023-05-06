@@ -79,7 +79,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Gyneco-Obstretique</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">La gynécologie-obstétrique est une spécialité médicale qui s'occupe des problèmes liés à la santé reproductive féminine, notamment la grossesse, l'accouchement, les troubles menstruels, les infections gynécologiques et les cancers féminins.</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Medecine Interne</h2>
