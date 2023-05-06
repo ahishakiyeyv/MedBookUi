@@ -91,7 +91,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Urgence</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">Une urgence médicale est une situation où une personne nécessite des soins médicaux immédiats pour préserver sa vie ou sa santé. Cela peut inclure des accidents, des crises cardiaques, des AVC, etc...</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Laboratoire</h2>
