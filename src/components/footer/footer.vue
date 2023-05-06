@@ -2,7 +2,7 @@
     <footer>
         <div class="box1">
             <img src="@/assets/images/logo.png" alt="..." class="icon-logo">
-            <p class="txt-para">Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
+            <p class="txt-para">Polyclinique Saint Joseph vous souhaitent le Bienvenu  </p>
         </div>
         <div class="box2">
             <h2 class="footer-title">Information</h2>

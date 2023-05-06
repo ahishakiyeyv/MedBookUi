@@ -23,7 +23,7 @@
                         <option value="homme">Homme</option>
                         <option value="femme">Femme</option>
                     </select>
-                    <input type="text" v-model="appointment.age" placeholder="Votre Age..." required>
+                    <input type="text" v-model="appointment.age" placeholder="Année Naissance..." required>
                     <input type="date" v-model="appointment.date_arrive" placeholder="Date..." :min="minDate" required> 
                     <select v-model="appointment.service" class="selected">
                         <option value="">--Service Souhaitée--</option>
