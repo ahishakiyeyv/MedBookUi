@@ -83,7 +83,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Medecine Interne</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">La médecine interne est une spécialité médicale qui se concentre sur la prévention, le diagnostic et le traitement des maladies complexes et systémiques chez les adultes.</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Medecine Generale</h2>
