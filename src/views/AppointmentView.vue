@@ -33,7 +33,6 @@
             
                 <thead>
                     <tr>
-                    <th>#</th>
                     <th>Numero</th>
                     <th>Nom</th>
                     <th>Date</th>
@@ -47,7 +46,6 @@
                     <!-- {{ this.$store.state.user.user.id }} -->
                     <div v-if="this.$store.state.user.user.id==app.user_id">
                         
-                        <td>{{app.id}}</td>
                         <td>{{app.numero_ordre}}-0{{app.id}}</td>
                         <td>{{app.nom}}</td>
                         <td>{{app.date_arrive}}</td>

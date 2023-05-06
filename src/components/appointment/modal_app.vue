@@ -11,9 +11,9 @@
             <form>
             <div class="container">
                 <div class="content1">
-                    <input type="hidden" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
-                    <input type="text" v-model="appointment.nom" placeholder="Nom..." required>
-                    <input type="text" v-model="appointment.prenom" placeholder="Prenom..." required>
+                    <input type="text" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
+                    <input type="text" v-model="appointment.nom" placeholder="Nom..." readonly>
+                    <input type="text" v-model="appointment.prenom" placeholder="Prenom..." readonly>
                     <input type="text" v-model="appointment.age" placeholder="Age..." required>
                     
                 </div>
@@ -55,13 +55,14 @@ export default {
         return{
             appointment:{
                 numero_ordre:'PSJ-2023',
-                nom:'',
-                prenom:'',
+                nom:this.$store.state.user.user.nom_patient,
+                prenom:this.$store.state.user.user.prenom_patient,
                 age:'',
                 sexe:'',
                 adresse:'',
                 date_arrive:null,
                 service:'',
+                user_id:this.$store.state.user.user.id
                 
             },
             minDate:today.toISOString().substr(0,10),
@@ -84,6 +85,7 @@ export default {
                     adresse:'',
                     date_arrive:'',
                     service:'',
+                    user_id:this.$store.state.user.user.id
                 }
             })
             },
