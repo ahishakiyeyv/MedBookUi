@@ -75,7 +75,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Pediatrie</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">La pédiatrie est une spécialité médicale qui se concentre sur la santé des nourrissons, des enfants et des adolescents. Elle traite les maladies et les troubles du développement, et promeut la santé et le bien-être des jeunes patients.</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Gyneco-Obstretique</h2>
