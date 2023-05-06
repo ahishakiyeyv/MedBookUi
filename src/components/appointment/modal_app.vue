@@ -11,22 +11,22 @@
             <form>
             <div class="container">
                 <div class="content1">
-                    <input type="text" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
-                    <input type="text" v-model="appointment.nom" placeholder="Nom..." readonly>
-                    <input type="text" v-model="appointment.prenom" placeholder="Prenom..." readonly>
-                    <input type="text" v-model="appointment.age" placeholder="Age..." required>
+                    <input type="hidden" v-model="appointment.numero_ordre" placeholder="Numero" readonly>
+                    <input type="hidden" v-model="appointment.nom" placeholder="Nom..." readonly>
+                    <input type="hidden" v-model="appointment.prenom" placeholder="Prenom..." readonly>
+                    <input type="hidden" v-model="appointment.adresse" placeholder="Adresse..." readonly>
                     
                 </div>
                 <div class="content2">
                     <select v-model="appointment.sexe" class="selected">
-                        <option value="">--Sexe--</option>
+                        <option value="">--Votre Sexe--</option>
                         <option value="homme">Homme</option>
                         <option value="femme">Femme</option>
                     </select>
-                    <input type="text" v-model="appointment.adresse" placeholder="Adresse..." required>
+                    <input type="text" v-model="appointment.age" placeholder="Votre Age..." required>
                     <input type="date" v-model="appointment.date_arrive" placeholder="Date..." :min="minDate" required> 
                     <select v-model="appointment.service" class="selected">
-                        <option value="">--Service--</option>
+                        <option value="">--Service Souhaitée--</option>
                         <option value="cardiologie">Cardiologie</option>
                         <option value="pediatrie">Pediatrie</option>
                         <option value="gynecologie">Gynecologie</option>
@@ -59,7 +59,7 @@ export default {
                 prenom:this.$store.state.user.user.prenom_patient,
                 age:'',
                 sexe:'',
-                adresse:'',
+                adresse:this.$store.state.user.user.adresse,
                 date_arrive:null,
                 service:'',
                 user_id:this.$store.state.user.user.id
@@ -112,7 +112,7 @@ export default {
     display:flex;
     justify-content:center;
     align-items:center;
-    z-index:1000;
+    
 }
 .overlay{
     background:rgba(0,0,0,0.5);
@@ -122,18 +122,18 @@ export default {
     right:0;
     left:0;
     bottom:0;
-
+z-index:999;
 }
 .modale{
     background:#f1f1f1;
     color:#333;
     position:fixed;
-    left:15%;
+    left:40%;
     top:10%;
-    z-index:1000;
-    width:900px;
+    width:400px;
     height:500px;
     border-radius:5px;
+    z-index:1000;
 }
 .title{
     position:absolute;
@@ -167,7 +167,7 @@ export default {
     margin:15px;
     height:40px;
     font-size:1rem;
-    color:#416991;
+    color:green;
     letter-spacing: 1px;
     outline:none;
     border:none;
@@ -179,7 +179,7 @@ export default {
     flex-direction:column;
 }
 .content2 input{
-    width:300px;
+    width:350px;
     margin:15px;
     height:40px;
     font-size:1rem;
@@ -191,7 +191,7 @@ export default {
     background:transparent; 
 }
 .content2 select{
-    width:300px;
+    width:350px;
     margin:15px;
     height:40px;
     font-size:1rem;

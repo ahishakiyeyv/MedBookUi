@@ -14,8 +14,8 @@
     <section>
         
     <div class="top_row">
-         <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
-          <ModalDetails v-bind:details="details" v-bind:toggleModaleDetails="toggleModaleDetails" @getAppointment="getAppointment" @close="close" ></ModalDetails>
+         
+         
         <div class="search">
             <input type="text" class="search-input" placeholder="Search..." v-model="inputSearch">
         </div>
@@ -27,10 +27,10 @@
         </div>
         
     </div>
-     
+     <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal>
+      <ModalDetails v-bind:details="details" v-bind:toggleModaleDetails="toggleModaleDetails" @getAppointment="getAppointment" @close="close" ></ModalDetails>
     <div class="table">
         <table>
-            
                 <thead>
                     <tr>
                     <th>Numero</th>
@@ -38,13 +38,14 @@
                     <th>Date</th>
                     <th>Service</th>
                     <th>Status</th>
-                    <th colspan="3">Action</th>
+                    <th colspan="1">Action</th>
+                   
                  </tr>
                 </thead>
             <tbody v-if="appointment.length > 0">
-                <tr v-for="app in appointment" :key="app.id">
+                <tr v-for="app in filteredAppointment" :key="app.id">
                     <!-- {{ this.$store.state.user.user.id }} -->
-                    <div v-if="this.$store.state.user.user.id==app.user_id">
+                    <!-- <div v-if="this.$store.state.user.user.id==app.user_id"> -->
                         
                         <td>{{app.numero_ordre}}-0{{app.id}}</td>
                         <td>{{app.nom}}</td>
@@ -57,12 +58,10 @@
                     
                         <!-- <ModalDetails v-bind:details="details" @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails> -->
                         <td><button   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
-                        <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                        <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-                    </div>
-                </tr>
-             
-                
+                        <!-- <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                        <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td> -->
+                    <!-- </div> -->
+                </tr>   
             </tbody>
             <tbody v-else>
                 <tr>
@@ -126,16 +125,21 @@ export default {
         close(){
             this.details=false
         },
-//         computed: {
-//             appointment() {
-//                return this.$store.state.appointment.filter(app => {
-//                return (
-//                   app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
-//                   app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
-//             )
-//         })
-//     }
-// }
+        computed: {
+    //         appointment() {
+    //            return this.$store.state.appointment.filter(app => {
+    //          return(app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+    //         app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+    //         app.service.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1
+    //         )
+    //     })
+    // },
+    filteredAppointment(){
+        return this.appointment.filter((app)=>{
+            return this.$store.state.user.user.id===app.user_id
+        })
+    }
+}
 
     // computed:{
     //     appointment(){

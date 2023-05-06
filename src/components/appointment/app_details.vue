@@ -16,7 +16,7 @@
                     <h2>Age: <span>{{$store.state.appointment.age}}</span></h2>
                 </div>
                 <div class="body2">
-                    <h2>Adresse: <span>{{$store.state.appointment.sexe}}</span></h2>
+                    <h2>Sexe: <span>{{$store.state.appointment.sexe}}</span></h2>
                     <h2>Date: <span>{{$store.state.appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{$store.state.appointment.service}}</span></h2>
                     <!-- <h2>Status: <span v-if="status==='1'">Accepté</span> <span v-else-if="status==='2'">En Attente</span> <span v-else-if="status==='0'">Refuser</span></h2> -->
@@ -81,6 +81,7 @@ export default {
 }
 .overlay{
     background:rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
     position:fixed;
     right:0;
     top:0;
@@ -94,7 +95,7 @@ export default {
     width:900px;
     height:530px;
     z-index: 1000;
-    top:14%;
+    top:10%;
     border-radius:5px;
 }
 .title{

@@ -5,7 +5,7 @@
 </head>
      <header class="navbar"> 
           <div class="logo">
-               <a href="#" class="icon">LOGO</a>
+                <a href="#" class="icon"><span>Med</span>Book</a>
           </div>
           <div class="menu">
                <ul>
@@ -29,7 +29,7 @@ export default {
         logout(){
             localStorage.removeItem('user')
             this.$router.push('/')
-            
+            window.location.reload()
         }
     }
 }
