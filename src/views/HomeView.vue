@@ -99,7 +99,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Pharmacie</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">La pharmacie est une discipline de la santé qui se concentre sur la préparation, la dispensation et l'utilisation des médicaments pour traiter les maladies et les troubles de santé.</p>
     </div>
   </div>
 </section>
