@@ -95,7 +95,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Laboratoire</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">Un laboratoire médical est un endroit où des professionnels de la santé effectuent des analyses et des tests sur des échantillons biologiques tels que le sang, l'urine, les selles, les tissus et autres fluides corporels pour aider au diagnostic et au traitement.</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Pharmacie</h2>
