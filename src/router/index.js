@@ -13,7 +13,7 @@ import Service from '../views/admin/Service.vue'
 import Patient from '../views/admin/Patient.vue'
 import AppointmentDetails from '../views/admin/AppointmentDetails.vue'
 import store from '../store'
-import {IS_USER_AUTHENTICATE_GETTER} from '../store'
+// import {IS_USER_AUTHENTICATE_GETTER} from '../store'
 
 const routes = [
   {
@@ -40,16 +40,17 @@ const router = createRouter({
   routes
 });
 
-// router.beforeEach((to, from, next)=>{
-//   if(to.meta.auth ){
-//     next('/login')
-//   }else if(!to.meta.auth){
-//     next({
-//       path:'/appointment',
-//       query:{redirect:to.fullPath}
-//     })
-//   }else{
-//     next()
-//   }
-// })
+router.beforeEach((to, from, next)=>{
+  const auth=to.matched.some(record=>record.meta.auth)
+  if(auth && !store.state.user){
+    next('/login')
+  // }else if(!requireAuth && store.state.user.user){
+  //   next({
+  //     path:'/appointment',
+  //     query:{redirect:to.fullPath}
+  //   })
+  }else{
+    next()
+  }
+})
 export default router

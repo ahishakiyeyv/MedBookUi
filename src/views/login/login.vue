@@ -43,8 +43,9 @@ export default {
                 .then((response)=>{
                     if(response.data.success){
                         this.$store.commit("login",JSON.stringify(response.data.data))
-                        // window.location.href="/appointment"
+                        window.location.href="#/appointment"
                         alert('Good!')
+                        window.location.reload()
                     }
                     
                 })

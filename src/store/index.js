@@ -24,7 +24,7 @@ export default createStore({
     login(state,user){
       state.user=user;
       localStorage.setItem('user',state.user);
-      window.location.href="#/appointment"
+      // window.location.href="#/appointment"
     },
     logout(state){
       state.user='';
