@@ -87,7 +87,7 @@
     </div>
     <div class="grid">
       <h2 class="title-service">Medecine Generale</h2>
-      <p class="txt-service">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum saepe atque aliquam amet reiciendis sint, quasi libero minima a assumenda porro ut sequi corporis quam facere quae quis esse suscipit!</p>
+      <p class="txt-service">La médecine générale est une spécialité médicale centrée sur les soins primaires de santé, qui prend en charge les patients de tous âges et traite une large gamme de maladies, en utilisant une approche holistique pour promouvoir la santé à long terme.</p>
     </div>
     <div class="grid">
       <h2 class="title-service">Urgence</h2>
