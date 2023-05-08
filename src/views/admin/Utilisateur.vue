@@ -17,25 +17,26 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Matricule</th>
                         <th>Nom</th>
-                        <th>Prenom</th>
                         <th>Email</th>
                         <th>Telephone</th>
-                        <th>Adresse</th>
+                        <th>Specialite</th>
                         
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>nom</td>
-                         <td>prenom</td>
-                        <td>email@gmail.com</td>
-                        <td>76725251</td>
-                        <td>buja</td>
+                <tbody v-if="infirmiers.length > 0">
+                    <tr v-for="inf in infirmiers" :key="inf.id">
+                        <td>{{inf.id}}</td>
+                        <td>{{inf.matricule}}</td>
+                        <td>{{inf.nom_inf}}</td>
+                        <td>{{inf.email}}</td>
+                        <td>{{inf.telephone}}</td>
+                        <td>{{inf.specialite}}</td>
+                        
                     </tr>
                 </tbody>
-                <tbody>
+                <tbody v-else>
                     <tr>
                         <td colspan="6">Chargement...</td>
                     </tr>
@@ -49,9 +50,31 @@ import axios from 'axios'
 import Dashboard from '@/components/Dashboard.vue'
 export default {
     name:'Utilisateur',
+    data(){
+        return{
+            infirmiers:[]
+        }
+    },
     components:{
         Dashboard
+    },
+    methods:{
+        getUtilisateur(){
+            axios
+            .get('http://127.0.0.1:8000/api/infirmier')
+            .then(res=>{
+                this.$store.state.infirmiers=res.data
+                this.infirmiers=res.data
+            })
+            .catch(error=>{
+                console.log(error.response.data.message)
+            })
+        }
+    },
+    mounted(){
+        this.getUtilisateur()
     }
+
    
 }
 </script>
