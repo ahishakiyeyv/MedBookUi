@@ -12,6 +12,7 @@ import Test from '../views/admin/Test.vue'
 import Service from '../views/admin/Service.vue'
 import Patient from '../views/admin/Patient.vue'
 import AppointmentDetails from '../views/admin/AppointmentDetails.vue'
+import Utilisateur from '../views/admin/Utilisateur.vue'
 import store from '../store'
 // import {IS_USER_AUTHENTICATE_GETTER} from '../store'
 
@@ -33,6 +34,7 @@ const routes = [
   { path: '/service',name: 'service',component: Service},
   { path: '/patient',name: 'patient',component: Patient},
   { path: '/AppointmentDetails/:id',name: 'AppointmentDetails',component: AppointmentDetails},
+  { path: '/utilisateur',name: 'utilisateur',component: Utilisateur},
 ]
 
 const router = createRouter({

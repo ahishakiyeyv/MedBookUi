@@ -53,11 +53,11 @@
                     </router-link>
                 </li>
                 <li>
-                    <a href="#" class="a">
+                    <router-link to="/utilisateur" class="a">
                        
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <div>Utilisateur</div>
-                    </a>
+                    </router-link>
                 </li>
                
             </ul>
