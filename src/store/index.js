@@ -9,7 +9,9 @@ export default createStore({
     test:[],
     tests:{},
     service:[], 
-    services:{}
+    services:{},
+    infirmier:null,
+    infirmiers:[]
   },
   getters: {
     user : state=>{
@@ -18,7 +20,16 @@ export default createStore({
       }
       return state.user
     },
-    token : (_state, getters)=>getters?.users?.token
+    token : (_state, getters)=>getters?.users?.token,
+
+
+    infirmier: state=>{
+      if(state.infirmier === null){
+        return JSON.parse(localStorage.getItem('infirmier'))
+      }
+      return state.infirmier
+    },
+    token:(_state,getters)=>getters?.infirmiers?.token
   },
   mutations: {
     login(state,user){
@@ -26,12 +37,20 @@ export default createStore({
       localStorage.setItem('user',state.user);
       // window.location.href="#/appointment"
     },
+    login_inf(state,infirmier){
+      state.infirmier=infirmier;
+      localStorage.setItem('infirmier',state.infirmier);
+    },
     logout(state){
       state.user='';
       localStorage.removeItem('user');
       // this.$router.push('#/login')
      // window.location.href="#/login"
       // window.location.reload()
+    },
+    logout_inf(state){
+      state.infirmier='';
+      localStorage.removeItem('infirmier');
     },
     initializeStore(state){
       const storedUser=localStorage.getItem('user')

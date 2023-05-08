@@ -5,38 +5,38 @@
     <div class="wrapper">
        <section class="form signup">
            <header>Creez Un Compte</header>
-           <form  method="POST">
+           <form>
                <div class="error-txt"></div>
               
                <div class="name-details">
                    <div class="field input">
                         <label>Nom</label>
-                        <input type="text"  name="fname" placeholder="Nom..." required>
+                        <input type="text"  v-model="admin.nom_inf" placeholder="Nom..." required>
                    </div>
                    <div class="field input">
                         <label>Prenom</label>
-                        <input type="text" name="lname" placeholder="Prenom..." required>
+                        <input type="text" v-model="admin.prenom_inf" placeholder="Prenom..." required>
                    </div>
                </div>
                <div class="name-details">
                     <div class="field input">
                         <label>Email</label>
-                        <input type="text" name="email" placeholder="Email..." required>
+                        <input type="text" v-model="admin.email" placeholder="Email..." required>
                    </div>
                    <div class="field input">
                         <label>Telephone</label>
-                        <input type="text" name="email" placeholder="Telephone..." required>
+                        <input type="text" v-model="admin.telephone" placeholder="Telephone..." required>
                    </div>
                </div>
                    <div class="name-details">
                      <div class="field input">
                         <label>Matricule</label>
-                        <input type="text" name="email" placeholder="Matricule..." required>
+                        <input type="text" v-model="admin.matricule" placeholder="Matricule..." required>
                    </div>
                        
                      <div class="field input">
                          <label>Specialité</label>
-                        <select>
+                        <select v-model="admin.specialite">
                             <option value="">--Specialite--</option>
                             <option value="cardiologie">Cardiologie</option>
                             <option value="pediatrie">Pediatrie</option>
@@ -49,7 +49,7 @@
                    </div>
                    <div class="field input">
                          <label>Sexe</label>
-                        <select>
+                        <select v-model="admin.sexe">
                             <option value="">--Sexe--</option>
                             <option value="homme">Homme</option>
                             <option value="femme">Femme</option>
@@ -58,19 +58,60 @@
                    
                    <div class="field input">
                         <label>Mot de Passe</label>
-                        <input type="password" name="motdepasse" placeholder="Mot de Passe..." required>
+                        <input type="password" v-model="admin.password" placeholder="Mot de Passe..." required>
                    </div>
                    <div class="field button">
-                       <button>Creer un Compte</button>
+                       <button @click="login()">Creer un Compte</button>
                    </div>
            </form>
            <div class="link">Vous avez déjà un compte? <router-link to="/admin" class="a">se connecter</router-link></div>
        </section>
     </div>
+    <!-- <pre>
+                        {{ JSON.stringify(admin,null,2) }}
+                    </pre> -->
     
 </template>
 <script>
+import axios from 'axios'
 export default {
+    name:'signup',
+    data(){
+        return{
+            admin:{
+                matricule:'',
+                nom_inf:'',
+                prenom_inf:'',
+                email:'',
+                telephone:'',
+                specialite:'',
+                sexe:'',
+                password:'',
+                status:0
+            }
+        }
+    },
+    methods:{
+        login(){
+            axios
+            .post('http://127.0.0.1:8000/api/register_inf', this.admin)
+            .then(res=>{
+                alert(res.data.message);
+                 this.admin={
+                matricule:'',
+                nom_inf:'',
+                prenom_inf:'',
+                email:'',
+                telephone:'',
+                specialite:'',
+                sexe:'',
+                password:'',
+                status:0
+            }
+            })
+        }
+    }
+
    
 }
 </script>
