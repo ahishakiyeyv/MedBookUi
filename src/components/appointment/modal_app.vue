@@ -18,15 +18,19 @@
                     
                 </div>
                 <div class="content2">
+                    <label>Votre Sexe:</label>
                     <select v-model="appointment.sexe" class="selected">
-                        <option value="">--Votre Sexe--</option>
+                        <option value="">--Selectionner--</option>
                         <option value="homme">Homme</option>
                         <option value="femme">Femme</option>
                     </select>
-                    <input type="text" v-model="appointment.age" placeholder="Année Naissance..." required>
+                    <label>Année de Naissance:</label>
+                    <input type="text" v-model="appointment.age" placeholder="Année..." required>
+                    <label>Date:</label>
                     <input type="date" v-model="appointment.date_arrive" placeholder="Date..." :min="minDate" required> 
+                    <label>Service Souhaitée:</label>
                     <select v-model="appointment.service" class="selected">
-                        <option value="">--Service Souhaitée--</option>
+                        <option value="">--Serlectionner--</option>
                         <option value="cardiologie">Cardiologie</option>
                         <option value="pediatrie">Pediatrie</option>
                         <option value="gynecologie">Gynecologie</option>
@@ -165,7 +169,7 @@ z-index:999;
 .content1 input{
     width:300px;
     margin:15px;
-    height:40px;
+    height:20px;
     font-size:1rem;
     color:green;
     letter-spacing: 1px;
@@ -178,28 +182,26 @@ z-index:999;
     display:flex;
     flex-direction:column;
 }
+
 .content2 input{
     width:350px;
-    margin:15px;
-    height:40px;
+    height:20px;
     font-size:1rem;
     color:#416991;
     letter-spacing: 1px;
     outline:none;
-    border:none;
-    border-bottom:2px solid #416991;
+    border:1px solid #416991;
+    
     background:transparent; 
 }
 .content2 select{
     width:350px;
-    margin:15px;
-    height:40px;
+    height:20px;
     font-size:1rem;
     outline:none;
     color:#416991;
     letter-spacing: 1px;
-    border:none;
-    border-bottom:2px solid #416991;
+    border:1px solid #416991;
     background:transparent;
 }
 ::placeholder{

@@ -84,7 +84,7 @@ export default {
     data(){
         return{
             appointment:[],
-            dialog:false,
+            dialog:true,
             details:false,
             inputSearch:''
         }
