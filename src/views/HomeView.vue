@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-<section class="container1">
+<section id="container1">
   <div class="content1">
     <h1 class="title_principal">Trouvez le medecin et Prendre un Rendez-vous</h1>
     <p class="txt">Sélectionner un médecin préféré et un créneau horaire pour prendre rendez-vous</p>
@@ -22,7 +22,7 @@
     <img src="../assets/images/1.png" alt="..." class="img_1">
   </div>
 </section>
-<section class="container2">
+<div id="container2">
   <div class="box">
     <h2 class="title1">Etape facile pour avoir une solution</h2>
     <div class="boxes">
@@ -65,8 +65,8 @@
   </div>
   
   
-</section>
-<section class="container3">
+</div>
+<section id="container3">
   <h2 class="title2">Services</h2>
   <div class="grid-box">
     <div class="grid">
@@ -103,7 +103,7 @@
     </div>
   </div>
 </section>
-<section class="container4">
+<section id="container4">
   <h2 class="title2">Nos Docteurs</h2>
   <div class="grid-container">
     <div class="sub-contain">
@@ -145,7 +145,7 @@
     </div>
   </div>
 </section>
-<section class="container5">
+<section id="container5">
   <div class="news-box">
     <div class="txt-news">
       <h1 class="title0">Des services de santé ou des conseils pour une vie saine, vous pouvez trouver ici</h1>
@@ -191,9 +191,10 @@ export default {
      margin:0;
      box-sizing: border-box;
      font-family: 'Poppins', sans-serif;
+     scroll-behavior: smooth;
 }
 
-.container1{
+#container1{
   display:flex;
   align-items:center;
   justify-content:center;
@@ -228,7 +229,7 @@ export default {
   color:#fff;
 }
 /* ==============================section 2====================== */
-.container2{  
+#container2{  
   padding:4rem 1rem;
   width:100%;
 }
@@ -324,7 +325,7 @@ export default {
 }
 
 /* =========================================service==================================== */
-.container3{
+#container3{
   width:100%;
 }
 .grid-box{
@@ -357,7 +358,7 @@ margin-bottom:50px;
   text-align: justify;
 }
 /* =========================================doctors=============================== */
-.container4{
+#container4{
   width:100%;
 }
 .grid-container{
@@ -399,7 +400,7 @@ font-size:1.2rem;
   font-weight:600;
 }
 /* =====================================newsletter============================== */
-.container5{
+#container5{
   width:100%;
 }
 .news-box{

@@ -6,9 +6,9 @@
           <div class="menu">
                <ul>
                     <li><router-link to="/" class="menu-link">Accueil</router-link></li>
-                    <li><a href="#" class="menu-link">A Propos</a></li>
-                    <li><a href="#" class="menu-link">Service</a></li>
-                    <li><a href="#" class="menu-link">Medecin</a></li>
+                    <li><a href="#container2" @click="scrollTo('container2')"  class="menu-link">A Propos</a></li>
+                    <li><a href="#container3" @click="scrollTo('container3')" class="menu-link">Service</a></li>
+                    <li><a href="#controller4" @click="scrollTo('container4')" class="menu-link">Medecin</a></li>
                     <li><router-link to="/test" class="menu-link">Test</router-link></li>
                     <li><router-link to="/login"  class="btn">Login</router-link></li>
                     <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
@@ -18,6 +18,13 @@
 </template>
 <script>
 export default {
+     name:'menu',
+     methods:{
+          scrollTo(id){
+               const el = document.getElementById(id);
+               el.scrollIntoView({behavior:'smooth'});
+          }
+     }
      
 
 }
@@ -29,6 +36,7 @@ export default {
      margin:0;
      box-sizing: border-box;
      font-family: 'Poppins', sans-serif;
+     scroll-behavior: smooth;
 }
 .navbar{
      display:flex;

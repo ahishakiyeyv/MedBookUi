@@ -230,4 +230,7 @@ z-index:999;
     margin-top:20px;
     cursor: pointer;
 }
+.btn:disabled{
+    background:#7e7c7c;
+}
 </style>
