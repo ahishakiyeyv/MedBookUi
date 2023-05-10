@@ -144,13 +144,18 @@ export default {
         },
         AttenteCount(){
             axios
-            .get('')
+            .get('http://127.0.0.1:8000/api/count2')
+            .then(res=>{
+                this.$store.state.attente_count=res.data
+                this.allData=res.data
+            })
         }
     },
     mounted(){
         this.getAppointment();
         this.AccepterCount();
         this.RefuserCount();
+        this.AttenteCount();
     },
         close(){
             this.details=false
