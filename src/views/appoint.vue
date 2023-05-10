@@ -92,7 +92,8 @@ export default {
             appointment:[],
             dialog:false,
             details:false,
-            inputSearch:''
+            inputSearch:'',
+            allData:[]
         }
     },
     components:{
