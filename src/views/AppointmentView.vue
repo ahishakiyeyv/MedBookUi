@@ -13,10 +13,10 @@
 
     <section>
         <div class="tabs">
-            <router-link to="/appointment" class="tab-item selected" >Tous <span>{{this.$store.state.all_count}}</span></router-link>
-            <router-link to="/tab2" class="tab-item">En Attente <span>{{this.$store.state.attente_count}}</span></router-link>
-            <router-link to="/tab1" class="tab-item">Accepté <span>{{ this.$store.state.accepter_count }}</span></router-link>
-            <router-link to="/tab" class="tab-item">Refuser <span>{{this.$store.state.refuser_count}}</span></router-link>
+            <router-link to="/appointment" class="tab-item selected" >Tous (<span>{{this.$store.state.all_count}}</span>)</router-link>
+            <router-link to="/tab2" class="tab-item">En Attente (<span>{{this.$store.state.attente_count}}</span>)</router-link>
+            <router-link to="/tab1" class="tab-item">Accepté (<span>{{ this.$store.state.accepter_count }}</span>)</router-link>
+            <router-link to="/tab" class="tab-item">Refuser (<span>{{this.$store.state.refuser_count}}</span>)</router-link>
             
         </div>
         
@@ -234,16 +234,16 @@ section{
 }
 .tabs .tab-item.selected{
     border-bottom:2px solid #416991;
+    font-weight:bold;
+    color:#416991;
 }
 .tabs .tab-item span{
-    border:1px solid gray;
     height:20px;
     width:30px;
     padding:2px;
-    background:#f2f2f2;
-    color:#333;
+    color:#416991;
     font-weight:bold;
-    font-size:0.8rem;
+    font-size:1.3rem;
     border-radius:5px;
 }
 .search .search-input{

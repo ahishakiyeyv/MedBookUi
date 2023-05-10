@@ -67,6 +67,7 @@ export default {
                 date_arrive:null,
                 service:'',
                 status:2,
+                remarque:'Rendez vous en attente!',
                 user_id:this.$store.state.user.user.id
                 
             },
