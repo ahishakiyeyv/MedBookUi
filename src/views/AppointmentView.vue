@@ -13,8 +13,8 @@
 
     <section>
         <div class="tabs">
-            <router-link to="/appointment" class="tab-item selected" >Tous <span>34</span></router-link>
-            <router-link to="/tab2" class="tab-item">En Attente <span>10</span></router-link>
+            <router-link to="/appointment" class="tab-item selected" >Tous</router-link>
+            <router-link to="/tab2" class="tab-item">En Attente <span>{{this.$store.state.attente_count}}</span></router-link>
             <router-link to="/tab1" class="tab-item">Accepté <span>{{ this.$store.state.accepter_count }}</span></router-link>
             <router-link to="/tab" class="tab-item">Refuser <span>{{this.$store.state.refuser_count}}</span></router-link>
             
@@ -149,6 +149,14 @@ export default {
                 this.$store.state.attente_count=res.data
                 this.allData=res.data
             })
+        },
+        allCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/count')
+            .then(res=>{
+                this.$store.state.all_count=res.data
+                this.allData=res.data
+            })
         }
     },
     mounted(){
@@ -156,6 +164,7 @@ export default {
         this.AccepterCount();
         this.RefuserCount();
         this.AttenteCount();
+        this.allCount();
     },
         close(){
             this.details=false

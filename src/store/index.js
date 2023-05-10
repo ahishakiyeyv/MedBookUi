@@ -15,7 +15,8 @@ export default createStore({
     infirmiers:[],
     accepter_count:'',
     refuser_count:'',
-    attente_count:''
+    attente_count:'',
+    all_count:''
   },
   getters: {
     user : state=>{
