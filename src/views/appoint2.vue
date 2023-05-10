@@ -13,8 +13,8 @@
 
     <section>
         <div class="tabs">
-            <router-link to="/appointment" class="tab-item selected" >Tous <span>34</span></router-link>
-            <router-link to="/tab2" class="tab-item">En Attente <span>10</span></router-link>
+            <router-link to="/appointment" class="tab-item " >Tous <span>34</span></router-link>
+            <router-link to="/tab2" class="tab-item selected">En Attente <span>10</span></router-link>
             <router-link to="/tab1" class="tab-item">Accepté <span>14</span></router-link>
             <router-link to="/tab" class="tab-item">Refuser <span>10</span></router-link>
         </div>

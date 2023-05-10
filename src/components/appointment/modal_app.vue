@@ -66,6 +66,7 @@ export default {
                 adresse:this.$store.state.user.user.adresse,
                 date_arrive:null,
                 service:'',
+                status:2,
                 user_id:this.$store.state.user.user.id
                 
             },
