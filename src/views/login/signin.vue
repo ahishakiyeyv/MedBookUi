@@ -31,15 +31,24 @@
                    
                    <div class="field input">
                         <label>Email</label>
-                        <input type="text" v-model="form.email" placeholder="Email..." required>
+                        <input type="text" v-model="form.email" placeholder="Email..." @input="validateEmail" required>
+                        <span class="valide" v-if="isValid">Email est valide</span>
+                        <span class="invalide" v-else>Email est invalide</span>
                    </div>
                    <div class="field input">
                         <label>Mot de Passe</label>
-                        <input type="password" v-model="form.password" placeholder="Mot de Passe..." required>
+                        <input type="password" v-model="form.password" placeholder="Mot de Passe..." @input="validatePassword" required>
+                        <div v-if="!isPasswordValid">
+                        <p class="validation" v-if="form.password.length < 8">Le mot de passe doit comporter au moins 8 caractères</p>
+                        <p class="validation" v-if="!hasUppercase">Le mot de passe doit contenir au moins une lettre majuscule</p>
+                        <p class="validation" v-if="!hasLowercase">Le mot de passe doit contenir au moins une lettre minuscule</p>
+                        <p class="validation" v-if="!hasNumber">le mot de passe doit contenir au moins un chiffre</p>
+                        <p class="validation" v-if="!hasSpecialChar">Le mot de passe doit contenir au moins un caractère spécial</p>
+                    </div>
                         <input type="hidden" v-model="form.status">
                    </div>
                    <div class="field button">
-                       <button @click="savePatient()">Creer un Compte</button>
+                       <button @click="savePatient()" :disabled="!isFormValid">Creer un Compte</button>
                    </div>
                    </div>
            <div class="link">Vous avez déjà un compte? <router-link to="/login" class="a">se connecter</router-link></div>
@@ -62,7 +71,13 @@ export default {
             password:'',
             status:0
         },
-        errorMessage:''
+        errorMessage:'',
+        isValid:false,
+        isPasswordValid:true,
+        hasUppercase:false,
+        hasLowercase:false,
+        hasNumber:false,
+        hasSpecialChar:false
     }
    },
    methods:{
@@ -82,6 +97,27 @@ export default {
             window.location.href="#/appointment"
         })
         
+    },
+    validateEmail(){
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                this.isValid=emailRegex.test(this.form.email)
+            },
+            validatePassword(){
+                this.hasUppercase= /[A-Z]/.test(this.form.password);
+                this.hasLowercase= /[a-z]/.test(this.form.password);
+                this.hasNumber= /\d/.test(this.form.password);
+                this.hasSpecialChar= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(this.form.password);
+                this.isPasswordValid=
+                    this.form.password.length >= 8 &&
+                    this.hasUppercase &&
+                    this.hasLowercase &&
+                    this.hasNumber &&
+                    this.hasSpecialChar;
+            }
+   },
+   computed:{
+    isFormValid(){
+        return this.isValid && this.isPasswordValid;    
     }
    }
 }
@@ -170,6 +206,23 @@ export default {
     border:1px solid #ccc;
     border-radius: 5px;
 }
+.valide{
+    font-size:0.7rem;
+    color:green;
+    padding:5px;
+    letter-spacing: 1px;
+}
+.invalide{
+    font-size:0.7rem;
+    color:red;
+    padding:5px;
+    letter-spacing:1px;
+}
+.validation{
+    font-size:0.7rem;
+    color:red;
+    padding:5px 0 0 5px;
+}
 .form .forme .image input{
     font-size: 17px;
 }
@@ -183,6 +236,9 @@ export default {
     color:#fff;
     border-radius: 5px;
     cursor:pointer;
+}
+.form .forme .button button:disabled{
+    background:#7e7c7c;
 }
 .form .link{
     text-align: center;

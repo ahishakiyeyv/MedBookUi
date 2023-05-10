@@ -17,16 +17,16 @@
                    <div class="field input">
                     <label>Password</label>
                     <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." @input="validatePassword" required>
-                    <div v-if="!isPasswordValid">
+                    <!-- <div v-if="!isPasswordValid">
                         <p class="validation" v-if="form.password.length < 8">Le mot de passe doit comporter au moins 8 caractères</p>
                         <p class="validation" v-if="!hasUppercase">Le mot de passe doit contenir au moins une lettre majuscule</p>
                         <p class="validation" v-if="!hasLowercase">Le mot de passe doit contenir au moins une lettre minuscule</p>
                         <p class="validation" v-if="!hasNumber">le mot de passe doit contenir au moins un chiffre</p>
                         <p class="validation" v-if="!hasSpecialChar">Le mot de passe doit contenir au moins un caractère spécial</p>
-                    </div>
+                    </div> -->
                    </div>
                    <div class="field button">
-                    <button>Se Connecter</button>
+                    <button :disabled="!isFormValid">Se Connecter</button>
                        <!-- <input type="submit" value="Se Connecter" name="submit"> -->
                    </div>
            </form>
@@ -45,11 +45,11 @@ export default {
             },
             errorMessage:'',
             isValid:false,
-            isPasswordValid:true,
-            hasUppercase:false,
-            hasLowercase:false,
-            hasNumber:false,
-            hasSpecialChar:false
+            // isPasswordValid:true,
+            // hasUppercase:false,
+            // hasLowercase:false,
+            // hasNumber:false,
+            // hasSpecialChar:false
         }
     },
     methods:{
@@ -77,18 +77,23 @@ export default {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 this.isValid=emailRegex.test(this.form.email)
             },
-            validatePassword(){
-                this.hasUppercase= /[A-Z]/.test(this.form.password);
-                this.hasLowercase= /[a-z]/.test(this.form.password);
-                this.hasNumber= /\d/.test(this.form.password);
-                this.hasSpecialChar= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(this.form.password);
-                this.isPasswordValid=
-                    this.form.password.length >= 8 &&
-                    this.hasUppercase &&
-                    this.hasLowercase &&
-                    this.hasNumber &&
-                    this.hasSpecialChar;
-            }
+            // validatePassword(){
+            //     this.hasUppercase= /[A-Z]/.test(this.form.password);
+            //     this.hasLowercase= /[a-z]/.test(this.form.password);
+            //     this.hasNumber= /\d/.test(this.form.password);
+            //     this.hasSpecialChar= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(this.form.password);
+            //     this.isPasswordValid=
+            //         this.form.password.length >= 8 &&
+            //         this.hasUppercase &&
+            //         this.hasLowercase &&
+            //         this.hasNumber &&
+            //         this.hasSpecialChar;
+            // }
+    },
+    computed:{
+        isFormValid(){
+            return this.isValid;
+        }
     }
 }
 </script>
@@ -212,6 +217,9 @@ form .name-details .field:last-child{
     color:#fff;
     border-radius: 5px;
     cursor:pointer;
+}
+.form form .button button:disabled{
+    background:#7e7c7c;
 }
 .form .link{
     text-align: center;
