@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    allData:[],
     url:'http://127.0.0.1:8000/api/',
     user:null,
     users:[],
@@ -11,7 +12,9 @@ export default createStore({
     service:[], 
     services:{},
     infirmier:null,
-    infirmiers:[]
+    infirmiers:[],
+    accepter_count:'',
+    refuser_count:''
   },
   getters: {
     user : state=>{

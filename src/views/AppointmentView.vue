@@ -15,8 +15,8 @@
         <div class="tabs">
             <router-link to="/appointment" class="tab-item selected" >Tous <span>34</span></router-link>
             <router-link to="/tab2" class="tab-item">En Attente <span>10</span></router-link>
-            <router-link to="/tab1" class="tab-item">Accepté <span>14</span></router-link>
-            <router-link to="/tab" class="tab-item">Refuser <span>10</span></router-link>
+            <router-link to="/tab1" class="tab-item">Accepté <span>{{ this.$store.state.accepter_count }}</span></router-link>
+            <router-link to="/tab" class="tab-item">Refuser <span>{{this.$store.state.refuser_count}}</span></router-link>
             
         </div>
         
@@ -93,7 +93,8 @@ export default {
             appointment:[],
             dialog:false,
             details:false,
-            inputSearch:''
+            inputSearch:'',
+            allData:[]
         }
     },
     components:{
@@ -124,10 +125,32 @@ export default {
             .catch((error)=>{
                 console.log(error.response.data.message)
             })
+        },
+        AccepterCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/count1')
+            .then(res=>{
+                this.$store.state.accepter_count=res.data
+                this.allData=res.data
+            })
+        },
+        RefuserCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/count0')
+            .then(res=>{
+                this.$store.state.refuser_count=res.data
+                this.allData=res.data
+            })
+        },
+        AttenteCount(){
+            axios
+            .get('')
         }
     },
     mounted(){
-        this.getAppointment()
+        this.getAppointment();
+        this.AccepterCount();
+        this.RefuserCount();
     },
         close(){
             this.details=false
@@ -208,7 +231,6 @@ section{
     font-weight:bold;
     font-size:0.8rem;
     border-radius:5px;
-    display:none;
 }
 .search .search-input{
     height:2.5rem;
