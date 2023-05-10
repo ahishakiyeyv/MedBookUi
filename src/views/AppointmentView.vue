@@ -13,7 +13,7 @@
 
     <section>
         <div class="tabs">
-            <router-link to="/appointment" class="tab-item selected" >Tous</router-link>
+            <router-link to="/appointment" class="tab-item selected" >Tous <span>{{this.$store.state.all_count}}</span></router-link>
             <router-link to="/tab2" class="tab-item">En Attente <span>{{this.$store.state.attente_count}}</span></router-link>
             <router-link to="/tab1" class="tab-item">Accepté <span>{{ this.$store.state.accepter_count }}</span></router-link>
             <router-link to="/tab" class="tab-item">Refuser <span>{{this.$store.state.refuser_count}}</span></router-link>
@@ -128,7 +128,7 @@ export default {
         },
         AccepterCount(){
             axios
-            .get('http://127.0.0.1:8000/api/count1')
+            .get(`http://127.0.0.1:8000/api/count1?user_id=${this.$store.state.user.user.id}`)
             .then(res=>{
                 this.$store.state.accepter_count=res.data
                 this.allData=res.data
@@ -136,7 +136,7 @@ export default {
         },
         RefuserCount(){
             axios
-            .get('http://127.0.0.1:8000/api/count0')
+            .get(`http://127.0.0.1:8000/api/count0?user_id=${this.$store.state.user.user.id}`)
             .then(res=>{
                 this.$store.state.refuser_count=res.data
                 this.allData=res.data
@@ -144,7 +144,7 @@ export default {
         },
         AttenteCount(){
             axios
-            .get('http://127.0.0.1:8000/api/count2')
+            .get(`http://127.0.0.1:8000/api/count2?user_id=${this.$store.state.user.user.id}`)
             .then(res=>{
                 this.$store.state.attente_count=res.data
                 this.allData=res.data
@@ -152,7 +152,7 @@ export default {
         },
         allCount(){
             axios
-            .get('http://127.0.0.1:8000/api/count')
+            .get(`http://127.0.0.1:8000/api/count?user_id=${this.$store.state.user.user.id}`)
             .then(res=>{
                 this.$store.state.all_count=res.data
                 this.allData=res.data
