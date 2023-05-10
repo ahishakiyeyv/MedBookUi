@@ -10,11 +10,20 @@
                <div class="error-txt">{{ errorMessage }}</div>
                    <div class="field input">
                     <label>Email</label>
-                    <input type="email" v-model="form.email" placeholder="Entrer le mail..." required>
+                    <input type="email" v-model="form.email" placeholder="Entrer le mail..." @input="validateEmail" required>
+                    <span class="valide" v-if="isValid">Email Valide</span>
+                    <span class="invalide" v-else>Email Invalide!</span>
                    </div>
                    <div class="field input">
                     <label>Password</label>
-                    <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." required>
+                    <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." @input="validatePassword" required>
+                    <div v-if="!isPasswordValid">
+                        <p class="validation" v-if="form.password.length < 8">Le mot de passe doit comporter au moins 8 caractères</p>
+                        <p class="validation" v-if="!hasUppercase">Le mot de passe doit contenir au moins une lettre majuscule</p>
+                        <p class="validation" v-if="!hasLowercase">Le mot de passe doit contenir au moins une lettre minuscule</p>
+                        <p class="validation" v-if="!hasNumber">le mot de passe doit contenir au moins un chiffre</p>
+                        <p class="validation" v-if="!hasSpecialChar">Le mot de passe doit contenir au moins un caractère spécial</p>
+                    </div>
                    </div>
                    <div class="field button">
                     <button>Se Connecter</button>
@@ -34,7 +43,13 @@ export default {
                 email:'',
                 password:''
             },
-            errorMessage:''
+            errorMessage:'',
+            isValid:false,
+            isPasswordValid:true,
+            hasUppercase:false,
+            hasLowercase:false,
+            hasNumber:false,
+            hasSpecialChar:false
         }
     },
     methods:{
@@ -57,6 +72,22 @@ export default {
 
                     }
                 })
+            },
+            validateEmail(){
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                this.isValid=emailRegex.test(this.form.email)
+            },
+            validatePassword(){
+                this.hasUppercase= /[A-Z]/.test(this.form.password);
+                this.hasLowercase= /[a-z]/.test(this.form.password);
+                this.hasNumber= /\d/.test(this.form.password);
+                this.hasSpecialChar= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(this.form.password);
+                this.isPasswordValid=
+                    this.form.password.length >= 8 &&
+                    this.hasUppercase &&
+                    this.hasLowercase &&
+                    this.hasNumber &&
+                    this.hasSpecialChar;
             }
     }
 }
@@ -145,6 +176,28 @@ form .name-details .field:last-child{
     padding:0 10px;
     border:1px solid #ccc;
     border-radius: 5px;
+}
+.valide{
+    font-size:0.7rem;
+    color:green;
+    padding:5px;
+    letter-spacing: 1px;
+}
+.invalide{
+    font-size:0.7rem;
+    color:red;
+    padding:5px;
+    letter-spacing:1px;
+}
+.validation{
+    font-size:0.7rem;
+    color:red;
+    padding:5px 0 0 5px;
+}
+.validate{
+    font-size:0.7rem;
+    color:green;
+    padding:5px 0 0 5px;
 }
 .form form .image input{
     font-size: 17px;

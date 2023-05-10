@@ -13,6 +13,10 @@ import Service from '../views/admin/Service.vue'
 import Patient from '../views/admin/Patient.vue'
 import AppointmentDetails from '../views/admin/AppointmentDetails.vue'
 import Utilisateur from '../views/admin/Utilisateur.vue'
+import appoint from '../views/appoint'
+import appoint1 from '../views/appoint1'
+import appoint2 from '../views/appoint2'
+import appoint3 from '../views/appoint3'
 import store from '../store'
 // import {IS_USER_AUTHENTICATE_GETTER} from '../store'
 
@@ -35,6 +39,10 @@ const routes = [
   { path: '/patient',name: 'patient',component: Patient},
   { path: '/AppointmentDetails/:id',name: 'AppointmentDetails',component: AppointmentDetails},
   { path: '/utilisateur',name: 'utilisateur',component: Utilisateur},
+  { path: '/tab',name: 'appoint',component: appoint,meta:{auth:true}},
+  { path: '/tab1',name: 'appoint1',component: appoint1, meta:{auth:true}},
+  { path: '/tab2',name: 'appoint2',component: appoint2, meta:{auth:true}},
+  { path: '/tab3',name: 'appoint3',component: appoint3, meta:{auth:true}},
 ]
 
 const router = createRouter({

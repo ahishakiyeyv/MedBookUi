@@ -17,7 +17,6 @@
             <router-link to="/tab2" class="tab-item">En Attente <span>10</span></router-link>
             <router-link to="/tab1" class="tab-item">Accepté <span>14</span></router-link>
             <router-link to="/tab" class="tab-item">Refuser <span>10</span></router-link>
-            
         </div>
         
     <div class="top_row">
@@ -58,10 +57,10 @@
                         <td>{{app.nom}}</td>
                         <td>{{app.date_arrive}}</td>
                         <td>{{ app.service }}</td>
-                        <td v-if="app.status==='1'" class="accepte"><h4>Accepté</h4></td>
+                        <!-- <td v-if="app.status==='1'" class="accepte"><h4>Accepté</h4></td> -->
                         <td v-if="app.status==='0'" class="refus"><h4>Refusé</h4></td>
-                        <td v-if="app.status==='2'" class="wait"><h4>En Attente</h4></td>
-                        <td v-if="app.status===null" class="inconnu"><h4>Inconnu</h4></td>
+                        <!-- <td v-if="app.status==='2'" class="wait"><h4>En Attente</h4></td>
+                        <td v-if="app.status===null" class="inconnu"><h4>Inconnu</h4></td> -->
                     
                         <!-- <ModalDetails v-bind:details="details" @getAppointment="getAppointment" @close="close" v-if="details"></ModalDetails> -->
                         <td><button   @click="detailsAppointment(app)"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
@@ -115,7 +114,7 @@ export default {
         },
         getAppointment(){
             axios
-            .get('http://127.0.0.1:8000/api/appointment')
+            .get('http://127.0.0.1:8000/api/status0')
             .then((res)=>{
                 this.$store.state.appointment = res.data
                 this.appointment = res.data
@@ -184,7 +183,7 @@ section{
     width:1020px;
 }
 .tabs .tab-item{
-    border:none;
+     border:none;
     border-bottom:1px solid #7e7c7c;
     padding:0 30px 5px 30px;
     margin-bottom:40px;
@@ -193,7 +192,7 @@ section{
     font-size:1.1rem;
 }
 .tab-item{
-    text-decoration:none;
+    text-decoration: none;
 }
 .tabs .tab-item.selected{
     border-bottom:2px solid #416991;
