@@ -107,41 +107,41 @@
   <h2 class="title2">Nos Docteurs</h2>
   <div class="grid-container">
     <div class="sub-contain">
-      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
-      <h2 class="name">Dr Xavier</h2>
+      <img src="../assets/images/5.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Marc</h2>
       <h3 class="spec">Cardiologue</h3>
-      <p class="desc">Tous les jours a partir de 15h</p>
+      <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
     </div>
     <div class="sub-contain">
       <img src="../assets/images/2.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Hancock</h2>
       <h3 class="spec">Pediatre</h3>
-      <p class="desc">Tous les jours a partir de 15h</p>
+      <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
         
       </div>
     <div class="sub-contain">
-      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <img src="../assets/images/6.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Melissa</h2>
       <h3 class="spec">Gynecologue</h3>
-      <p class="desc">Tous les jours a partir de 15h</p>
+      <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
     </div>
     <div class="sub-contain">
-      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
-      <h2 class="name">Dr Edward</h2>
+      <img src="../assets/images/3.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Janvier</h2>
       <h3 class="spec">Medecin Generaliste</h3>
-      <p class="desc">Tous les jours a partir de 15h</p>
+      <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
     </div>
     <div class="sub-contain">
-      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <img src="../assets/images/4.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Jocelyne</h2>
       <h3 class="spec">Infirmiere</h3>
-      <p class="desc">Tous les jours a partir de 15h</p>
+      <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
     </div>
     <div class="sub-contain">
       <img src="../assets/images/2.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Jacques</h2>
-      <h3 class="spec">Medecin</h3>
-      <p class="desc">Tous les jours a partir de 15h</p>
+      <h3 class="spec">Infirmier</h3>
+      <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
     </div>
   </div>
 </section>

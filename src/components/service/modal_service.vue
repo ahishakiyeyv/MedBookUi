@@ -68,6 +68,12 @@ export default {
         .then(res=>{
             if(res.data === "exists"){
                 alert("Ce service existe deja")
+                // this.$toast.open({
+                //     message:'Ce service existe deja',
+                //     type:'danger',
+                //     duration:3000,
+                //     position:'top-right'
+                // })
             }
             this.close()
             this.form={
