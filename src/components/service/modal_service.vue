@@ -66,12 +66,17 @@ export default {
         axios
         .post('http://127.0.0.1:8000/api/create_service',this.form)
         .then(res=>{
+            if(res.data === "exists"){
+                alert("Ce service existe deja")
+            }
             this.close()
-            console.log(res.data)
             this.form={
                 nom_service:''
             }
             window.location.reload()
+        })
+        .catch(error=>{
+           console.log(error) 
         })
     }
     }

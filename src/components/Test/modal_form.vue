@@ -60,7 +60,10 @@ export default {
             axios
             .post('http://127.0.0.1:8000/api/create_test',this.form)
             .then((res)=>{
-                console.log(res.data)
+                if(res.data === "exists"){
+                    alert("Ce nom du test existe deja")
+                }
+                this.close()
                 this.form={
                     nom_test:'',
                     prix_test:'',
