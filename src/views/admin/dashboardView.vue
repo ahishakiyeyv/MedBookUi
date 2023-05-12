@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="number">{{this.$store.state.rendezvous_count}}</div>
-                        <div class="card-name">Rendez Vous (Aujourd'hui)</div>
+                        <div class="card-name">Rendez Vous <span>(Aujourd'hui)</span></div>
                     </div>
                     <div class="icon-box">
                         <i class="fa fa-television" aria-hidden="true"></i>
@@ -22,8 +22,8 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">68</div>
-                        <div class="card-name">Employees</div>
+                        <div class="number">{{this.$store.state.service_count}}</div>
+                        <div class="card-name">Services</div>
                     </div>
                     <div class="icon-box">
                         <i class="fa fa-users" aria-hidden="true"></i>
@@ -71,11 +71,20 @@ export default {
                 this.$store.state.rendezvous_count=res.data
                 this.allData=res.data
             })
+        },
+        ServiceCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/countservice')
+            .then(res=>{
+                this.$store.state.service_count=res.data
+                this.allData=res.data
+            })
         }
     },
     mounted(){
         this.PatientCount();
         this.RendezvousCount();
+        this.ServiceCount();
     }
 }
 </script>
@@ -123,6 +132,10 @@ export default {
 .card-name {
     color: #7e7c7c;
     font-weight: 600;
+}
+.card-name span{
+    font-weight:normal;
+    color:#416991;
 }
 
 .icon-box i {

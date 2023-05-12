@@ -18,7 +18,8 @@ export default createStore({
     attente_count:'',
     all_count:'',
     patient_count:'',
-    rendezvous_count:''
+    rendezvous_count:'',
+    service_count:''
   },
   getters: {
     user : state=>{
