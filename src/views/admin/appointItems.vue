@@ -2,7 +2,7 @@
 <Dashboard/>
     <div class="main">
         <div class="label-top">
-            <h3>Liste de Tous les Rendez-Vous</h3>
+            <h3>Liste Rendez-Vous (Aujourd'hui)</h3>
         </div>
         <div class="top_row">
             <div class="search">
@@ -68,7 +68,7 @@ export default {
    methods:{
         getAppointment(){
             axios
-            .get('http://127.0.0.1:8000/api/appointment')
+            .get('http://127.0.0.1:8000/api/today')
             .then((res)=>{
                 this.$store.state.appointment=res.data
                 this.appointment=res.data

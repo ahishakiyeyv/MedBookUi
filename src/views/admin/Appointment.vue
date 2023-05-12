@@ -2,23 +2,27 @@
 <Dashboard/>
     <div class="main">
         <div class="label-top">
-            <h3>Liste des Rendez-Vous (Aujourd'hui)</h3>
+            <h3>Liste Rendez-Vous</h3>
         </div>
         <div class="top_row">
             <div class="search">
                 <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
             <div class="btn">
-                <router-link to="/Appointments" class="button">Voir Tous</router-link>
+                <button>Prendre Rendez-Vous</button>
             </div>
         </div>
        <div class="table">
         <table>
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Numero</th>
                     <th>Nom</th>
-                    <th>Date</th>
+                    <th>Date <span>
+                        <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </span></th>
                     <th>Service</th>
                     <th>Status</th>
                     <th colspan="1">Action</th>
@@ -26,6 +30,7 @@
             </thead>
             <tbody v-if="appointment.length > 0">
                 <tr v-for="app in appointment" :key="app.id">
+                    <td>{{app.id}}</td>
                     <td>{{app.numero_ordre}}-0{{app.id}}</td>
                     <td>{{app.nom}}</td>
                     <td>{{app.date_arrive}}</td>
@@ -66,7 +71,7 @@ export default {
    methods:{
         getAppointment(){
             axios
-            .get('http://127.0.0.1:8000/api/today')
+            .get('http://127.0.0.1:8000/api/appointment')
             .then((res)=>{
                 this.$store.state.appointment=res.data
                 this.appointment=res.data
@@ -142,15 +147,15 @@ export default {
     outline:none;
     color:#416991;
 }
-.btn .button{
+.btn button{
     padding:0.2rem 1rem;
     font-size:1rem;
-    background:#416991;
+    background:#731acc;
     color:#fff;
     border:none;
     border-radius:5px;
     cursor:pointer;
-    text-decoration:none;
+    display:none;
 }
 .table{
     width:1020px;
@@ -174,6 +179,14 @@ table thead th{
     font-weight:normal;
     font-size:1rem;
 }
+
+/* table thead th span{
+    display:flex;
+    flex-direction: column;
+    height:30px;
+    width:15px;
+    border:1px solid red;
+} */
 table tbody td{
     padding:0.5rem 1rem;
     height:35px;

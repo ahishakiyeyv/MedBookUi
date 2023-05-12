@@ -2,16 +2,16 @@
 <Dashboard/>
     <div class="main">
        <div class="cards">
-                <div class="card">
+                <router-link to="/utilisateur" class="card">
                     <div class="card-content">
                         <div class="number">{{this.$store.state.patient_count}}</div>
                         <div class="card-name">Patient</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
                     </div>
-                </div>
-                <div class="card">
+                </router-link>
+                <router-link to="/AppointItem" class="card">
                     <div class="card-content">
                         <div class="number">{{this.$store.state.rendezvous_count}}</div>
                         <div class="card-name">Rendez Vous <span>(Aujourd'hui)</span></div>
@@ -19,25 +19,25 @@
                     <div class="icon-box">
                         <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                     </div>
-                </div>
-                <div class="card">
+                </router-link>
+                <router-link to="/Adminappointment" class="card">
                     <div class="card-content">
                         <div class="number">{{this.$store.state.all}}</div>
                         <div class="card-name">Tous Rendez vous</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
                     </div>
-                </div>
-                <div class="card">
+                </router-link>
+                <router-link to="/TestAdmin" class="card">
                     <div class="card-content">
                         <div class="number">{{this.$store.state.test_count}}</div>
                         <div class="card-name">Examen Medical</div>
                     </div>
                     <div class="icon-box">
-                        <i class="fa fa-usd" aria-hidden="true"></i>
+                        <i class="fa fa-medkit" aria-hidden="true"></i>
                     </div>
-                </div>
+                </router-link>
             </div>
  
     </div>
@@ -139,6 +139,7 @@ export default {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    text-decoration:none;
 }
 
 .number {
