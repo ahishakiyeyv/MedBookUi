@@ -8,6 +8,7 @@ import Admin from '../views/admin/credentials/login.vue'
 import signinadmin from '../views/admin/credentials/signup.vue'
 import dashboard from '../views/admin/dashboardView.vue'
 import Adminappointment from '../views/admin/Appointment.vue'
+import Appointment from '../views/admin/appointments.vue'
 import Test from '../views/admin/Test.vue'
 import Service from '../views/admin/Service.vue'
 import Patient from '../views/admin/Patient.vue'
@@ -33,6 +34,7 @@ const routes = [
   { path: '/signinAdmin',name: 'signinAdmin',component: signinadmin},
   { path: '/dashboard',name: 'dashboard',component: dashboard},
   { path: '/Adminappointment',name: 'Adminappointment',component: Adminappointment},
+  { path: '/Appointments',name: 'Appointment',component: Appointment},
   { path: '/TestAdmin',name: 'TestAdmin',component: Test},
   { path: '/service',name: 'service',component: Service},
   { path: '/patient',name: 'patient',component: Patient},

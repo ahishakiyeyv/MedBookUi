@@ -17,13 +17,13 @@
                         <div class="card-name">Rendez Vous <span>(Aujourd'hui)</span></div>
                     </div>
                     <div class="icon-box">
-                        <i class="fa fa-television" aria-hidden="true"></i>
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">{{this.$store.state.service_count}}</div>
-                        <div class="card-name">Services</div>
+                        <div class="number">{{this.$store.state.all}}</div>
+                        <div class="card-name">Tous Rendez vous</div>
                     </div>
                     <div class="icon-box">
                         <i class="fa fa-users" aria-hidden="true"></i>
@@ -31,8 +31,8 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">$4500</div>
-                        <div class="card-name">Earnings</div>
+                        <div class="number">{{this.$store.state.test_count}}</div>
+                        <div class="card-name">Examen Medical</div>
                     </div>
                     <div class="icon-box">
                         <i class="fa fa-usd" aria-hidden="true"></i>
@@ -79,12 +79,30 @@ export default {
                 this.$store.state.service_count=res.data
                 this.allData=res.data
             })
+        },
+        TestCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/countTest')
+            .then(res=>{
+                this.$store.state.test_count=res.data
+                this.allData=res.data
+            })
+        },
+        AllAppointment(){
+            axios
+            .get('http://127.0.0.1:8000/api/all')
+            .then(res=>{
+                this.$store.state.all=res.data
+                this.allData=res.data
+            })
         }
     },
     mounted(){
         this.PatientCount();
         this.RendezvousCount();
         this.ServiceCount();
+        this.TestCount();
+        this.AllAppointment();
     }
 }
 </script>
