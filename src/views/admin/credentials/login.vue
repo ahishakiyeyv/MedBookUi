@@ -10,10 +10,12 @@
                    <div class="field input">
                     <label>Email</label>
                     <input type="email" v-model="form.email" placeholder="Entrer le mail..." required>
+                    {{ form.email }}
                    </div>
                    <div class="field input">
                     <label>Password</label>
                     <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." required>
+                    {{ form.password }}
                    </div>
                    <div class="field button">
                     <button>Se Connecter</button>
@@ -37,7 +39,8 @@ export default {
         }
     },
     methods:{
-            submit(){
+          submit(){
+            
                 axios.post('http://127.0.0.1:8000/api/login_inf',this.form)
                 .then((response)=>{
                     if(response.data.success){

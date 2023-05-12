@@ -16,7 +16,8 @@ export default createStore({
     accepter_count:'',
     refuser_count:'',
     attente_count:'',
-    all_count:''
+    all_count:'',
+    patient_count:''
   },
   getters: {
     user : state=>{
@@ -30,11 +31,11 @@ export default createStore({
 
     infirmier: state=>{
       if(state.infirmier === null){
-        return JSON.parse(localStorage.getItem('infirmier'))
+        return JSON.parse(localStorage.getItem('user'))
       }
       return state.infirmier
     },
-    token:(_state,getters)=>getters?.infirmiers?.token
+    token:(_state,getters)=>getters?.infirmier?.token
   },
   mutations: {
     login(state,user){
@@ -44,7 +45,7 @@ export default createStore({
     },
     login_inf(state,infirmier){
       state.infirmier=infirmier;
-      localStorage.setItem('infirmier',state.infirmier);
+      localStorage.setItem('user',state.infirmier);
     },
     logout(state){
       state.user='';
@@ -55,7 +56,7 @@ export default createStore({
     },
     logout_inf(state){
       state.infirmier='';
-      localStorage.removeItem('infirmier');
+      localStorage.removeItem('user');
     },
     initializeStore(state){
       const storedUser=localStorage.getItem('user')
@@ -67,6 +68,16 @@ export default createStore({
         }
       }else{
         this.commit('logout');
+      }
+      const storedInfimier=localStorage.getItem('user')
+      if(storedInfimier){
+        try{
+          state.infirmier=JSON.parse(storedInfimier);
+        }catch(e){
+          console.error('Error parsing infirmier data from local storage',e)
+        }
+      }else{
+        this.commit('logout_inf')
       }
     }
   },

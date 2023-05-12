@@ -4,8 +4,8 @@
        <div class="cards">
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">1217</div>
-                        <div class="card-name">Students</div>
+                        <div class="number">{{this.$store.state.patient_count}}</div>
+                        <div class="card-name">Patient</div>
                     </div>
                     <div class="icon-box">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -44,10 +44,29 @@
 </template>
 <script>
 import Dashboard from '@/components/Dashboard.vue'
+import axios from 'axios'
 export default {
     name:'dashboardView',
+    data(){
+        return{
+            allData:[]
+        }
+    },
     components:{
         Dashboard
+    },
+    methods:{
+        PatientCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/countUser')
+            .then(res=>{
+                this.$store.state.patient_count=res.data
+                this.allData=res.data
+            })
+        }
+    },
+    mounted(){
+        this.PatientCount()
     }
 }
 </script>
