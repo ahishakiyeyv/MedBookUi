@@ -13,8 +13,8 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="number">42</div>
-                        <div class="card-name">Teachers</div>
+                        <div class="number">{{this.$store.state.rendezvous_count}}</div>
+                        <div class="card-name">Rendez Vous (Aujourd'hui)</div>
                     </div>
                     <div class="icon-box">
                         <i class="fa fa-television" aria-hidden="true"></i>
@@ -63,10 +63,19 @@ export default {
                 this.$store.state.patient_count=res.data
                 this.allData=res.data
             })
+        },
+        RendezvousCount(){
+            axios
+            .get('http://127.0.0.1:8000/api/allcount')
+            .then(res=>{
+                this.$store.state.rendezvous_count=res.data
+                this.allData=res.data
+            })
         }
     },
     mounted(){
-        this.PatientCount()
+        this.PatientCount();
+        this.RendezvousCount();
     }
 }
 </script>
