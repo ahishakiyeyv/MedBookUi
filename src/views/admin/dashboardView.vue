@@ -39,6 +39,9 @@
                     </div>
                 </router-link>
             </div>
+            <div class="label-top">
+            <h3>Rendez Vous Pour Aujourd'hui</h3>
+             </div>
             <div class="table">
                 <table>
                <thead>
@@ -215,6 +218,21 @@ export default {
     color: #416991;
 }
 /* ================================================================ */
+.label-top{
+    /* margin-top:1.5rem; */
+    margin-left:2rem;
+    margin-bottom:2rem;
+    border-radius:5px;
+    background:#416991;
+    width:1020px;
+    padding:1rem 1rem;
+}
+.label-top h3{
+    color:#fff;
+    font-weight:normal;
+    text-align: center;
+}
+
 .table{
     width:1020px;
     margin-left:2rem;
