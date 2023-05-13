@@ -2,7 +2,7 @@
 <Dashboard/>
     <div class="main">
        <div class="cards">
-                <router-link to="/utilisateur" class="card">
+                <router-link to="/patient" class="card">
                     <div class="card-content">
                         <div class="number">{{this.$store.state.patient_count}}</div>
                         <div class="card-name">Patient</div>
