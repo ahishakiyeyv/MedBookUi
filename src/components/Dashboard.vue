@@ -17,7 +17,7 @@
                 <img src='@/assets/images/200.jpg' alt="">
             </div>
             <div class="logout">
-                <a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                <a @click="logout_inf()"><i class="fa fa-power-off" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="sidebar">
@@ -68,6 +68,18 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+   name:'Dashboard',
+   methods:{
+    logout_inf(){
+            localStorage.removeItem('user')
+            this.$router.push('/admin')
+            
+        }
+   }
+}
+</script>
 <style scoped>
 * {
     padding: 0;

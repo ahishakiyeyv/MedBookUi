@@ -60,6 +60,7 @@ export default {
     justify-content:center;
 }
 .overlay{
+    background:rgba(0,0,0,0.2);
     backdrop-filter: blur(2px);
     position:fixed;
     top:0;
