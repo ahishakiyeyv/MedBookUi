@@ -53,6 +53,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next)=>{
   const auth=to.matched.some(record=>record.meta.auth)
+ // const AdminAuth=to.matched.some(record=>record.meta.AdminAuth)
   if(auth && !store.state.user){
     next('/login')
   // }else if(!requireAuth && store.state.user.user){
@@ -63,5 +64,10 @@ router.beforeEach((to, from, next)=>{
   }else{
     next()
   }
+  // if(AdminAuth && !store.state.infirmier){
+  //   next('/admin')
+  // }else{
+  //   next()
+  // }
 })
 export default router

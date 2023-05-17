@@ -16,6 +16,7 @@
             <div class="user">
                 <img src='@/assets/images/200.jpg' alt="">
             </div>
+            <!-- {{ this.$store.state.infirmier.nom_inf }} -->
             <div class="logout">
                 <a @click="logout_inf()"><i class="fa fa-power-off" aria-hidden="true"></i></a>
             </div>
