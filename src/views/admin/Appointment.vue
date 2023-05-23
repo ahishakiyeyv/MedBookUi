@@ -24,7 +24,9 @@
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </span></th>
                     <th>Service</th>
-                    <th>Status</th>
+                    <th>Status <span>
+                        <i class="fa fa-caret-up" aria-hidden="true" @click="sort('status')"></i>
+                        </span></th>
                     <th colspan="1">Action</th>
                 </tr>
             </thead>
@@ -62,7 +64,9 @@ export default {
     data(){
         return{
             appointment:[],
-            inputSearch:''
+            inputSearch:'',
+            sortKey:'',
+            sortOrder:1
         }
     },
    components:{
@@ -82,6 +86,14 @@ export default {
         },
         Details(id){
             this.$store.state.appointment=id
+        },
+        sort(key){
+            if(this.sortKey === key){
+                this.sortOrder *= -1;
+            }else{
+                this.sortKey =key;
+                this.sortOrder = 1;
+            }
         }
    },
    mounted(){
@@ -98,6 +110,23 @@ export default {
                 
             
         })
+    },
+    appointment(){
+        const appointment = [...this.appointment];
+        if(this.sortKey){
+            appointment.sort((a,b)=>{
+                const fieldA = a[this.sortKey];
+                const fieldB = b[this.sortKey];
+                if(fieldA < fieldB){
+                    return -1 * this.sortOrder;
+                }
+                if(fieldA > fieldB){
+                    return 1 * this.sortOrder;
+                }
+                return 0;
+            });
+        }
+        return appointment;
     }
    }
 }
@@ -180,13 +209,9 @@ table thead th{
     font-size:1rem;
 }
 
-/* table thead th span{
-    display:flex;
-    flex-direction: column;
-    height:30px;
-    width:15px;
-    border:1px solid red;
-} */
+table thead th span{
+   cursor: pointer;
+}
 table tbody td{
     padding:0.5rem 1rem;
     height:35px;
