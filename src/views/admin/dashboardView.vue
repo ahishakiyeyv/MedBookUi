@@ -55,8 +55,8 @@
                     <th colspan="1">Action</th>
                 </tr>
               </thead>
-                 <!-- <tbody v-if="appointment.length > 0"> -->
-                    <tbody>
+                 <tbody v-if="appointment.length > 0">
+                    <!-- <tbody> -->
                 <tr v-for="app in appointment" :key="app.id">
                     <td>{{app.id}}</td>
                     <td>{{app.numero_ordre}}-0{{app.id}}</td>
@@ -72,11 +72,11 @@
                     <!-- <td><a href="#" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                     <td><a href="#" class="delete"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td> -->
                 </tr>
-                    <!-- </tbody>
+                    </tbody>
                     <tbody v-else>
                         <tr>
                             <td colspan="8">Chargement....</td>
-                        </tr> -->
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -90,7 +90,8 @@ export default {
     name:'dashboardView',
     data(){
         return{
-            allData:[]
+            allData:[],
+            appointment:[]
         }
     },
     components:{

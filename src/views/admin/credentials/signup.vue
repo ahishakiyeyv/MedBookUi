@@ -4,7 +4,7 @@
 </head>
     <div class="wrapper">
        <section class="form signup">
-           <header>Creez Un Compte</header>
+           <header>Creez Un Compte Admin</header>
            <form>
                <div class="error-txt"></div>
               
@@ -152,7 +152,7 @@ export default {
     font-weight:600;
     padding-bottom: 10px;
     border-bottom: 1px solid #e6e6e6;
-    color:#713acc;
+    color:#416991;
 }
 .form form{
     margin:20px 0;
@@ -214,7 +214,7 @@ form .name-details .field:last-child{
     border:none;
     font-size:17px;
     font-weight:bold;
-    background:#713acc;   
+    background:#416991;   
     color:#fff;
     border-radius: 5px;
     cursor:pointer;

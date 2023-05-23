@@ -104,24 +104,24 @@
   </div>
 </section>
 <section id="container4">
-  <h2 class="title2">Nos Docteurs</h2>
+  <h2 class="title2">Nos Medecins specialistes</h2>
   <div class="grid-container">
     <div class="sub-contain">
-      <img src="../assets/images/5.jpg" alt="..." class="img-doc">
+      <img src="../assets/images/12.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Marc</h2>
       <h3 class="spec">Cardiologue</h3>
       <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
     </div>
     <div class="sub-contain">
-      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
-      <h2 class="name">Dr Hancock</h2>
+      <img src="../assets/images/13.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Felicien</h2>
       <h3 class="spec">Pediatre</h3>
       <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
         
       </div>
     <div class="sub-contain">
-      <img src="../assets/images/6.jpg" alt="..." class="img-doc">
-      <h2 class="name">Dr Melissa</h2>
+      <img src="../assets/images/14.jpg" alt="..." class="img-doc">
+      <h2 class="name">Dr Evariste</h2>
       <h3 class="spec">Gynecologue</h3>
       <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
     </div>
@@ -132,13 +132,13 @@
       <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
     </div>
     <div class="sub-contain">
-      <img src="../assets/images/4.jpg" alt="..." class="img-doc">
+      <img src="../assets/images/11.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Jocelyne</h2>
       <h3 class="spec">Infirmiere</h3>
       <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
     </div>
     <div class="sub-contain">
-      <img src="../assets/images/2.jpg" alt="..." class="img-doc">
+      <img src="../assets/images/15.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Jacques</h2>
       <h3 class="spec">Infirmier</h3>
       <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
@@ -149,7 +149,7 @@
   <div class="news-box">
     <div class="txt-news">
       <h1 class="title0">Des services de santé ou des conseils pour une vie saine, vous pouvez trouver ici</h1>
-      <p class="para">Au cours du siecle, un chef de file dans les soins aux patients et la specialite de la medecine, de la chirurgie, de la rechercher, de l'education medicale et du bien etre.</p>
+      <p class="para">Au cours du siecle, un chef de file dans les soins aux patients et la specialite de la medecine, de la chirurgie, de la recherche, de l'education medicale et du bien etre.</p>
     </div>
     <div class="btn-box">
       <button class="btn-connect">Rester Connectez</button>

@@ -19,13 +19,11 @@
                     <th>#</th>
                     <th>Numero</th>
                     <th>Nom</th>
-                    <th>Date <span>
-                        <i class="fa fa-caret-up" aria-hidden="true"></i>
-                        <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        </span></th>
+                    <th>Date</th>
                     <th>Service</th>
                     <th>Status <span>
                         <i class="fa fa-caret-up" aria-hidden="true" @click="sort('status')"></i>
+                        <i class="fa fa-caret-down" aria-hidden="true" @click="sort('status')"></i>
                         </span></th>
                     <th colspan="1">Action</th>
                 </tr>
