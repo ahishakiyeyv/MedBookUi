@@ -110,38 +110,38 @@
       <img src="../assets/images/12.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Marc</h2>
       <h3 class="spec">Cardiologue</h3>
-      <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
+      <p class="desc">LUNDI-VENDREDI: <span>15h-21h</span></p>
     </div>
     <div class="sub-contain">
       <img src="../assets/images/13.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Felicien</h2>
       <h3 class="spec">Pediatre</h3>
-      <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
+      <p class="desc">LUNDI-VENDREDI: <span>15h-21h</span></p>
         
       </div>
     <div class="sub-contain">
       <img src="../assets/images/14.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Evariste</h2>
       <h3 class="spec">Gynecologue</h3>
-      <p class="desc">LUNDI-VENDREDI: <span>15h-</span></p>
+      <p class="desc">LUNDI-VENDREDI: <span>15h-21h</span></p>
     </div>
     <div class="sub-contain">
       <img src="../assets/images/3.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Janvier</h2>
       <h3 class="spec">Medecin Generaliste</h3>
-      <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
+      <p class="desc">LUNDI-VENDREDI: <span>8h-21h</span></p>
     </div>
     <div class="sub-contain">
       <img src="../assets/images/11.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Jocelyne</h2>
       <h3 class="spec">Infirmiere</h3>
-      <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
+      <p class="desc">LUNDI-VENDREDI: <span>8h-21h</span></p>
     </div>
     <div class="sub-contain">
       <img src="../assets/images/15.jpg" alt="..." class="img-doc">
       <h2 class="name">Dr Jacques</h2>
       <h3 class="spec">Infirmier</h3>
-      <p class="desc">LUNDI-VENDREDI: <span>8h-17h</span></p>
+      <p class="desc">LUNDI-VENDREDI: <span>8h-21h</span></p>
     </div>
   </div>
 </section>

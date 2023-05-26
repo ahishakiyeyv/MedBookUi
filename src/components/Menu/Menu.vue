@@ -10,7 +10,7 @@
                     <li><a href="#container3" @click="scrollTo('container3')" class="menu-link">Service</a></li>
                     <li><a href="#controller4" @click="scrollTo('container4')" class="menu-link">Medecin</a></li>
                     <li><router-link to="/test" class="menu-link">Test</router-link></li>
-                    <li><router-link to="/login"  class="btn">Login</router-link></li>
+                    <li><router-link to="/login"  class="btn">Se connecter</router-link></li>
                     <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
                </ul>
           </div>
