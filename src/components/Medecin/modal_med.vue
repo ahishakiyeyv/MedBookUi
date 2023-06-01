@@ -76,7 +76,7 @@ export default {
     background:#f1f1f1;
     color:#333;
     position:fixed;
-    top:10%;
+    top:6%;
     padding:20px;
     border-radius:5px;
     width:350px;
@@ -105,6 +105,7 @@ export default {
 }
 .form label{
     color:#416991;
+    margin-top:5px;
 }
 .form input{
     height:2rem;

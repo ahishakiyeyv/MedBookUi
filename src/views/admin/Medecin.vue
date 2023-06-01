@@ -54,7 +54,7 @@ export default {
     data(){
         return{
             medecin:[],
-            dialog:true
+            dialog:false
         }
     },
     components:{
