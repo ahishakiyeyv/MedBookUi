@@ -17,13 +17,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Email</th>
                         <th>Telephone</th>
                         <th>Sexe</th>
                         <th>Specialite</th>
+                        <th>Disponibilite</th>
+                        <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody v-if="medecin.length > 0">
@@ -34,11 +35,14 @@
                         <td>{{med.telephone}}</td>
                         <td>{{med.sexe}}</td>
                         <td>{{med.specialite}}</td>
+                        <td>{{med.disponibilite}}</td>
+                        <td> <a class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
                     <tr>
-                        <td colspan="7">Chargement...</td>
+                        <td colspan="8">Chargement...</td>
                     </tr>
                 </tbody>
             </table>
@@ -166,5 +170,13 @@ table tbody td{
     height:35px;
     color:#7e7c7c;
     text-align:center;
+}
+.modify{
+    color:green;
+    cursor: pointer;
+}
+.delete{
+    color:red;
+    cursor: pointer;
 }
 </style>

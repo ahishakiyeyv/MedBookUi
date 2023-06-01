@@ -8,43 +8,64 @@
             <div class="btn-close" @click="close">X</div>
             <div class="form">
                 <label>Nom</label>
-                <input type="text" placeholder="Nom...">
+                <input type="text" placeholder="Nom..." v-model="form.nom_med">
                 <label>Prenom</label>
-                <input type="text" placeholder="Prenom...">
+                <input type="text" placeholder="Prenom..." v-model="form.prenom_med">
                 <label>Email</label>
-                <input type="text" placeholder="Email...">
+                <input type="text" placeholder="Email..." v-model="form.email">
                 <label>Telephone</label>
-                <input type="text" placeholder="Telephone...">
+                <input type="text" placeholder="Telephone..." v-model="form.telephone">
                 <label>Sexe</label>
-                <select>
+                <select v-model="form.sexe">
                     <option value="">--Sexe--</option>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>
                 </select>
                 <label>Specialite</label>
-                <select>
+                <select v-model="form.specialite">
                     <option value="">--Specialite--</option>
                     <option value="Cardiologue">Cardiologie</option>
                     <option value="pediatre">Pediatrie</option>
                     <option value="gynecologue">Gynecologie</option>
+                    <option value="infirmier">Infirmier</option>
+                    <option value="generaliste">Medecin Generaliste</option>
                 </select>
                 <label>Disponibilite</label>
-                <input type="text" placeholder="Disponibilite...">
-                <button>Enregistrer</button>
+                <input type="text" placeholder="Disponibilite..." v-model="form.disponibilite">
+                <button @click="saveMedecin">Enregistrer</button>
             </div>
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
    name:'modal_med',
    props:['dialog'],
    data(){
     return{
-
+        form:{
+            nom_med:'',
+            prenom_med:'',
+            email:'',
+            telephone:'',
+            sexe:'',
+            specialite:'',
+            disponibilite:'',
+        }
     }
    },
    methods:{
+    saveMedecin(){
+        axios
+        .post('http://127.0.0.1:8000/api/create_medecin', this.form)
+        .then(res=>{
+            this.$store.state.medecin=res.data
+            this.medecin=res.data
+            this.close()
+            window.location.reload()
+        })
+    },
     close(){
         this.$emit('close')
     }
@@ -112,11 +133,13 @@ export default {
     font-size:1rem;
     padding:0.2rem 0.3rem;
     outline:none;
+    color:#333;
 }
 .form select{
     height:2rem;
     font-size:1rem;
     padding:0.2rem 0.3rem;
+    outline:none;
 }
 .form button{
     margin-top:10px;
