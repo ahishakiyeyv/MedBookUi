@@ -161,6 +161,7 @@ form .name-details .field:last-child{
     text-align: center;
     margin: 1px 0;
     font-size: 15px;
+    display:none;
 }
 .form .link .a{
     color:#333;
