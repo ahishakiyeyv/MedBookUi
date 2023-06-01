@@ -8,8 +8,9 @@
             <div class="search">
                 <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
+            <Modal v-bind:dialog="dialog" @close="close" v-if="dialog"></Modal>
             <div class="btn">
-                <button>Ajouter</button>
+                <button @click="openModal">Ajouter</button>
             </div>
         </div>
         <div class="table">
@@ -48,15 +49,18 @@
 <script>
 import axios from 'axios'
 import Dashboard from '@/components/Dashboard.vue'
+import Modal from '@/components/utilisateur/add_utilisateur.vue'
 export default {
     name:'Utilisateur',
     data(){
         return{
-            infirmiers:[]
+            infirmiers:[],
+            dialog:false
         }
     },
     components:{
-        Dashboard
+        Dashboard,
+        Modal
     },
     methods:{
         getUtilisateur(){
@@ -69,6 +73,12 @@ export default {
             .catch(error=>{
                 console.log(error.response.data.message)
             })
+        },
+        close(){
+            this.dialog=false
+        },
+        openModal(){
+            this.dialog=true
         }
     },
     mounted(){
@@ -130,8 +140,7 @@ export default {
     color:#fff;
     border:none;
     border-radius:5px;
-    cursor:pointer;
-    display:none;
+    cursor:pointer; 
 }
 .table{
     width:1020px;
