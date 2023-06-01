@@ -49,6 +49,12 @@
                 </li>
                 <li>
                     <router-link to="/patient" class="a">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                        <div>Medecin</div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/patient" class="a">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                         <div>Patient</div>
                     </router-link>
