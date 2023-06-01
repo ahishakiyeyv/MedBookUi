@@ -13,6 +13,7 @@ export default createStore({
     services:{},
     infirmier:null,
     infirmiers:[],
+    medecin:[],
     accepter_count:'',
     refuser_count:'',
     attente_count:'',
