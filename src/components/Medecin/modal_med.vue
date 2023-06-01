@@ -76,7 +76,7 @@ export default {
     background:#f1f1f1;
     color:#333;
     position:fixed;
-    top:20%;
+    top:10%;
     padding:20px;
     border-radius:5px;
     width:350px;
@@ -103,14 +103,28 @@ export default {
     display:flex;
     flex-direction:column;
 }
+.form label{
+    color:#416991;
+}
 .form input{
     height:2rem;
     font-size:1rem;
     padding:0.2rem 0.3rem;
+    outline:none;
 }
-.form label{
+.form select{
     height:2rem;
     font-size:1rem;
     padding:0.2rem 0.3rem;
+}
+.form button{
+    margin-top:10px;
+    padding:0.5rem 1rem;
+    background:#416991;
+    border:none;
+    border-radius:5px;
+    color:#f1f1f1;
+    font-size:1rem;
+    cursor: pointer;
 }
 </style>
