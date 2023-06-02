@@ -8,7 +8,7 @@
             <div class="search">
                 <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
-            <Modal v-bind:dialog="dialog" @close="close" v-if="dialog"></Modal>
+            <Modal v-bind:dialog="dialog" @close="close" @getMedecin="getMedecin" :edit_medecin="modifier" v-if="dialog"></Modal>
             <div class="btn">
                 <button @click="OpenModal">Ajouter</button>
             </div>
@@ -36,7 +36,7 @@
                         <td>{{med.sexe}}</td>
                         <td>{{med.specialite}}</td>
                         <td>{{med.disponibilite}}</td>
-                        <td> <a class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td> <a @click="edit_medecin(med)" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                         <td><a class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
@@ -58,6 +58,7 @@ export default {
     data(){
         return{
             medecin:[],
+            medecins:'',
             dialog:false
         }
     },
@@ -66,6 +67,11 @@ export default {
         Modal
     },
     methods:{
+        edit_medecin(id){
+            this.dialog=true
+            this.modifier=true
+            this.$store.state.medecins=id
+        },
         getMedecin(){
             axios
             .get('http://127.0.0.1:8000/api/medecin')
@@ -79,6 +85,7 @@ export default {
         },
         OpenModal(){
             this.dialog=true
+            this.modifier=false
         },
         close(){
             this.dialog=false

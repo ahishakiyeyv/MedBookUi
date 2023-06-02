@@ -3,7 +3,7 @@
         <div class="overlay" @click="close"></div>
         <div class="modale">
             <div class="title">
-                <h3>Ajouter Medecin</h3>
+                <h3>{{title}}</h3>
             </div>
             <div class="btn-close" @click="close">X</div>
             <div class="form">
@@ -32,7 +32,7 @@
                 </select>
                 <label>Disponibilite</label>
                 <input type="text" placeholder="Disponibilite..." v-model="form.disponibilite">
-                <button @click="saveMedecin">Enregistrer</button>
+                <button @click="saveMedecin">{{btn}}</button>
             </div>
         </div>
     </div>
@@ -41,9 +41,11 @@
 import axios from 'axios'
 export default {
    name:'modal_med',
-   props:['dialog'],
+   props:['dialog','edit_medecin'],
    data(){
     return{
+        title:'Ajouter Medecin',
+        btn:'Enregistrer',
         form:{
             nom_med:'',
             prenom_med:'',
@@ -52,11 +54,21 @@ export default {
             sexe:'',
             specialite:'',
             disponibilite:'',
-        }
+        },
+        medecins:{}
     }
    },
    methods:{
     saveMedecin(){
+        if(this.edit_medecin){
+            axios
+            .put('http://127.0.0.1:8000/api/update_medecin'+this.$store.state.medecins.id,this.form)
+            .then(res=>{
+                this.getMedecin()
+                this.close()
+                window.location.reload()
+            })
+        }else{
         axios
         .post('http://127.0.0.1:8000/api/create_medecin', this.form)
         .then(res=>{
@@ -65,9 +77,27 @@ export default {
             this.close()
             window.location.reload()
         })
+        }
+    },
+    getMedecin(){
+        this.$emit('getMedecin')
     },
     close(){
         this.$emit('close')
+    }
+   },
+   mounted(){
+    this.getMedecin()
+    if(this.edit_medecin){
+        this.form.nom_med=this.$store.state.medecins.nom_med
+        this.form.prenom_med=this.$store.state.medecins.prenom_med
+        this.form.email=this.$store.state.medecins.email
+        this.form.telephone=this.$store.state.medecins.telephone
+        this.form.sexe=this.$store.state.medecins.sexe
+        this.form.specialite=this.$store.state.medecins.specialite
+        this.form.disponibilite=this.$store.state.medecins.disponibilite
+        this.btn='Modifier'
+        this.title='Modifier Medecin'
     }
    }
 }
