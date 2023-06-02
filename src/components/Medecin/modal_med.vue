@@ -62,7 +62,7 @@ export default {
     saveMedecin(){
         if(this.edit_medecin){
             axios
-            .put('http://127.0.0.1:8000/api/update_medecin'+this.$store.state.medecins.id,this.form)
+            .put('http://127.0.0.1:8000/api/update_medecin/'+this.$store.state.medecins.id,this.form)
             .then(res=>{
                 this.getMedecin()
                 this.close()
