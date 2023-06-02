@@ -9,6 +9,7 @@
                 <input type="text" placeholder="Rechercher..." v-model="inputSearch">
             </div>
             <Modal v-bind:dialog="dialog" @close="close" @getMedecin="getMedecin" :edit_medecin="modifier" v-if="dialog"></Modal>
+            <ModaleDelete v-bind:modale="modale" @getMedecin='getMedecin' @close="close"></ModaleDelete>
             <div class="btn">
                 <button @click="OpenModal">Ajouter</button>
             </div>
@@ -37,7 +38,7 @@
                         <td>{{med.specialite}}</td>
                         <td>{{med.disponibilite}}</td>
                         <td> <a @click="edit_medecin(med)" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                        <td><a class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                        <td><a @click="ConfirmDelete(med)" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
@@ -51,6 +52,7 @@
 </template>
 <script>
 import Modal from '@/components/Medecin/modal_med.vue'
+import ModaleDelete from '@/components/Medecin/delete_med.vue'
 import axios from 'axios'
 import Dashboard from '@/components/Dashboard.vue'
 export default {
@@ -59,12 +61,14 @@ export default {
         return{
             medecin:[],
             medecins:'',
-            dialog:false
+            dialog:false,
+            modale:false
         }
     },
     components:{
         Dashboard,
-        Modal
+        Modal,
+        ModaleDelete
     },
     methods:{
         edit_medecin(id){
@@ -89,6 +93,11 @@ export default {
         },
         close(){
             this.dialog=false
+            this.modale=false
+        },
+        ConfirmDelete(item){
+            this.modale=true
+            this.$store.state.medecin=item
         }
     },
     mounted(){
