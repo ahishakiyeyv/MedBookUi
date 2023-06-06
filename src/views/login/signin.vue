@@ -5,7 +5,7 @@
 <div class="home"><router-link to="/" class="icons"><i class="fa fa-home" aria-hidden="true"></i></router-link></div>
     <div class="wrapper">
        <section class="form signup">
-           <header>Creez Un Compte</header>
+           <header>Créer Un Compte</header>
            <div class="forme">
                <div class="error-txt"></div>
                <div class="name-details">
@@ -14,8 +14,8 @@
                         <input type="text" v-model="form.nom_patient"  placeholder="Nom..." required>
                    </div>
                    <div class="field input">
-                        <label>Prenom</label>
-                        <input type="text" v-model="form.prenom_patient" placeholder="Prenom..." required>
+                        <label>Prénom</label>
+                        <input type="text" v-model="form.prenom_patient" placeholder="Prénom..." required>
                    </div>
                </div>
                <div class="name-details">
@@ -24,8 +24,10 @@
                         <input type="text" v-model="form.adresse" placeholder="Adresse..." required>
                    </div>
                    <div class="field input">
-                        <label>Telephone</label>
-                        <input type="text" v-model="form.telephone" placeholder="Telephone..." required>
+                        <label>Téléphone</label>
+                        <input type="text" v-model="form.telephone" placeholder="Téléphone..." @input="validatePhoneNumber" required>
+                        <span class="invalide" v-if="errorMessage">{{errorMessage}}</span>
+                        <!-- <span class="valide" v-else>Numéro valide</span> -->
                    </div>
                </div>
                    
@@ -51,7 +53,7 @@
                        <button @click="savePatient()" :disabled="!isFormValid">Creer un Compte</button>
                    </div>
                    </div>
-           <div class="link">Vous avez déjà un compte? <router-link to="/login" class="a">se connecter</router-link></div>
+           <div class="link">Vous avez déjà un compte? <router-link to="/login" class="a">Se connecter</router-link></div>
        </section>
     </div>
     
@@ -77,7 +79,8 @@ export default {
         hasUppercase:false,
         hasLowercase:false,
         hasNumber:false,
-        hasSpecialChar:false
+        hasSpecialChar:false,
+        
     }
    },
    methods:{
@@ -97,6 +100,14 @@ export default {
             window.location.href="#/appointment"
         })
         
+    },
+    validatePhoneNumber(){
+        const phoneRegex=/^\d{8}$/;
+        if(phoneRegex.test(this.form.telephone)){
+            this.errorMessage='';
+        }else{
+            this.errorMessage='Veuillez entrer le numéro valide!'
+        }
     },
     validateEmail(){
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

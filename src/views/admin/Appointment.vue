@@ -28,8 +28,8 @@
                     <th colspan="1">Action</th>
                 </tr>
             </thead>
-            <tbody v-if="appointment.length > 0">
-                <tr v-for="app in appointment" :key="app.id">
+            <tbody v-if="filteredAppointment.length > 0">
+                <tr v-for="app in filteredAppointment" :key="app.id">
                     <td>{{app.id}}</td>
                     <td>{{app.numero_ordre}}-0{{app.id}}</td>
                     <td>{{app.nom}}</td>
@@ -98,7 +98,7 @@ export default {
     this.getAppointment()
    },
    computed:{
-    appointment(){
+    filteredAppointment(){
         return this.appointment.filter(app=>{
             return(app.nom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
             app.prenom.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||

@@ -164,6 +164,7 @@
   import Menu from '@/components/Menu/Menu.vue'
   import MenuLog from '@/components/Menu/MenuLog.vue'
  import Footer from '@/components/footer/footer.vue'
+import axios from 'axios'
 
 export default {
   name: 'HomeView',
@@ -180,6 +181,17 @@ export default {
   methods:{
     toggleModale:function(){
       this.dialog = !this.dialog
+    },
+    getMedecin(){
+      axios
+            .get('http://127.0.0.1:8000/api/medecin')
+            .then(res=>{
+                this.$store.state.medecin=res.data
+                this.medecin=res.data
+            })
+            .catch(error=>{
+                console.log(error.response.data.message)
+            })
     }
   }
 }

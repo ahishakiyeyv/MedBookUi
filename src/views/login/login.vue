@@ -30,7 +30,7 @@
                        <!-- <input type="submit" value="Se Connecter" name="submit"> -->
                    </div>
            </form>
-           <div class="link">Vous n'avez pas de compte? <router-link to="/signin" class="a">Creez-un</router-link></div>
+           <div class="link">Vous n'avez pas de compte? <router-link to="/signin" class="a">Créer-un</router-link></div>
        </section>
     </div>
 </template>

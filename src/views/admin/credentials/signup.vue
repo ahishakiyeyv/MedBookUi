@@ -4,7 +4,7 @@
 </head>
     <div class="wrapper">
        <section class="form signup">
-           <header>Creez Un Compte Admin</header>
+           <header>Créer Un Compte Admin</header>
            <form>
                <div class="error-txt"></div>
               
@@ -14,8 +14,8 @@
                         <input type="text"  v-model="admin.nom_inf" placeholder="Nom..." required>
                    </div>
                    <div class="field input">
-                        <label>Prenom</label>
-                        <input type="text" v-model="admin.prenom_inf" placeholder="Prenom..." required>
+                        <label>Prénom</label>
+                        <input type="text" v-model="admin.prenom_inf" placeholder="Prénom..." required>
                    </div>
                </div>
                <div class="name-details">
@@ -24,8 +24,8 @@
                         <input type="text" v-model="admin.email" placeholder="Email..." required>
                    </div>
                    <div class="field input">
-                        <label>Telephone</label>
-                        <input type="text" v-model="admin.telephone" placeholder="Telephone..." required>
+                        <label>Téléphone</label>
+                        <input type="text" v-model="admin.telephone" placeholder="Téléphone..." required>
                    </div>
                </div>
                    <div class="name-details">
@@ -37,12 +37,12 @@
                      <div class="field input">
                          <label>Specialité</label>
                         <select v-model="admin.specialite">
-                            <option value="">--Specialite--</option>
+                            <option value="">--Specialité--</option>
                             <option value="cardiologie">Cardiologie</option>
-                            <option value="pediatrie">Pediatrie</option>
-                            <option value="gynecologie">Gynecologie</option>
-                            <option value="generaliste">Medecin Generaliste</option>
-                            <option value="medecin">Medecin</option>
+                            <option value="pediatrie">Pédiatrie</option>
+                            <option value="gynecologie">Gynécologie</option>
+                            <option value="generaliste">Médécin Généraliste</option>
+                            <option value="medecin">Médécin</option>
                             <option value="infirmier">Infirmier</option>
                         </select>
                      </div>
@@ -61,10 +61,10 @@
                         <input type="password" v-model="admin.password" placeholder="Mot de Passe..." required>
                    </div>
                    <div class="field button">
-                       <button @click="login()">Creer un Compte</button>
+                       <button @click="login()">Créer un Compte</button>
                    </div>
            </form>
-           <div class="link">Vous avez déjà un compte? <router-link to="/admin" class="a">se connecter</router-link></div>
+           <div class="link">Vous avez déjà un compte? <router-link to="/admin" class="a">Se connecter</router-link></div>
        </section>
     </div>
     <!-- <pre>

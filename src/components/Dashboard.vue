@@ -38,7 +38,7 @@
                 <li>
                     <router-link to="/TestAdmin" class="a">
                         <i class="fa fa-medkit" aria-hidden="true"></i>
-                        <div>Details Test</div>
+                        <div>Details Examen</div>
                     </router-link>
                 </li>
                 <li>
@@ -50,7 +50,7 @@
                 <li>
                     <router-link to="/medecin" class="a">
                         <i class="fa fa-user-md" aria-hidden="true"></i>
-                        <div>Medecin</div>
+                        <div>Médécin</div>
                     </router-link>
                 </li>
                 <li>
