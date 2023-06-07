@@ -15,7 +15,7 @@
                     <span class="invalide" v-else>Email Invalide!</span>
                    </div>
                    <div class="field input">
-                    <label>Password</label>
+                    <label>Mot de passe</label>
                     <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." @input="validatePassword" required>
                     <!-- <div v-if="!isPasswordValid">
                         <p class="validation" v-if="form.password.length < 8">Le mot de passe doit comporter au moins 8 caractères</p>
@@ -30,6 +30,7 @@
                        <!-- <input type="submit" value="Se Connecter" name="submit"> -->
                    </div>
            </form>
+           <div class="linke"><router-link to="/resetpassword" class="a">Mot de passe oublié</router-link></div>
            <div class="link">Vous n'avez pas de compte? <router-link to="/signin" class="a">Créer-un</router-link></div>
        </section>
     </div>
@@ -225,6 +226,19 @@ form .name-details .field:last-child{
     text-align: center;
     margin: 1px 0;
     font-size: 15px;
+}
+.form .linke{
+    text-align:left;
+    font-size:13px;
+    margin:0 0 10px 0;
+}
+.form .linke .a{
+    color:#416991;
+    text-decoration:none;
+    font-weight:normal;
+}
+.form .linke .a:hover{
+    color:red;
 }
 .form .link .a{
     color:#416991;

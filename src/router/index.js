@@ -19,6 +19,7 @@ import appoint1 from '../views/appoint1'
 import appoint2 from '../views/appoint2'
 import Medecin from '../views/admin/Medecin'
 import Reset from '../views/admin/credentials/reset.vue'
+import ResetPassword from '../views/login/resetpassword.vue'
 import store from '../store'
 // import {IS_USER_AUTHENTICATE_GETTER} from '../store'
 
@@ -47,6 +48,7 @@ const routes = [
   { path: '/tab2',name: 'appoint2',component: appoint2, meta:{auth:true}},
   { path: '/medecin',name: 'medecin',component: Medecin},
   { path: '/reset',name: 'reset',component: Reset},
+  { path: '/resetpassword',name: 'resetpassword',component: ResetPassword},
   
 ]
 
