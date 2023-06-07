@@ -24,7 +24,7 @@
          
          
         <div class="search">
-            <input type="text" class="search-input" placeholder="Search..." v-model="inputSearch">
+            <input type="text" class="search-input" placeholder="Rechercher..." v-model="inputSearch">
         </div>
       
         <div class="addBtn">

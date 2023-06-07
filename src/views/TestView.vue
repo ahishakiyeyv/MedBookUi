@@ -9,7 +9,7 @@
 <section>
     <div class="top_row">
         <div class="search">
-            <input type="search" class="search-input" placeholder="Search..." v-model="inputSearch">
+            <input type="search" class="search-input" placeholder="Rechercher..." v-model="inputSearch">
         </div>
         <div class="addBtn">
             <button>Ajouter</button>

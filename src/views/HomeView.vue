@@ -51,7 +51,7 @@
   <h2 class="title2">A Propos</h2>
   <div class="contain">
     <div class="call">
-    <img src="../assets/images/2.jpg" alt="..." class="img_call">
+    <img src="../assets/images/22.jpg" alt="..." class="img_call">
     <div class="para-box">
     <h1 class="ttle">Nous assurons toujours le meilleur traitement medical pour votre sante</h1>
     <ul class="ulee">
@@ -320,7 +320,7 @@ export default {
 }
 .img_call{
   height:400px;
-  width:500px;
+  width:400px;
 }
 .ttle{
   max-width:500px;

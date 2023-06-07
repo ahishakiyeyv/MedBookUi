@@ -12,7 +12,7 @@
                     <input type="email" v-model="form.email" placeholder="Entrer le mail..." required>
                    </div>
                    <div class="field input">
-                    <label>Password</label>
+                    <label>Mot de passe</label>
                     <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." required>
                    </div>
                    <div class="field button">
