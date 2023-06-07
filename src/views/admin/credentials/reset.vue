@@ -4,59 +4,59 @@
 </head>
      <div class="wrapper">
        <section class="form login">
-           <header>Compte Admin</header>
+           <header>Réinitialiser votre mot de passe</header>
            <form @submit.prevent="submit" >
-               <div class="error-txt">{{ errorMessage }}</div>
+               <div class="error-txt"></div>
                    <div class="field input">
-                    <label>Email</label>
-                    <input type="email" v-model="form.email" placeholder="Entrer le mail..." required>
+                    <label>Votre email</label>
+                    <input type="email" v-model="form.email"  placeholder="Entrer le mail..." required>
                    </div>
                    <div class="field input">
-                    <label>Password</label>
-                    <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..." required>
+                    <label>Nouveau mot de passe</label>
+                    <input type="password"  v-model="form.password" placeholder="Entrer le mot de passe..." required>
+                   </div>
+                   <div class="field input">
+                    <label>Confirmer le mot de passe</label>
+                    <input type="password"  v-model="form.cpassword" placeholder="Confirmer le mot de passe..." required>
                    </div>
                    <div class="field button">
-                    <button>Se Connecter</button>
-                       <!-- <input type="submit" value="Se Connecter" name="submit"> -->
+                    <button>Réinitialiser</button>
+                       
                    </div>
            </form>
-           <div class="link"><router-link to="/reset" class="a">Mot de passe oublié ?</router-link></div>
+            <div class="link"><router-link to="/admin" class="a">Se connecter</router-link></div>
        </section>
     </div>
 </template>
 <script>
 import axios from 'axios'
 export default {
+    name:'reset',
     data(){
         return{
             form:{
                 email:'',
-                password:''
-            },
-            errorMessage:''
+                password:'',
+                cpassword:''
+            }
         }
     },
     methods:{
-          submit(){
-            
-                axios.post('http://127.0.0.1:8000/api/login_inf',this.form)
-                .then((response)=>{
-                    if(response.data.success){
-                        this.$store.commit("login_inf",JSON.stringify(response.data.data))
-                        this.$router.push({path:'/dashboard'})
-                        alert('Good!')
-                    }
-                    
-                })
-                .catch((error)=>{
-                    if(error.message == "Network Error"){
-                        this.errorMessage = "Vous n'etes pas connecte au serveur!"
-                    }else{
-                        this.errorMessage = error.response.data.message;
-
-                    }
-                })
+        submit(){
+            if(this.form.password === this.form.cpassword){
+            axios
+            .post('http://127.0.0.1:8000/api/reset',this.form)
+            .then(res=>{
+                window.location.reload()
+                alert('Mot de passe réinitialisé avec succès')
+            })
+            .catch(error=>{
+                alert(error)
+            })
+            }else{
+                alert('Vérifier le mot de passe!')
             }
+        }
     }
 }
 </script>

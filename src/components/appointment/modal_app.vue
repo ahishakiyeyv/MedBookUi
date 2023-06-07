@@ -20,9 +20,9 @@
                 <div class="content2">
                     <label>Date d'arrivée:</label>
                     <input type="date" v-model="appointment.date_arrive" placeholder="Date..." :min="minDate" required> 
-                    <label>Service Souhaitée:</label>
+                    <label>Service Souhaité:</label>
                     <select v-model="appointment.service" class="selected">
-                        <option value="">--Serlectionner--</option>
+                        <option value="">--Selectionner--</option>
                         <option value="cardiologie">Cardiologie</option>
                         <option value="pediatrie">Pediatrie</option>
                         <option value="gynecologie">Gynecologie</option>
@@ -121,7 +121,7 @@ export default {
     
 }
 .overlay{
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
     position:fixed;
     top:0;

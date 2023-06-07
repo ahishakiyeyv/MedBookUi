@@ -10,9 +10,9 @@
             </div>
             <div class="body-container">
                 <div class="body1">
-                    <h2>Numero: <span>{{$store.state.appointment.numero_ordre}}-0{{$store.state.appointment.id}}</span></h2>
+                    <h2>Numéro: <span>{{$store.state.appointment.numero_ordre}}-0{{$store.state.appointment.id}}</span></h2>
                     <h2>Nom: <span>{{$store.state.appointment.nom}}</span></h2>
-                    <h2>Prenom: <span>{{$store.state.appointment.prenom}}</span></h2>
+                    <h2>Prénom: <span>{{$store.state.appointment.prenom}}</span></h2>
                     <h2>Age: <span>{{$store.state.appointment.age}}</span></h2>
                 </div>
                 <div class="body2">
@@ -20,7 +20,7 @@
                     <h2>Date: <span>{{$store.state.appointment.date_arrive}}</span></h2>
                     <h2>Service: <span>{{$store.state.appointment.service}}</span></h2>
                     <!-- <h2>Status: <span v-if="status==='1'">Accepté</span> <span v-else-if="status==='2'">En Attente</span> <span v-else-if="status==='0'">Refuser</span></h2> -->
-                    <h2>Status:
+                    <h2>Statut:
   <span v-if="$store.state.appointment.status === '1'">Accepté</span>
   <span v-else-if="$store.state.appointment.status === '2'">En Attente</span>
   <span v-else-if="$store.state.appointment.status === '0'">Refuser</span>
