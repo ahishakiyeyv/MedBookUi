@@ -10,16 +10,16 @@
                <div class="error-txt"></div>
                    <div class="field input">
                     <label>Email</label>
-                    <input type="email"  placeholder="Entrer le mail..."  required>
+                    <input type="email" v-model="form.email" placeholder="Entrer le mail..."  required>
                     
                    </div>
                    <div class="field input">
                     <label>Mot de Passe</label>
-                    <input type="password"  placeholder="Entrer le mot de passe..."  required>
+                    <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..."  required>
                    </div>
                    <div class="field input">
                     <label>Confirmer le Mot de Passe</label>
-                    <input type="password"  placeholder="Confirmer le mot de passe..."  required>
+                    <input type="password" v-model="form.cpassword" placeholder="Confirmer le mot de passe..."  required>
                    </div>
                    <div class="field button">
                     <button >Réinitialiser</button>
@@ -29,6 +29,35 @@
        </section>
     </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+    name:'resetpassword',
+    data(){
+        return{
+            form:{
+                email:'',
+                password:'',
+                cpassword:''
+            }
+        }
+    },
+    methods:{
+        submit(){
+            if(this.form.password === this.form.cpassword){
+                axios
+                .post('http://127.0.0.1:8000/api/reset_password',this.form)
+                .then(res=>{
+                    alert('Mot de passe réinitialisé avec succès')
+                    window.location.reload()
+                })
+            }else{
+                alert('Vérifier le mot de passe !')
+            }
+        }
+    }
+}
+</script>
 <style scoped>
 
 *
