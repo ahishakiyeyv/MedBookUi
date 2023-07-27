@@ -189,7 +189,7 @@ export default {
 }
 .form .forme .name-details{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .forme .name-details .field:first-child{
     margin-right:5px;

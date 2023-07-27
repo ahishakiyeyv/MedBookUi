@@ -14,11 +14,11 @@
                     
                    </div>
                    <div class="field input">
-                    <label>Mot de Passe</label>
+                    <label>Nouveau mot de passe</label>
                     <input type="password" v-model="form.password" placeholder="Entrer le mot de passe..."  required>
                    </div>
                    <div class="field input">
-                    <label>Confirmer le Mot de Passe</label>
+                    <label>Confirmer le nouveau mot de passe</label>
                     <input type="password" v-model="form.cpassword" placeholder="Confirmer le mot de passe..."  required>
                    </div>
                    <div class="field button">

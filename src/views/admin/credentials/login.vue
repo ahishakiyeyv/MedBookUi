@@ -44,7 +44,7 @@ export default {
                     if(response.data.success){
                         this.$store.commit("login_inf",JSON.stringify(response.data.data))
                         this.$router.push({path:'/dashboard'})
-                        alert('Good!')
+                        alert('Authentification reussie!')
                     }
                     
                 })

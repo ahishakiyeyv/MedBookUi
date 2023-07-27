@@ -296,12 +296,13 @@ table thead th{
     color:#fff;
     font-weight:normal;
     font-size:1rem;
+    text-align:left;
 }
 table tbody td{
     padding:0.5rem 1rem;
     height:35px;
     color:#7e7c7c;
-    text-align:center;
+    text-align:justify;
 }
 table tbody td a{
     cursor:pointer;
@@ -312,6 +313,7 @@ table tbody td a{
     background:green;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 .refus h4{
     border:1px solid red;
@@ -319,6 +321,7 @@ table tbody td a{
     background:red;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 .wait h4{
     border:1px solid gray;
@@ -326,6 +329,7 @@ table tbody td a{
     background:gray;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 .inconnu h4{
     border:1px solid #333;
@@ -333,5 +337,6 @@ table tbody td a{
     background:#333;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 </style>

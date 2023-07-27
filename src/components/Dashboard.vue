@@ -44,7 +44,7 @@
                 <li>
                     <router-link to="/service" class="a">
                          <i class="fa fa-list-ul" aria-hidden="true"></i>
-                        <div>Service</div>
+                        <div>Département</div>
                     </router-link>
                 </li>
                 <li>

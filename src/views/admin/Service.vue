@@ -2,7 +2,7 @@
 <Dashboard/>
     <div class="main">
         <div class="label-top">
-            <h3>Liste des Services</h3>
+            <h3>Liste des Départements</h3>
         </div>
         <div class="top_row">
             <div class="search">
@@ -20,7 +20,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nom Service</th>
+                        <th>Nom Département</th>
                         <th>Create at</th>
                         <th colspan="2">Action</th>
                     </tr>
@@ -223,12 +223,13 @@ table thead th{
     color:#fff;
     font-weight:normal;
     font-size:1rem;
+    text-align: left;
 }
 table tbody td{
     padding:0.5rem 1rem;
     height:35px;
     color:#7e7c7c;
-    text-align:center;
+    text-align:justify;
 }
 table td .modify i{
     color:#63d471;

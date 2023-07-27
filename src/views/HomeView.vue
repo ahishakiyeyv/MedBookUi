@@ -12,14 +12,14 @@
 </head>
 <section id="container1">
   <div class="content1">
-    <h1 class="title_principal">Trouvez le medecin et Prendre un Rendez-vous</h1>
-    <p class="txt">Sélectionner un médecin préféré et un créneau horaire pour prendre rendez-vous</p>
+    <h1 class="title_principal">Bienvenue à la Polyclinique Saint Joseph</h1>
+    <p class="txt">Sélectionner un médecin préféré et un créneau horaire pour réserver un rendez-vous</p>
    
     <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
-     <button class="btn1"><router-link to="/login" class="bttn">PRENDRE RENDEZ-VOUS</router-link></button>
+     <button class="btn1"><router-link to="/login" class="bttn">RESERVER RENDEZ-VOUS</router-link></button>
   </div>
   <div class="content2">
-    <img src="../assets/images/1.png" alt="..." class="img_1">
+    <img src="../assets/images/Picture1.png" alt="..." class="img_1">
   </div>
 </section>
 <div id="container2">
@@ -290,6 +290,7 @@ export default {
 .box1 .txt1{
   color:#7e7c7c;
   font-size:.8rem;
+  line-height:1.2rem;
   text-align: justify;
   padding:0rem .5rem;
 }
@@ -365,6 +366,7 @@ margin-bottom:50px;
 }
 .txt-service{
   font-size:0.8rem;
+  line-height:1.2rem;
   color:#d9d9d9;
   padding-top:2rem;
   text-align: justify;
@@ -398,18 +400,21 @@ box-shadow: 0px 0px 30px -20px #999999;
 color:#416991;
 text-align: center;
 font-size:1.2rem;
+/* padding-bottom:1rem; */
 }
 .spec{
   color:#7e7c7c;
   text-align: center;
   text-transform: uppercase;
   font-size:1rem;
+  /* padding-bottom:1rem; */
 }
 .desc{
   color:#000;
   font-size:0.8rem;
   text-align: center;
   font-weight:600;
+  /* padding-bottom:1rem; */
 }
 /* =====================================newsletter============================== */
 #container5{
@@ -435,6 +440,7 @@ width:50%;
 .para{
   color:#d9d9d9;
   font-size:0.8rem;
+  line-height:1.2rem;
 }
 .btn-box{
  width:35%;

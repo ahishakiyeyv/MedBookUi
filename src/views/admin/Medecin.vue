@@ -21,10 +21,9 @@
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Email</th>
-                        <th>Telephone</th>
-                        <th>Sexe</th>
-                        <th>Specialite</th>
-                        <th>Disponibilite</th>
+                        <th>Téléphone</th>
+                        <th>Specialité</th>
+                        <th>Disponibilité</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -34,7 +33,6 @@
                         <td>{{med.prenom_med}}</td>
                         <td>{{med.email}}</td>
                         <td>{{med.telephone}}</td>
-                        <td>{{med.sexe}}</td>
                         <td>{{med.specialite}}</td>
                         <td>{{med.disponibilite}}</td>
                         <td> <a @click="edit_medecin(med)" class="modify"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
@@ -62,7 +60,8 @@ export default {
             medecin:[],
             medecins:'',
             dialog:false,
-            modale:false
+            modale:false,
+            inputSearch:''
         }
     },
     components:{
@@ -102,6 +101,15 @@ export default {
     },
     mounted(){
         this.getMedecin()
+    },
+    computed:{
+        medecin(){
+            return this.medecin.filter(med=>{
+                return(med.nom_med.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+                med.prenom_med.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1 ||
+                med.specialite.toLowerCase().indexOf(this.inputSearch.toLowerCase()) > -1)
+            })
+        }
     }
 }
 </script>

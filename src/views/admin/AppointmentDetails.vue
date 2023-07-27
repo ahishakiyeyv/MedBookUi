@@ -15,7 +15,7 @@
                     <h2>Numero: <span>{{ appointment.numero_ordre}}-0{{appointment.id}}</span></h2>
                     <h2>Nom: <span>{{ appointment.nom}}</span></h2>
                     <h2>Prenom: <span>{{appointment.prenom}}</span></h2>
-                    <h2>Age: <span>{{appointment.age}}</span></h2>
+                    <h2>Date de Naissance: <span>{{appointment.age}}</span></h2>
                     
                 </div>
                 <div class="body2">

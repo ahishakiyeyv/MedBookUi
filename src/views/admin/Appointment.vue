@@ -205,6 +205,7 @@ table thead th{
     color:#fff;
     font-weight:normal;
     font-size:1rem;
+    text-align: left;
 }
 
 table thead th span{
@@ -214,7 +215,7 @@ table tbody td{
     padding:0.5rem 1rem;
     height:35px;
     color:#7e7c7c;
-    text-align:center;
+    text-align:justify;
 }
 table td .modify i{
     color:#63d471;
@@ -228,6 +229,7 @@ table td .delete i{
     background:green;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 .refus h4{
     border:1px solid red;
@@ -235,6 +237,7 @@ table td .delete i{
     background:red;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 .wait h4{
     border:1px solid gray;
@@ -242,6 +245,7 @@ table td .delete i{
     background:gray;
     color:#fff;
     font-weight:normal;
+    text-align:center;
 }
 .inconnu h4{
     border:1px solid #333;

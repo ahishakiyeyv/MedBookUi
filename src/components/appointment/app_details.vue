@@ -13,7 +13,7 @@
                     <h2>Numéro: <span>{{$store.state.appointment.numero_ordre}}-0{{$store.state.appointment.id}}</span></h2>
                     <h2>Nom: <span>{{$store.state.appointment.nom}}</span></h2>
                     <h2>Prénom: <span>{{$store.state.appointment.prenom}}</span></h2>
-                    <h2>Age: <span>{{$store.state.appointment.age}}</span></h2>
+                    <h2>Date de Naissance: <span>{{$store.state.appointment.age}}</span></h2>
                 </div>
                 <div class="body2">
                     <h2>Sexe: <span>{{$store.state.appointment.sexe}}</span></h2>

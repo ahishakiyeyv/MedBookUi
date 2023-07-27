@@ -25,7 +25,7 @@ export default {
    props:['dialog','edit_service'],
    data(){
     return{
-         title:'Ajouter un Service',
+         title:'Ajouter un Département',
          btn:'Enregistrer',
         form:{
             nom_service:''
@@ -92,7 +92,7 @@ export default {
     if(this.edit_service){
         this.form.nom_service=this.$store.state.services.nom_service
         this.btn='Modifier'
-        this.title='Modifier Service'
+        this.title='Modifier Département'
     }
    }
 }
