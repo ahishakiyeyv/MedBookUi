@@ -157,6 +157,7 @@ table,td{
 table thead{
     background:#343a40;
     height:50px;
+    text-align: left;
 }
 table thead th{
     padding:1rem 1rem;
@@ -168,6 +169,5 @@ table tbody td{
     padding:0.5rem 1rem;
     height:35px;
     color:#7e7c7c;
-    text-align:center;
 }
 </style>

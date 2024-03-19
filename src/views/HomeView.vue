@@ -1,10 +1,10 @@
 <template>
 <!-- <Menu/> -->
 <div v-if="$store.state.user">
-  <MenuLog></MenuLog>
+  <!-- <MenuLog></MenuLog> -->
 </div>
 <div v-else>
-  <Menu></Menu>
+  <!-- <Menu></Menu> -->
 </div>
 <head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,7 +19,7 @@
      <button class="btn1"><router-link to="/login" class="bttn">RESERVER RENDEZ-VOUS</router-link></button>
   </div>
   <div class="content2">
-    <img src="../assets/images/Picture1.png" alt="..." class="img_1">
+    <img src="../assets/images/1.png" alt="..." class="img_1">
   </div>
 </section>
 <div id="container2">
@@ -155,8 +155,8 @@
       <button class="btn-connect">Rester Connectez</button>
     </div>
   </div>
-</section>
-<Footer/>
+</section>-->
+<!-- <Footer/> -->
 </template>
 
 <script>
@@ -457,4 +457,66 @@ padding:0.5rem 4.5rem;
   font-size:1.2rem;
   box-shadow: 0px 0px 8px 0px #FFFFFF;
 }
+
+
+
+
+/* For screens smaller than 768px (typical mobile devices) */
+@media(max-width: 768px) {
+  #container1 {
+    flex-direction: column-reverse;
+    padding: 3rem 1rem; /* Adjust padding for smaller screens */
+  }
+  .content1,
+  .content2 {
+    max-width: 100%; /* Make both content divs occupy full width */
+    text-align: center; /* Center align content */
+  }
+  .title_principal {
+    font-size: 2rem; /* Decrease font size for smaller screens */
+  }
+  .txt {
+    font-size: 0.9rem; /* Decrease font size for smaller screens */
+  }
+  .btn1 {
+    margin: 1rem 0; /* Adjust margin for smaller screens */
+  }
+
+
+  /* ===============================section 2 responsive=============== */
+
+  .contain {
+    width: 100%; /* Adjust width to occupy full width on smaller screens */
+  }
+  .call {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+  .img_call {
+    height: auto; /* Ensure image maintains aspect ratio */
+    width: 100%; /* Make image occupy full width */
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    margin-bottom: 1rem; /* Add space between image and text on smaller screens */
+  }
+  .ttle {
+    font-size: 1.8rem; /* Decrease font size for smaller screens */
+    max-width: 100%; /* Make title occupy full width */
+    text-align: center; /* Center align title */
+  }
+  .ulee {
+    padding-left: 0; /* Remove default padding on ul */
+    text-align: center; /* Center align list items */
+  }
+  .li {
+    line-height: 1.5; /* Adjust line height for smaller screens */
+    font-size: 1rem; /* Decrease font size for smaller screens */
+  }
+
+  /* ========================= section 3 responsive===================== */
+
+
+}
+
+
+
 </style>
