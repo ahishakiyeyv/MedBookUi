@@ -145,7 +145,7 @@
     </div>
   </div>
 </section>
-<!--<section id="container5">
+<section id="container5">
   <div class="news-box">
     <div class="txt-news">
       <h1 class="title0">Des services de santé ou des conseils pour une vie saine, vous pouvez trouver ici</h1>
@@ -155,7 +155,7 @@
       <button class="btn-connect">Rester Connectez</button>
     </div>
   </div>
-</section>-->
+</section>
 <!-- <Footer/> -->
 </template>
 
@@ -567,6 +567,33 @@ padding:0.5rem 4.5rem;
   .desc {
     font-size: 1rem; /* Increase font size for better readability */
     font-weight: normal; /* Revert font weight to normal */
+  }
+
+  /* ================= section 5 responsive====================== */
+
+   .news-box {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center align items */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+  .txt-news {
+    width: 100%; /* Make text box occupy full width */
+    text-align: center; /* Center align text */
+    margin-bottom: 1rem; /* Add space between text and button */
+  }
+  .btn-box {
+    width: 100%; /* Make button box occupy full width */
+  }
+  .btn-connect {
+    width: 100%; /* Make button occupy full width */
+    margin: 1rem 0; /* Adjust margin for better spacing */
+  }
+  .title0 {
+    font-size: 1.5rem; /* Decrease font size for better readability */
+  }
+  .para {
+    font-size: 0.9rem; /* Increase font size for better readability */
+    line-height: 1.5rem; /* Adjust line height for better readability */
   }
 
 }
