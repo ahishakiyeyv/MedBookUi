@@ -145,7 +145,7 @@
     </div>
   </div>
 </section>
-<section id="container5">
+<!--<section id="container5">
   <div class="news-box">
     <div class="txt-news">
       <h1 class="title0">Des services de santé ou des conseils pour une vie saine, vous pouvez trouver ici</h1>
@@ -513,7 +513,61 @@ padding:0.5rem 4.5rem;
   }
 
   /* ========================= section 3 responsive===================== */
+.grid-box {
+    grid-template-columns: repeat(1, 1fr); /* Change to a single column layout */
+    grid-row-gap: 20px; /* Increase gap between rows for better readability */
+    margin-top: 30px; /* Adjust margin for smaller screens */
+    margin-bottom: 30px; /* Adjust margin for smaller screens */
+  }
+  .grid {
+    width: 100%; /* Make grid items occupy full width */
+    max-width: 100%; /* Ensure grid items don't exceed container width */
+    height: auto; /* Allow grid items to adjust height based on content */
+  }
+  .title-service {
+    font-size: 1.5rem; /* Increase font size for better readability */
+  }
+  .txt-service {
+    font-size: 0.9rem; /* Increase font size for better readability */
+    line-height: 1.5rem; /* Adjust line height for better readability */
+    padding-top: 1rem; /* Adjust padding for better spacing */
+    text-align: left; /* Align text to the left for better readability */
+  }
 
+  /* ===================== section 4 responsive==================== */
+
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr); /* Change to a single column layout */
+    row-gap: 20px; /* Increase gap between rows for better readability */
+    margin: 30px auto; /* Adjust margin for smaller screens */
+  }
+  .sub-contain {
+    width: 100%; /* Make each grid item occupy full width */
+    height: auto; /* Allow grid items to adjust height based on content */
+  }
+  .img-doc {
+    width: 100%; /* Make image occupy full width of container */
+    height: auto; /* Ensure image maintains aspect ratio */
+    border-top-left-radius: 10px; /* Ensure border radius applies to all corners */
+    border-top-right-radius: 10px; /* Ensure border radius applies to all corners */
+  }
+  .name,
+  .spec,
+  .desc {
+    text-align: center; /* Center align text */
+    padding: 10px; /* Add padding for better spacing */
+  }
+  .name {
+    font-size: 1.5rem; /* Increase font size for better readability */
+  }
+  .spec {
+    font-size: 1.2rem; /* Increase font size for better readability */
+    text-transform: none; /* Revert text to normal case */
+  }
+  .desc {
+    font-size: 1rem; /* Increase font size for better readability */
+    font-weight: normal; /* Revert font weight to normal */
+  }
 
 }
 
