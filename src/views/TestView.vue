@@ -1,10 +1,10 @@
 <template>
 <!-- <Menu/> -->
 <div v-if="$store.state.user">
-  <!-- <MenuLog></MenuLog> -->
+  <MenuLog></MenuLog>
 </div>
 <div v-else>
-  <!-- <Menu></Menu> -->
+  <Menu></Menu>
 </div>
 <section>
     <div class="top_row">

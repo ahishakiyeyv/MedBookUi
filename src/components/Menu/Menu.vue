@@ -3,8 +3,13 @@
           <div class="logo">
                <a href="#" class="icon"><span>Med</span>Book</a>
           </div>
-          <div class="menu">
-               <ul>
+          <div class="menu" >
+               <button class="hamburger" @click="toggleMenu">
+               <span class="bar"></span>
+               <span class="bar"></span>
+               <span class="bar"></span>
+                </button>
+               <ul :class="{ show: menuVisible }">
                     <li><router-link to="/" class="menu-link">Accueil</router-link></li>
                     <li><a href="#container2" @click="scrollTo('container2')"  class="menu-link">A Propos</a></li>
                     <li><a href="#container3" @click="scrollTo('container3')" class="menu-link">Service</a></li>
@@ -14,20 +19,29 @@
                     <!-- <Modal v-bind:dialog="dialog" v-bind:toggleModale="toggleModale"></Modal> -->
                </ul>
           </div>
+          
+
      </header>
 </template>
 <script>
 export default {
-     name:'menu',
-     methods:{
-          scrollTo(id){
-               const el = document.getElementById(id);
-               el.scrollIntoView({behavior:'smooth'});
-          }
-     }
-     
+ name: 'menu',
+ data() {
+    return {
+      menuVisible: false,
+    };
+ },
+ methods: {
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible;
+    },
+    scrollTo(id) {
+      const el = document.getElementById(id);
+      el.scrollIntoView({ behavior: 'smooth' });
+    },
+ },
+};
 
-}
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&family=Roboto:wght@100;300&display=swap');
@@ -84,6 +98,45 @@ export default {
      text-decoration:none;
      font-size:1.5rem;
      font-weight:700;
+}
+
+.hamburger {
+ display: none;
+ flex-direction: column;
+ justify-content: space-between;
+ width: 30px;
+ height: 21px;
+ cursor: pointer;
+ border:none;
+}
+
+.hamburger .bar {
+ height: 4px;
+ width: 100%;
+ background-color: #416991;
+ border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+ .hamburger {
+    display: flex;
+ }
+
+ .menu ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+ }
+
+ .menu ul.show {
+    display: flex;
+ }
+
 }
 
 /* =============================section 2============================== */
