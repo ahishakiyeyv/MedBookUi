@@ -156,7 +156,7 @@
     </div>
   </div>
 </section>
-<!-- <Footer/> -->
+<Footer/>
 </template>
 
 <script>

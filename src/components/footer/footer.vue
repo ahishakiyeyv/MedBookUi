@@ -60,4 +60,30 @@ ul .lii{
     margin-left:auto;
     margin-right:auto;
 }
+
+
+/* For screens smaller than 768px (typical mobile devices) */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 1rem; /* Adjust padding for smaller screens */
+    text-align: center; /* Center align text */
+  }
+  .box1, .box2, .box3 {
+    margin: 1rem 0; /* Adjust margin for better spacing */
+  }
+  .txt-para {
+    width: auto; /* Remove fixed width */
+    margin: 0 auto; /* Center align text */
+  }
+  .icon-logo {
+    height: 80px; /* Decrease logo height for smaller screens */
+    width: 80px; /* Decrease logo width for smaller screens */
+  }
+  .footer-title {
+    font-size: 1.5rem; /* Decrease font size for better readability */
+    margin-top: 1rem; /* Add space between titles and content */
+  }
+}
+
 </style>
