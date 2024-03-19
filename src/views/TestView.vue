@@ -1,10 +1,10 @@
 <template>
 <!-- <Menu/> -->
 <div v-if="$store.state.user">
-  <MenuLog></MenuLog>
+  <!-- <MenuLog></MenuLog> -->
 </div>
 <div v-else>
-  <Menu></Menu>
+  <!-- <Menu></Menu> -->
 </div>
 <section>
     <div class="top_row">
@@ -210,6 +210,36 @@ table tbody td{
     border:none;
     border-radius:5px;
     cursor:pointer;
+}
+
+
+
+/* For screens smaller than 1024px */
+@media (max-width: 768px) {
+  .top_row {
+    flex-direction: row; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center align items */
+    width: 100%; /* Make the top row occupy full width */
+    padding: 0 10px; /* Adjust padding for smaller screens */
+  }
+  .search .search-input {
+    width: 100%; /* Make the search input occupy full width */
+  }
+  .addBtn button {
+    display: block; /* Show the add button */
+    margin-top: 10px; 
+    width: 100%; /* Make the add button occupy full width */
+    /* padding:1rem; */
+  }
+  .table {
+    width: 100%; /* Make the table container occupy full width */
+    left: 0; /* Reset left position */
+  }
+  table,
+  th,
+  td {
+    width: 100%; /* Make the table occupy full width */
+  }
 }
 
 </style>
