@@ -472,6 +472,9 @@ padding:0.5rem 4.5rem;
     max-width: 100%; /* Make both content divs occupy full width */
     text-align: center; /* Center align content */
   }
+  .content2 .img_1{
+    width:100%;
+  }
   .title_principal {
     font-size: 2rem; /* Decrease font size for smaller screens */
   }
