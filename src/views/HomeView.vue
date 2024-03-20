@@ -488,6 +488,11 @@ padding:0.5rem 4.5rem;
 
   /* ===============================section 2 responsive=============== */
 
+  #container2 {
+    padding: 3rem 1rem; /* Adjust padding for smaller screens */
+  }
+  .box{
+    width:100%;}
   .contain {
     width: 100%; /* Adjust width to occupy full width on smaller screens */
   }
