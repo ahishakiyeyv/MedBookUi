@@ -477,6 +477,7 @@ padding:0.5rem 4.5rem;
   }
   .title_principal {
     font-size: 2rem; /* Decrease font size for smaller screens */
+    text-align: justify;
   }
   .txt {
     font-size: 0.9rem; /* Decrease font size for smaller screens */
@@ -509,11 +510,11 @@ padding:0.5rem 4.5rem;
   .ttle {
     font-size: 1.8rem; /* Decrease font size for smaller screens */
     max-width: 100%; /* Make title occupy full width */
-    text-align: center; /* Center align title */
+    text-align: justify; /* Center align title */
   }
   .ulee {
     padding-left: 0; /* Remove default padding on ul */
-    text-align: center; /* Center align list items */
+    text-align: left; /* Center align list items */
   }
   .li {
     line-height: 1.5; /* Adjust line height for smaller screens */
@@ -539,7 +540,7 @@ padding:0.5rem 4.5rem;
     font-size: 0.9rem; /* Increase font size for better readability */
     line-height: 1.5rem; /* Adjust line height for better readability */
     padding-top: 1rem; /* Adjust padding for better spacing */
-    text-align: left; /* Align text to the left for better readability */
+    text-align: justify; /* Align text to justify for better readability */
   }
 
   /* ===================== section 4 responsive==================== */
@@ -602,6 +603,7 @@ padding:0.5rem 4.5rem;
   .para {
     font-size: 0.9rem; /* Increase font size for better readability */
     line-height: 1.5rem; /* Adjust line height for better readability */
+    text-align: justify;
   }
 
 }
